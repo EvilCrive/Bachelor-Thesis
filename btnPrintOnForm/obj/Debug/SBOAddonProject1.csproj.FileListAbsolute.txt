@@ -1,0 +1,10 @@
+C:\Users\Alberto Crivellari\AppData\Local\Temporary Projects\SBOAddonProject1\bin\Debug\SBOAddonProject1.exe
+C:\Users\Alberto Crivellari\AppData\Local\Temporary Projects\SBOAddonProject1\bin\Debug\SBOAddonProject1.pdb
+C:\Users\Alberto Crivellari\AppData\Local\Temporary Projects\SBOAddonProject1\obj\Debug\SBOAddonProject1.csprojResolveAssemblyReference.cache
+C:\Users\Alberto Crivellari\AppData\Local\Temporary Projects\SBOAddonProject1\obj\Debug\SBOAddonProject1.exe
+C:\Users\Alberto Crivellari\AppData\Local\Temporary Projects\SBOAddonProject1\obj\Debug\SBOAddonProject1.pdb
+C:\Users\Alberto Crivellari\Desktop\Addons\SBOAddonProject1\SBOAddonProject1\obj\Debug\SBOAddonProject1.exe
+C:\Users\Alberto Crivellari\Desktop\Addons\SBOAddonProject1\SBOAddonProject1\obj\Debug\SBOAddonProject1.pdb
+C:\Users\Alberto Crivellari\Desktop\Addons\SBOAddonProject1\SBOAddonProject1\bin\Debug\SBOAddonProject1.exe
+C:\Users\Alberto Crivellari\Desktop\Addons\SBOAddonProject1\SBOAddonProject1\bin\Debug\SBOAddonProject1.pdb
+C:\Users\Alberto Crivellari\Desktop\Addons\SBOAddonProject1\SBOAddonProject1\obj\Debug\SBOAddonProject1.csprojResolveAssemblyReference.cache
