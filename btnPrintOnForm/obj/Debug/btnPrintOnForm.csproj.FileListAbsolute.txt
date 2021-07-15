@@ -1,0 +1,5 @@
+C:\Users\Alberto Crivellari\Desktop\Addons\projects\btnPrintOnForm\btnPrintOnForm\obj\Debug\btnPrintOnForm.csprojResolveAssemblyReference.cache
+C:\Users\Alberto Crivellari\Desktop\Addons\projects\btnPrintOnForm\btnPrintOnForm\bin\Debug\FirstButtonOnForm.exe
+C:\Users\Alberto Crivellari\Desktop\Addons\projects\btnPrintOnForm\btnPrintOnForm\bin\Debug\FirstButtonOnForm.pdb
+C:\Users\Alberto Crivellari\Desktop\Addons\projects\btnPrintOnForm\btnPrintOnForm\obj\Debug\FirstButtonOnForm.exe
+C:\Users\Alberto Crivellari\Desktop\Addons\projects\btnPrintOnForm\btnPrintOnForm\obj\Debug\FirstButtonOnForm.pdb
