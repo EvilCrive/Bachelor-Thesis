@@ -39,6 +39,7 @@ namespace btnPrintOnForm
         private static SAPbouiCOM.Item oItem;
         private static SAPbouiCOM.Item oOldItem;
 
+
         static void SBO_Application_ItemEvent(string FormUID, ref SAPbouiCOM.ItemEvent pVal, out bool BubbleEvent)
         {
             //throw new NotImplementedException();
@@ -67,14 +68,23 @@ namespace btnPrintOnForm
 
         static void printAttrezzatura()
         {
-            SAPbouiCOM.Items oItems = oForm.Items;
-            SAPbouiCOM.EditText valoreCodiceArticolo;
-            SAPbouiCOM.Item[] prova;
-
-            valoreCodiceArticolo = (SAPbouiCOM.EditText)oItems.Item("45").Specific;
-            Application.SBO_Application.MessageBox(valoreCodiceArticolo.Value, 1, "ok", "", "");
+            btnPrintOnForm.formAttrezzatura.formAttrezzatura form = null;
+            readFormItalian(form);
+            
+            //valoreCodiceArticolo = (SAPbouiCOM.EditText)oItems.Item("45").Specific;
+            //Application.SBO_Application.MessageBox(valoreCodiceArticolo.Value, 1, "ok", "", "");
         }
 
+        static void readFormItalian(btnPrintOnForm.formAttrezzatura.formAttrezzatura form)
+        {
+            insertByIds(form, "2", "2");
+        }
+
+        static void insertByIds(btnPrintOnForm.formAttrezzatura.formAttrezzatura form, string idStaticText, string idEditText)
+        {
+            SAPbouiCOM.Items oItems = oForm.Items;
+            form.insert(((SAPbouiCOM.StaticText)oItems.Item("2").Specific).Caption, ((SAPbouiCOM.EditText)oItems.Item("2").Specific).Value);
+        }
         static void SBO_Application_AppEvent(SAPbouiCOM.BoAppEventTypes EventType)
         {
             switch (EventType)
