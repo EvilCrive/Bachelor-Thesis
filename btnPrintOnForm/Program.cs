@@ -59,32 +59,17 @@ namespace btnPrintOnForm
                 }
                 if (pVal.ItemUID == "btnPrint" && (pVal.EventType == SAPbouiCOM.BoEventTypes.et_ITEM_PRESSED || pVal.EventType == SAPbouiCOM.BoEventTypes.et_CLICK) && pVal.BeforeAction == true) {
 
-                    printAttrezzatura();
+                    formAttrezzatura.formAttrezzatura form = new formAttrezzatura.formAttrezzatura();
 
+                    form.readAllForm(oForm);
+                    //Application.SBO_Application.MessageBox(valoreCodiceArticolo.Value, 1, "ok", "", "");
                 }
             }
         
         }
 
-        static void printAttrezzatura()
-        {
-            btnPrintOnForm.formAttrezzatura.formAttrezzatura form = null;
-            readFormItalian(form);
-            
-            //valoreCodiceArticolo = (SAPbouiCOM.EditText)oItems.Item("45").Specific;
-            //Application.SBO_Application.MessageBox(valoreCodiceArticolo.Value, 1, "ok", "", "");
-        }
 
-        static void readFormItalian(btnPrintOnForm.formAttrezzatura.formAttrezzatura form)
-        {
-            insertByIds(form, "2", "2");
-        }
 
-        static void insertByIds(btnPrintOnForm.formAttrezzatura.formAttrezzatura form, string idStaticText, string idEditText)
-        {
-            SAPbouiCOM.Items oItems = oForm.Items;
-            form.insert(((SAPbouiCOM.StaticText)oItems.Item("2").Specific).Caption, ((SAPbouiCOM.EditText)oItems.Item("2").Specific).Value);
-        }
         static void SBO_Application_AppEvent(SAPbouiCOM.BoAppEventTypes EventType)
         {
             switch (EventType)
