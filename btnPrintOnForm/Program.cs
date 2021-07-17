@@ -35,9 +35,10 @@ namespace btnPrintOnForm
             }
         }
 
-        public static SAPbouiCOM.Form oForm;
-        public static SAPbouiCOM.Item oItem;
-        public static SAPbouiCOM.Item oOldItem;
+        private static SAPbouiCOM.Form oForm;
+        private static SAPbouiCOM.Item oItem;
+        private static SAPbouiCOM.Item oOldItem;
+
 
         static void SBO_Application_ItemEvent(string FormUID, ref SAPbouiCOM.ItemEvent pVal, out bool BubbleEvent)
         {
@@ -57,17 +58,17 @@ namespace btnPrintOnForm
                     obt.Caption = "Stampa";
                 }
                 if (pVal.ItemUID == "btnPrint" && (pVal.EventType == SAPbouiCOM.BoEventTypes.et_ITEM_PRESSED || pVal.EventType == SAPbouiCOM.BoEventTypes.et_CLICK) && pVal.BeforeAction == true) {
-                    SAPbouiCOM.Items oItems = oForm.Items;
-                    SAPbouiCOM.EditText valoreCodiceArticolo;
-                    SAPbouiCOM.Item[] prova;
 
+                    formAttrezzatura.formAttrezzatura form = new formAttrezzatura.formAttrezzatura();
 
-                    valoreCodiceArticolo = (SAPbouiCOM.EditText)oItems.Item("45").Specific;
-                    Application.SBO_Application.MessageBox(valoreCodiceArticolo.Value, 1, "ok", "", "");
+                    form.readAllForm(oForm);
+                    //Application.SBO_Application.MessageBox(valoreCodiceArticolo.Value, 1, "ok", "", "");
                 }
             }
         
         }
+
+
 
         static void SBO_Application_AppEvent(SAPbouiCOM.BoAppEventTypes EventType)
         {
