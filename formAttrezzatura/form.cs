@@ -15,15 +15,15 @@ namespace btnPrintOnForm.formAttrezzatura
         //void writeMessage();
 
     }
-    public class formAttrezzatura : iFormItems
+    public class form : iFormItems
     {
         //data-field
-        internal Dictionary<String, String> form;
+        internal Dictionary<String, String> formData;
 
         //public methods
-        public formAttrezzatura() { form = new Dictionary<string,string>();}
+        public form() { formData = new Dictionary<string,string>();}
 
-        public string at(string key) { return form[key];}
+        public string at(string key) { return formData[key];}
 
         public void readAllForm(SAPbouiCOM.Form oForm)
         {
@@ -35,9 +35,9 @@ namespace btnPrintOnForm.formAttrezzatura
         static public void writeMessage() { }
 
         //implementation methods
-        private void insert(string key, string value) { form[key] = value; }
+        private void insert(string key, string value) { formData[key] = value; }
 
-        private bool isEmpty(string key) { return form[key] == null; }
+        private bool isEmpty(string key) { return formData[key] == null; }
 
         private void insertByIds(SAPbouiCOM.Form oForm, string idStaticText, string idEditText)
             { insert(((SAPbouiCOM.StaticText)oForm.Items.Item(idStaticText).Specific).Caption, ((SAPbouiCOM.EditText)oForm.Items.Item(idEditText).Specific).Value);}
