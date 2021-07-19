@@ -1,19 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+﻿<?xml version="1.0" encoding="utf-8"?> 
+<!-- toolversion and xmlns -> vs12;  sdk -> vs19 -->
+<Project 
+  ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" 
+  Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>                                           <!-- vs19-->
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">    <!-- vs12-->
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{10D6CFED-BDC8-452C-B86B-1559BFA0755D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FirstButtonOnForm</RootNamespace>
-    <AssemblyName>FirstButtonOnForm</AssemblyName>
+    <RootNamespace>btnPrintOnForm</RootNamespace>
+    <AssemblyName>btnPrintOnForm</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -30,10 +36,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  
+  <!-- Startup object and arguments-->
   <PropertyGroup>
     <StartupObject>btnPrintOnForm.Program</StartupObject>
+    <StartArguments>0030002C0030002C00530041005000420044005F00440061007400650076002C0050004C006F006D0056004900490056</StartArguments>
   </PropertyGroup>
-  <ItemGroup>
+  
+  <ItemGroup>                                               <!-- version vs12-->
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,20 +53,25 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="SAPBusinessOneSDK" />
   </ItemGroup>
+  
   <ItemGroup>
-    <Compile Include="formAttrezzatura\formAttrezzatura.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Events.cs" />
+    <Compile Include="formAttrezzatura\formAttrezzatura.cs" />
   </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  
+  <ItemGroup>
+    <COMReference Include="SAPbouiCOM">
+      <Guid>6048236a-956d-498d-a6f1-9c81c13ab6e8</Guid>     <!-- version vs19-->
+      <Guid>{6048236A-956D-498D-A6F1-9C81C13AB6E8}</Guid>   <!-- version vs12-->
+      <VersionMajor>10</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" /> <!-- version vs12-->
 </Project>
