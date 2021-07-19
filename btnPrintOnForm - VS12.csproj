@@ -58,7 +58,10 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Events.cs" />
-    <Compile Include="formAttrezzatura\formAttrezzatura.cs" />
+    <Compile Include="formAttrezzatura\EventsAttrezzatura.cs" />
+    <Compile Include="formAttrezzatura\form.cs" />
+    <Compile Include="formChiamate\EventsChiamate.cs" />
+  
   </ItemGroup>
   
   <ItemGroup>
