@@ -1,7 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?> 
-<!-- toolversion and xmlns -> vs12;  sdk -> vs19 -->
-<Project 
-  ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" 
+﻿<Project 
   Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>                                           <!-- vs19-->
@@ -42,29 +39,10 @@
     <StartupObject>btnPrintOnForm.Program</StartupObject>
     <StartArguments>0030002C0030002C00530041005000420044005F00440061007400650076002C0050004C006F006D0056004900490056</StartArguments>
   </PropertyGroup>
-  
-  <ItemGroup>                                               <!-- version vs12-->
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <Compile Include="Program.cs" />
-    <Compile Include="Events.cs" />
-    <Compile Include="formAttrezzatura\formAttrezzatura.cs" />
-  </ItemGroup>
-  
+    
   <ItemGroup>
     <COMReference Include="SAPbouiCOM">
       <Guid>6048236a-956d-498d-a6f1-9c81c13ab6e8</Guid>     <!-- version vs19-->
-      <Guid>{6048236A-956D-498D-A6F1-9C81C13AB6E8}</Guid>   <!-- version vs12-->
       <VersionMajor>10</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
@@ -73,5 +51,4 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" /> <!-- version vs12-->
 </Project>
