@@ -1,4 +1,3 @@
-
 using Microsoft.VisualBasic;
 using System;
 namespace btnPrintOnForm.formStatusbar
@@ -12,9 +11,7 @@ namespace btnPrintOnForm.formStatusbar
 
         static public void click_Statusbar(SAPbouiCOM.ItemEvent pVal, ref SAPbouiCOM.Application SBO_Application)
         {
-            form tmp;
-            if(SBO_Application.Forms.GetFormByTypeAndCount(pVal.FormType, pVal.FormTypeCount).Items.Item("1").Type.ToString() == "it_EDIT")
-                tmp = new form(ref SBO_Application);
+            form statusBar = new form(ref SBO_Application);
         }
 
         private form(ref SAPbouiCOM.Application SBO_Application)
@@ -34,8 +31,6 @@ namespace btnPrintOnForm.formStatusbar
             {
                 SBO_Application.MessageBox("The form is already opened",0);
             }
-
-            
         }
 
         // Catching item events in our AddOn
