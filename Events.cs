@@ -32,17 +32,20 @@ namespace btnPrintOnForm
 
         private void SBO_Application_ItemEvent(string FormUID, ref SAPbouiCOM.ItemEvent pVal, out bool BubbleEvent)
         {
-
-            //throw new NotImplementedException();
             BubbleEvent = true;
             if ((pVal.FormType == 60150 && pVal.EventType != SAPbouiCOM.BoEventTypes.et_FORM_UNLOAD) && pVal.BeforeAction == true)
                 btnPrintOnForm.formAttrezzatura.EventsAttrezzatura.Events(ref pVal, ref SBO_Application);
             else if ((pVal.FormType == 60110 && pVal.EventType != SAPbouiCOM.BoEventTypes.et_FORM_UNLOAD) && pVal.BeforeAction == true)
                 btnPrintOnForm.formChiamate.EventsChiamate.Events(ref pVal, ref SBO_Application);
             else if (pVal.FormType == 0 && pVal.ItemUID == "1" && pVal.BeforeAction == true)
-                btnPrintOnForm.formStatusbar.form.click_Statusbar(pVal,ref SBO_Application);
+                Events_FormBase(pVal, ref SBO_Application);
         }
 
+        private void Events_FormBase(SAPbouiCOM.ItemEvent pVal, ref SAPbouiCOM.Application SBO_Application)
+        {
+            if(SBO_Application.Forms.GetForm(pVal.FormType.ToString(), pVal.FormTypeCount).Items.Item("1").Type.ToString() == "it_EDIT" )
+                formStatusbar.form.click_Statusbar(pVal, ref SBO_Application);
+        }
        
         private void SBO_Application_AppEvent(SAPbouiCOM.BoAppEventTypes EventType)
         {
