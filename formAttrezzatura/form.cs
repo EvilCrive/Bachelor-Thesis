@@ -10,16 +10,18 @@ namespace btnPrintOnForm.formAttrezzatura
 
     public class form : Utils
     {       
-        public void readAllForm(SAPbouiCOM.Form oForm)
-        {
+        public void readAllForm(SAPbouiCOM.Form oForm) {
             insertBase(oForm);
             insertIndirizzo(oForm);
-            
         }
+
+	public void writeMessageTxt(ref SAPbouiCOM.Application SBO_Application) {
+	    string message = getString_Txt();
+	}
 
         public void writeMessage(ref SAPbouiCOM.Application SBO_Application) {
             string message = getString_Print();
-            SBO_Application.MessageBox(message, 1, "Exit", "Save as JSON", "Save as XML");   
+            SBO_Application.MessageBox(message, 1, "Exit", "Save as TXT", "Save as JSON");   
         }
     }
 

@@ -15,7 +15,7 @@ namespace btnPrintOnForm.formAttrezzatura
                 create_btnPrint(oForm);
             if (pVal.ItemUID == "btnPrint" && (pVal.EventType == SAPbouiCOM.BoEventTypes.et_ITEM_PRESSED || pVal.EventType == SAPbouiCOM.BoEventTypes.et_CLICK) && pVal.BeforeAction == true)
                 click_btnPrint(oForm, ref SBO_Application);
-        }
+	}
        private static void create_btnPrint(SAPbouiCOM.Form oForm) {
             SAPbouiCOM.Button obt = null;
             SAPbouiCOM.Item oItem = null;
@@ -31,10 +31,15 @@ namespace btnPrintOnForm.formAttrezzatura
             obt.Caption = "Stampa";
         }
        private static void click_btnPrint(SAPbouiCOM.Form oForm, ref SAPbouiCOM.Application SBO_Application) {
-            formAttrezzatura.form form = new formAttrezzatura.form();
+            formAttrezzatura.form aForm = new formAttrezzatura.form();
             form.readAllForm(oForm);
             form.writeMessage(ref SBO_Application);
        }
-
+       private static void click_btnSaveTxt(SAPbouiCOM.Form oForm, ref SAPbouiCOM.Application SBO_Application){
+	    formAttrezzatura.form aForm = new formAttrezzatura.form();
+	    form.readAllForm(oForm);
+	    form.writeMessageTxt(ref SBO_Application);
+       }
+       private static void click_btnSaveJson(SAPbouiCOM.Form oForm, ref SAPbouiCOM.Application SBO_Application){}
     }
 }
