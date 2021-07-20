@@ -7,24 +7,9 @@ using SAPbouiCOM;
 
 namespace btnPrintOnForm.formAttrezzatura
 {
-    //interface with main methods
-    interface iFormItems{
-        string at(string key);
 
-        void readAllForm(SAPbouiCOM.Form oForm);
-        //void writeMessage();
-
-    }
-    public class form : iFormItems
-    {
-        //data-field
-        internal Dictionary<String, String> formData;
-
-        //public methods
-        public form() { formData = new Dictionary<string,string>();}
-
-        public string at(string key) { return formData[key];}
-
+    public class form : Utils
+    {       
         public void readAllForm(SAPbouiCOM.Form oForm)
         {
             insertBase(oForm);
@@ -32,26 +17,38 @@ namespace btnPrintOnForm.formAttrezzatura
             //insertChiamateDiServizio();
         }
 
-        static public void writeMessage() { }
+        public void writeMessage() {
+            string message = getString_Print();
+        }
 
-        //implementation methods
-        private void insert(string key, string value) { formData[key] = value; }
 
-        private bool isEmpty(string key) { return formData[key] == null; }
+       
+        
+    }
 
-        private void insertByIds(SAPbouiCOM.Form oForm, string idStaticText, string idEditText)
-            { insert(((SAPbouiCOM.StaticText)oForm.Items.Item(idStaticText).Specific).Caption, ((SAPbouiCOM.EditText)oForm.Items.Item(idEditText).Specific).Value);}
-        private void insertByIdsCBox(SAPbouiCOM.Form oForm, string idStaticText, string idComboBox)
-            { insert(((SAPbouiCOM.StaticText)oForm.Items.Item(idStaticText).Specific).Caption, ((SAPbouiCOM.ComboBox)oForm.Items.Item(idComboBox).Specific).Value);}
+    protected class Utils 
+    { 
+        //data-field
+        protected Dictionary<String, String> map;
 
-        private void insertBase(SAPbouiCOM.Form oForm) {
+        //public methods
+        public Utils() { map = new Dictionary<string,string>();}
+
+        protected string getString_Print() {
+            string tmp = "";
+
+            return tmp;
+        }
+
+        protected void insertBase(SAPbouiCOM.Form oForm)
+        {
             BoFormItemTypes aaa = oForm.Items.Item("173").Type;
             insert(((SAPbouiCOM.StaticText)oForm.Items.Item("234000123").Specific).Caption + " Vendite", ((SAPbouiCOM.OptionBtn)oForm.Items.Item("234000124").Specific).Selected.ToString());
-            
+
             insert(((SAPbouiCOM.StaticText)oForm.Items.Item("234000123").Specific).Caption + " Acquisti", ((SAPbouiCOM.OptionBtn)oForm.Items.Item("234000125").Specific).Selected.ToString());
             //result in False o True
-                                                    //tipo attrezzatura (vendite) [N]
-                                                    //tipo attrezzatura (vendite) [P]
+            //tipo attrezzatura (vendite) [N]
+            //tipo attrezzatura (vendite) [P]
 
             insertByIds(oForm, "9", "43");          //Numero serie produttore
             insertByIds(oForm, "4", "44");          //Numero di Fabbrica
@@ -70,8 +67,9 @@ namespace btnPrintOnForm.formAttrezzatura
             insertByIds(oForm, "168", "174");                           //Area
 
         }
-        
-        private void insertIndirizzo(SAPbouiCOM.Form oForm){
+
+        protected void insertIndirizzo(SAPbouiCOM.Form oForm)
+        {
             insertByIds(oForm, "29", "63");                             //Via
             insertByIds(oForm, "2005", "2006");                         //N. civico
             insertByIds(oForm, "2000", "2001");                         //Ospedale
@@ -84,12 +82,23 @@ namespace btnPrintOnForm.formAttrezzatura
             insertByIds(oForm, "38", "65");                             //Collocazione
 
         }
-        private void insertChiamateDiServizio(){
+        protected void insertChiamateDiServizio()
+        {
             //matrix
 
         }
-        
+
+
+        public string at(string key) { return map[key]; }
+
+        private void insert(string key, string value) { map[key] = value; }
+
+        private bool isEmpty(string key) { return map[key] == null; }
+
+        private void insertByIds(SAPbouiCOM.Form oForm, string idStaticText, string idEditText)
+        { insert(((SAPbouiCOM.StaticText)oForm.Items.Item(idStaticText).Specific).Caption, ((SAPbouiCOM.EditText)oForm.Items.Item(idEditText).Specific).Value); }
+        private void insertByIdsCBox(SAPbouiCOM.Form oForm, string idStaticText, string idComboBox)
+        { insert(((SAPbouiCOM.StaticText)oForm.Items.Item(idStaticText).Specific).Caption, ((SAPbouiCOM.ComboBox)oForm.Items.Item(idComboBox).Specific).Value); }
+
     }
-
-
 }
