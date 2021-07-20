@@ -37,8 +37,10 @@ namespace btnPrintOnForm
             BubbleEvent = true;
             if ((pVal.FormType == 60150 && pVal.EventType != SAPbouiCOM.BoEventTypes.et_FORM_UNLOAD) && pVal.BeforeAction == true)
                 btnPrintOnForm.formAttrezzatura.EventsAttrezzatura.Events(ref pVal, ref SBO_Application);
-            else if((pVal.FormType == 60110 && pVal.EventType != SAPbouiCOM.BoEventTypes.et_FORM_UNLOAD) && pVal.BeforeAction == true)
+            else if ((pVal.FormType == 60110 && pVal.EventType != SAPbouiCOM.BoEventTypes.et_FORM_UNLOAD) && pVal.BeforeAction == true)
                 btnPrintOnForm.formChiamate.EventsChiamate.Events(ref pVal, ref SBO_Application);
+            else if (pVal.FormType == 0 && pVal.ItemUID == "1" && pVal.BeforeAction == true)
+                throw new Exception();
         }
 
        
