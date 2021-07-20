@@ -19,7 +19,7 @@ namespace btnPrintOnForm.formAttrezzatura
 
         public void writeMessage(ref SAPbouiCOM.Application SBO_Application) {
             string message = getString_Print();
-            SBO_Application.MessageBox(message, 1, "Exit", "Export as JSON", "Export as XML");   
+            SBO_Application.MessageBox(message, 1, "Exit", "Save as JSON", "Save as XML");   
         }
     }
 
