@@ -40,7 +40,7 @@ namespace btnPrintOnForm
             else if ((pVal.FormType == 60110 && pVal.EventType != SAPbouiCOM.BoEventTypes.et_FORM_UNLOAD) && pVal.BeforeAction == true)
                 btnPrintOnForm.formChiamate.EventsChiamate.Events(ref pVal, ref SBO_Application);
             else if (pVal.FormType == 0 && pVal.ItemUID == "1" && pVal.BeforeAction == true)
-                throw new Exception();
+                btnPrintOnForm.formStatusbar.form.click_Statusbar(pVal,ref SBO_Application);
         }
 
        

@@ -18,6 +18,7 @@ namespace btnPrintOnForm.formChiamate
         }
         private static void create_btnPrint(SAPbouiCOM.Form oForm)
         {
+            
             SAPbouiCOM.Button obt = null;
             SAPbouiCOM.Item oItem = null;
             SAPbouiCOM.Item oOldItem = null;
