@@ -34,18 +34,23 @@ namespace btnPrintOnForm
         {
             BubbleEvent = true;
             if ((pVal.FormType == 60150 && pVal.EventType != SAPbouiCOM.BoEventTypes.et_FORM_UNLOAD) && pVal.BeforeAction == true)
-                btnPrintOnForm.formAttrezzatura.EventsAttrezzatura.Events(ref pVal, ref SBO_Application);
+                formAttrezzatura.EventsAttrezzatura.Events(ref pVal, ref SBO_Application);
             else if ((pVal.FormType == 60110 && pVal.EventType != SAPbouiCOM.BoEventTypes.et_FORM_UNLOAD) && pVal.BeforeAction == true)
-                btnPrintOnForm.formChiamate.EventsChiamate.Events(ref pVal, ref SBO_Application);
-            else if (pVal.FormType == 0 && pVal.ItemUID == "1" && pVal.BeforeAction == true)
+                formChiamate.EventsChiamate.Events(ref pVal, ref SBO_Application);
+            else if (pVal.FormType == 0 && pVal.BeforeAction == true)
                 Events_FormBase(pVal, ref SBO_Application);
         }
 
         private void Events_FormBase(SAPbouiCOM.ItemEvent pVal, ref SAPbouiCOM.Application SBO_Application)
         {
-            if(SBO_Application.Forms.GetForm(pVal.FormType.ToString(), pVal.FormTypeCount).Items.Item("1").Type.ToString() == "it_EDIT" )
+            SAPbouiCOM.Form oForm = SBO_Application.Forms.GetForm(pVal.FormType.ToString(), pVal.FormTypeCount);
+            if(pVal.ItemUID == "1" && oForm.Items.Item("1").Type.ToString() == "it_EDIT" )
                 formStatusbar.form.click_Statusbar(pVal, ref SBO_Application);
-        }
+            if(pVal.ItemUID == "2" && oForm.Items.Item("2").Type.ToString() == "it_BUTTON")
+                formAttrezzatura.EventsAttrezzatura.click_btnSaveTxt(oForm, ref SBO_Application);
+	    if(pVal.ItemUID == "3" && oForm.Items.Item("3").Type.ToString() == "it_BUTTON")
+            formAttrezzatura.EventsAttrezzatura.click_btnSaveJson(oForm, ref SBO_Application);
+	}
        
         private void SBO_Application_AppEvent(SAPbouiCOM.BoAppEventTypes EventType)
         {
