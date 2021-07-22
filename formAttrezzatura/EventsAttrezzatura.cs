@@ -32,14 +32,14 @@ namespace btnPrintOnForm.formAttrezzatura
         }
        private static void click_btnPrint(SAPbouiCOM.Form oForm, ref SAPbouiCOM.Application SBO_Application) {
             formAttrezzatura.form aForm = new formAttrezzatura.form();
-            form.readAllForm(oForm);
-            form.writeMessage(ref SBO_Application);
+            aForm.readAllForm(oForm);
+            aForm.writeMessage(ref SBO_Application);
        }
-       private static void click_btnSaveTxt(SAPbouiCOM.Form oForm, ref SAPbouiCOM.Application SBO_Application){
+       internal static void click_btnSaveTxt(SAPbouiCOM.Form oForm, ref SAPbouiCOM.Application SBO_Application){
 	    formAttrezzatura.form aForm = new formAttrezzatura.form();
-	    form.readAllForm(oForm);
-	    form.writeMessageTxt(ref SBO_Application);
+	    aForm.readAllForm(oForm);
+	    aForm.writeMessageTxt(ref SBO_Application);
        }
-       private static void click_btnSaveJson(SAPbouiCOM.Form oForm, ref SAPbouiCOM.Application SBO_Application){}
+       internal static void click_btnSaveJson(SAPbouiCOM.Form oForm, ref SAPbouiCOM.Application SBO_Application){}
     }
 }

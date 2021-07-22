@@ -67,6 +67,9 @@ namespace btnPrintOnForm.formAttrezzatura
             return tmp;
         }
 
+        protected string getString_Txt() { 
+            
+        }
         protected void insertBase(SAPbouiCOM.Form oForm)
         {
             BoFormItemTypes aaa = oForm.Items.Item("173").Type;
