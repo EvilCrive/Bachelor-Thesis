@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using SAPbouiCOM;
 
@@ -15,8 +16,8 @@ namespace btnPrintOnForm.formAttrezzatura
             insertIndirizzo(oForm);
         }
 
-	public void writeMessageTxt(ref SAPbouiCOM.Application SBO_Application) {
-	    string message = getString_Txt();
+	public void writeMessageTxt(SAPbouiCOM.Form oForm, ref SAPbouiCOM.Application SBO_Application) {
+	    string message = getString_Txt(oForm);
 	}
 
         public void writeMessage(ref SAPbouiCOM.Application SBO_Application) {
@@ -67,9 +68,11 @@ namespace btnPrintOnForm.formAttrezzatura
             return tmp;
         }
 
-        protected string getString_Txt() { 
-            
+        protected void getString_Txt(SAPbouiCOM.Form oForm) { 
+            string msg = getString_Print();
+            File.WriteAllText("C:\\Users\\Alberto Crivellari\\Documents\\Alberto\\MySimpleForm.txt",msg);
         }
+        
         protected void insertBase(SAPbouiCOM.Form oForm)
         {
             BoFormItemTypes aaa = oForm.Items.Item("173").Type;

@@ -38,7 +38,7 @@ namespace btnPrintOnForm.formAttrezzatura
        internal static void click_btnSaveTxt(SAPbouiCOM.Form oForm, ref SAPbouiCOM.Application SBO_Application){
 	    formAttrezzatura.form aForm = new formAttrezzatura.form();
 	    aForm.readAllForm(oForm);
-	    aForm.writeMessageTxt(ref SBO_Application);
+	    aForm.writeMessageTxt(oForm, ref SBO_Application);
        }
        internal static void click_btnSaveJson(SAPbouiCOM.Form oForm, ref SAPbouiCOM.Application SBO_Application){}
     }
