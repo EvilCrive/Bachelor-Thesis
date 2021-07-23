@@ -2,60 +2,129 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using SAPbouiCOM;
 
+
 namespace btnPrintOnForm.formAttrezzatura
 {
-    //interface with main methods
-    interface iFormItems{
-        string at(string key);
 
-        void readAllForm(SAPbouiCOM.Form oForm);
-        //void writeMessage();
-
-    }
-    public class form : iFormItems
-    {
-        //data-field
-        internal Dictionary<String, String> formData;
-
-        //public methods
-        public form() { formData = new Dictionary<string,string>();}
-
-        public string at(string key) { return formData[key];}
-
-        public void readAllForm(SAPbouiCOM.Form oForm)
-        {
+    public class form : Utils
+    {       
+        public void readAllForm(SAPbouiCOM.Form oForm) {
             insertBase(oForm);
             insertIndirizzo(oForm);
-            //insertChiamateDiServizio();
         }
 
-        static public void writeMessage() { }
+	public void writeMessageTxt(SAPbouiCOM.Form oForm, ref SAPbouiCOM.Application SBO_Application) {
+        string msg = getString_Print();
+        File.WriteAllText("rsc\\filetxt.txt", msg);
+	}
 
-        //implementation methods
-        private void insert(string key, string value) { formData[key] = value; }
+    public void writeMessageJson() {
+        string msg = getString_Json();
+        File.WriteAllText("rsc\\filejson.json", msg);
+    }
 
-        private bool isEmpty(string key) { return formData[key] == null; }
+        public void writeMessage(ref SAPbouiCOM.Application SBO_Application) {
+            string message = getString_Print();
+            SBO_Application.MessageBox(message, 1, "Exit", "Save as TXT", "Save as JSON");   
+        }
+    }
 
-        private void insertByIds(SAPbouiCOM.Form oForm, string idStaticText, string idEditText)
-            { insert(((SAPbouiCOM.StaticText)oForm.Items.Item(idStaticText).Specific).Caption, ((SAPbouiCOM.EditText)oForm.Items.Item(idEditText).Specific).Value);}
-        private void insertByIdsCBox(SAPbouiCOM.Form oForm, string idStaticText, string idComboBox)
-            { insert(((SAPbouiCOM.StaticText)oForm.Items.Item(idStaticText).Specific).Caption, ((SAPbouiCOM.ComboBox)oForm.Items.Item(idComboBox).Specific).Value);}
+    public class Utils 
+    { 
+        //data-field
+        protected Dictionary<String, String> map;
 
-        private void insertBase(SAPbouiCOM.Form oForm) {
-            BoFormItemTypes aaa = oForm.Items.Item("173").Type;
-            insert(((SAPbouiCOM.StaticText)oForm.Items.Item("234000123").Specific).Caption + " Vendite", ((SAPbouiCOM.OptionBtn)oForm.Items.Item("234000124").Specific).Selected.ToString());
+        //public methods
+        public Utils() { map = new Dictionary<string,string>();}
+
+        protected string getString_Print() {
+            string tmp = "Scheda Attrezzatura "+ at("Numero di Fabbrica") + "\n";
+            if(at("Tipo di attrezzatura: Vendite") == "True")
+                tmp = tmp + "Tipo di attrezzatura: Vendite\n";
+            else if (at("Tipo di attrezzatura: Acquisti") == "True")
+                tmp = tmp + "Tipo di attrezzatura: Acquisti\n";
+            tmp = getData("Numero serie produttore", tmp) + "\n";
+            tmp = getData("Numero di Fabbrica", tmp) + " \n";
+            tmp = getData("Codice articolo", tmp) + "\n";
+            tmp = getData("Descrizione Macchina", tmp) + "\n";
+            tmp = getData("Codice Business Partner", tmp);
+            tmp = getData("Nome del business partner", tmp) + "\n";
+            tmp = getData_businessPartnerId(tmp) + "\n";
+            tmp = getData("Numero di telefono", tmp) + "\n";
+            tmp = getData("Stato", tmp) + "\n";
+            tmp = getData("N. serie precedente", tmp) + "\n";
+            tmp = getData("N. serie nuovo", tmp) + "\n";
+            tmp = getData("Tecnico", tmp) + "\n";
+            tmp = getData("Area", tmp) + "\n";
+            tmp = getData("Via", tmp) + "\n";
+            tmp = getData("N. civico", tmp) + "\n";
+            tmp = getData("Ospedale", tmp) + "\n";
+            tmp = getData("CAP", tmp) + "\n";
+            tmp = getData("Reparto", tmp) + "\n";
+            tmp = getData("Città", tmp) + "\n";
+            tmp = getData("Provincia", tmp) + "\n";
+            tmp = getData("Regione", tmp) + "\n";
+            tmp = getData("Paese/Regione", tmp) + "\n";
+            tmp = getData("Collocazione", tmp) + "\n";
             
-            insert(((SAPbouiCOM.StaticText)oForm.Items.Item("234000123").Specific).Caption + " Acquisti", ((SAPbouiCOM.OptionBtn)oForm.Items.Item("234000125").Specific).Selected.ToString());
+            
+            return tmp;
+        }
+
+        protected string getString_Json()
+        {
+            string tmp = "{\n\tScheda Attrezzatura: [\n";
+            if (at("Tipo di attrezzatura: Vendite") == "True")
+                tmp = tmp + "{\n\tTipo di attrezzatura = \"Vendite\"\n},";
+            else if (at("Tipo di attrezzatura: Acquisti") == "True")
+                tmp = tmp + "{\n\tTipo di attrezzatura = \"Acquisti\"\n},";
+            tmp = getData("Numero serie produttore", tmp,"json") + "\n";
+            tmp = getData("Numero di Fabbrica", tmp, "json") + " \n";
+            tmp = getData("Codice articolo", tmp, "json") + "\n";
+            tmp = getData("Descrizione Macchina", tmp, "json") + "\n";
+            tmp = getData("Codice Business Partner", tmp, "json");
+            tmp = getData("Nome del business partner", tmp, "json") + "\n";
+            tmp = getData_businessPartnerId(tmp, "json") + "\n";
+            tmp = getData("Numero di telefono", tmp, "json") + "\n";
+            tmp = getData("Stato", tmp, "json") + "\n";
+            tmp = getData("N. serie precedente", tmp, "json") + "\n";
+            tmp = getData("N. serie nuovo", tmp, "json") + "\n";
+            tmp = getData("Tecnico", tmp, "json") + "\n";
+            tmp = getData("Area", tmp, "json") + "\n";
+            tmp = getData("Via", tmp, "json") + "\n";
+            tmp = getData("N. civico", tmp, "json") + "\n";
+            tmp = getData("Ospedale", tmp, "json") + "\n";
+            tmp = getData("CAP", tmp, "json") + "\n";
+            tmp = getData("Reparto", tmp, "json") + "\n";
+            tmp = getData("Città", tmp, "json") + "\n";
+            tmp = getData("Provincia", tmp, "json") + "\n";
+            tmp = getData("Regione", tmp, "json") + "\n";
+            tmp = getData("Paese/Regione", tmp, "json") + "\n";
+            tmp = getData("Collocazione", tmp, "jsonL") + "\n";
+            tmp = tmp + "]\n}";
+
+            return tmp;
+        }
+
+        
+        protected void insertBase(SAPbouiCOM.Form oForm)
+        {
+            
+            BoFormItemTypes aaa = oForm.Items.Item("173").Type;
+            insert(((SAPbouiCOM.StaticText)oForm.Items.Item("234000123").Specific).Caption + ": Vendite", ((SAPbouiCOM.OptionBtn)oForm.Items.Item("234000124").Specific).Selected.ToString());
+
+            insert(((SAPbouiCOM.StaticText)oForm.Items.Item("234000123").Specific).Caption + ": Acquisti", ((SAPbouiCOM.OptionBtn)oForm.Items.Item("234000125").Specific).Selected.ToString());
             //result in False o True
-                                                    //tipo attrezzatura (vendite) [N]
-                                                    //tipo attrezzatura (vendite) [P]
+            //tipo attrezzatura (vendite) [N]
+            //tipo attrezzatura (vendite) [P]
 
             insertByIds(oForm, "9", "43");          //Numero serie produttore
             insertByIds(oForm, "4", "44");          //Numero di Fabbrica
-            insertByIds(oForm, "16", "45");         //Codice Articolo
+            insertByIds(oForm, "16", "45");         //Codice articolo
             insertByIds(oForm, "15", "46");                             //Descrizione Macchina
 
             insertByIds(oForm, "6", "48");                              //Codice Business Partner
@@ -70,8 +139,9 @@ namespace btnPrintOnForm.formAttrezzatura
             insertByIds(oForm, "168", "174");                           //Area
 
         }
-        
-        private void insertIndirizzo(SAPbouiCOM.Form oForm){
+
+        protected void insertIndirizzo(SAPbouiCOM.Form oForm)
+        {
             insertByIds(oForm, "29", "63");                             //Via
             insertByIds(oForm, "2005", "2006");                         //N. civico
             insertByIds(oForm, "2000", "2001");                         //Ospedale
@@ -84,12 +154,31 @@ namespace btnPrintOnForm.formAttrezzatura
             insertByIds(oForm, "38", "65");                             //Collocazione
 
         }
-        private void insertChiamateDiServizio(){
-            //matrix
 
+        private string getData(string key, string tmp, string type ="") {
+            if (type == "xml" && !isEmpty(key)) tmp = tmp + "<" + key + ">" + at(key) + "</" + key + ">";
+            else if (type == "json" && !isEmpty(key)) tmp = tmp + "{\n\t" + key + " = \"" + at(key) + "\"},";
+            else if (type == "jsonL" && !isEmpty(key)) tmp = tmp + "{\n\t" + key + " = \"" + at(key) + "\"}";
+            else if (!isEmpty(key)) tmp = tmp + key + ": " + at(key);
+            return tmp;
         }
-        
+        private string getData_businessPartnerId(string tmp, string type = "")
+        {
+            if (type == "json" && !isEmpty("Contatto")) tmp = tmp + "{\n\t" + "Business Partner ID (Contatto)" + " = \"" + at("Contatto").Replace(" ", "") + "\"},";
+            else if (type == "json" && !isEmpty("Contatto")) tmp = tmp + "{\n\t" + "Business Partner ID (Contatto)" + " = \"" + at("Contatto").Replace(" ", "") + "\"},";
+            if (!isEmpty("Contatto")) tmp = tmp + "Business Partner ID (Contatto)" + ": " + at("Contatto").Replace(" ", "");
+            return tmp;
+        }
+        private string at(string key) { return map[key]; }
+
+        private void insert(string key, string value) { map[key] = value; }
+
+        private bool isEmpty(string key) { return map[key] == null; }
+
+        private void insertByIds(SAPbouiCOM.Form oForm, string idStaticText, string idEditText)
+        { insert(((SAPbouiCOM.StaticText)oForm.Items.Item(idStaticText).Specific).Caption, ((SAPbouiCOM.EditText)oForm.Items.Item(idEditText).Specific).Value); }
+        private void insertByIdsCBox(SAPbouiCOM.Form oForm, string idStaticText, string idComboBox)
+        { insert(((SAPbouiCOM.StaticText)oForm.Items.Item(idStaticText).Specific).Caption, ((SAPbouiCOM.ComboBox)oForm.Items.Item(idComboBox).Specific).Value); }
+
     }
-
-
 }
