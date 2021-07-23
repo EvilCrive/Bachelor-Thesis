@@ -6,6 +6,7 @@ using System.IO;
 using System.Threading.Tasks;
 using SAPbouiCOM;
 
+
 namespace btnPrintOnForm.formAttrezzatura
 {
 
@@ -17,8 +18,14 @@ namespace btnPrintOnForm.formAttrezzatura
         }
 
 	public void writeMessageTxt(SAPbouiCOM.Form oForm, ref SAPbouiCOM.Application SBO_Application) {
-	    string message = getString_Txt(oForm);
+        string msg = getString_Print();
+        File.WriteAllText("rsc\\filetxt.txt", msg);
 	}
+
+    public void writeMessageJson() {
+        string msg = getString_Json();
+        File.WriteAllText("rsc\\filejson.json", msg);
+    }
 
         public void writeMessage(ref SAPbouiCOM.Application SBO_Application) {
             string message = getString_Print();
@@ -68,13 +75,45 @@ namespace btnPrintOnForm.formAttrezzatura
             return tmp;
         }
 
-        protected void getString_Txt(SAPbouiCOM.Form oForm) { 
-            string msg = getString_Print();
-            File.WriteAllText("C:\\Users\\Alberto Crivellari\\Documents\\Alberto\\MySimpleForm.txt",msg);
+        protected string getString_Json()
+        {
+            string tmp = "{\n\tScheda Attrezzatura: [\n";
+            if (at("Tipo di attrezzatura: Vendite") == "True")
+                tmp = tmp + "{\n\tTipo di attrezzatura = \"Vendite\"\n},";
+            else if (at("Tipo di attrezzatura: Acquisti") == "True")
+                tmp = tmp + "{\n\tTipo di attrezzatura = \"Acquisti\"\n},";
+            tmp = getData("Numero serie produttore", tmp,"json") + "\n";
+            tmp = getData("Numero di Fabbrica", tmp, "json") + " \n";
+            tmp = getData("Codice articolo", tmp, "json") + "\n";
+            tmp = getData("Descrizione Macchina", tmp, "json") + "\n";
+            tmp = getData("Codice Business Partner", tmp, "json");
+            tmp = getData("Nome del business partner", tmp, "json") + "\n";
+            tmp = getData_businessPartnerId(tmp, "json") + "\n";
+            tmp = getData("Numero di telefono", tmp, "json") + "\n";
+            tmp = getData("Stato", tmp, "json") + "\n";
+            tmp = getData("N. serie precedente", tmp, "json") + "\n";
+            tmp = getData("N. serie nuovo", tmp, "json") + "\n";
+            tmp = getData("Tecnico", tmp, "json") + "\n";
+            tmp = getData("Area", tmp, "json") + "\n";
+            tmp = getData("Via", tmp, "json") + "\n";
+            tmp = getData("N. civico", tmp, "json") + "\n";
+            tmp = getData("Ospedale", tmp, "json") + "\n";
+            tmp = getData("CAP", tmp, "json") + "\n";
+            tmp = getData("Reparto", tmp, "json") + "\n";
+            tmp = getData("Città", tmp, "json") + "\n";
+            tmp = getData("Provincia", tmp, "json") + "\n";
+            tmp = getData("Regione", tmp, "json") + "\n";
+            tmp = getData("Paese/Regione", tmp, "json") + "\n";
+            tmp = getData("Collocazione", tmp, "jsonL") + "\n";
+            tmp = tmp + "]\n}";
+
+            return tmp;
         }
+
         
         protected void insertBase(SAPbouiCOM.Form oForm)
         {
+            
             BoFormItemTypes aaa = oForm.Items.Item("173").Type;
             insert(((SAPbouiCOM.StaticText)oForm.Items.Item("234000123").Specific).Caption + ": Vendite", ((SAPbouiCOM.OptionBtn)oForm.Items.Item("234000124").Specific).Selected.ToString());
 
@@ -116,12 +155,17 @@ namespace btnPrintOnForm.formAttrezzatura
 
         }
 
-        private string getData(string key, string tmp) {
-            if (!isEmpty(key)) tmp = tmp + key + ": " + at(key);
+        private string getData(string key, string tmp, string type ="") {
+            if (type == "xml" && !isEmpty(key)) tmp = tmp + "<" + key + ">" + at(key) + "</" + key + ">";
+            else if (type == "json" && !isEmpty(key)) tmp = tmp + "{\n\t" + key + " = \"" + at(key) + "\"},";
+            else if (type == "jsonL" && !isEmpty(key)) tmp = tmp + "{\n\t" + key + " = \"" + at(key) + "\"}";
+            else if (!isEmpty(key)) tmp = tmp + key + ": " + at(key);
             return tmp;
         }
-        private string getData_businessPartnerId(string tmp)
+        private string getData_businessPartnerId(string tmp, string type = "")
         {
+            if (type == "json" && !isEmpty("Contatto")) tmp = tmp + "{\n\t" + "Business Partner ID (Contatto)" + " = \"" + at("Contatto").Replace(" ", "") + "\"},";
+            else if (type == "json" && !isEmpty("Contatto")) tmp = tmp + "{\n\t" + "Business Partner ID (Contatto)" + " = \"" + at("Contatto").Replace(" ", "") + "\"},";
             if (!isEmpty("Contatto")) tmp = tmp + "Business Partner ID (Contatto)" + ": " + at("Contatto").Replace(" ", "");
             return tmp;
         }
