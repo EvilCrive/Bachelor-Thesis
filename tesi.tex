@@ -20,14 +20,6 @@
 % !TEX spellcheck = it-IT
 
 % PDF/A filecontents
-\RequirePackage{filecontents}
-\begin{filecontents*}{\jobname.xmpdata}
-  \Title{Document’s title}
-  \Author{Author’s name}
-  \Language{it-IT}
-  \Subject{The abstract, or short description.}
-  \Keywords{keyword1\sep keyword2\sep keyword3}
-\end{filecontents*}
 
 \documentclass[10pt,                    % corpo del font principale
                a4paper,                 % carta A4
@@ -86,7 +78,7 @@
 
 \usepackage{microtype}                  % microtipografia
 
-\usepackage{mparhack,fixltx2e,relsize}  % finezze tipografiche
+\usepackage{mparhack,relsize}  % finezze tipografiche
 
 \usepackage{nameref}                    % visualizza nome dei riferimenti                                      
 \usepackage[font=small]{quoting}        % citazioni
@@ -125,7 +117,7 @@
 \frontmatter
 \input{inizio-fine/frontespizio}
 \input{inizio-fine/colophon}
-\input{inizio-fine/dedica}
+%\input{inizio-fine/dedica}
 \input{inizio-fine/sommario}
 \input{inizio-fine/ringraziamenti}
 \input{inizio-fine/indici}
