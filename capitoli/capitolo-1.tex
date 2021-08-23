@@ -7,47 +7,55 @@
 \label{cap:introduzione}
 %**************************************************************
 
-Introduzione al contesto applicativo.\\
-
-\noindent Esempio di utilizzo di un termine nel glossario \\
-\gls{api}. \\
-
-\noindent Esempio di citazione in linea \\
-\cite{site:agile-manifesto}. \\
-
-\noindent Esempio di citazione nel pie' di pagina \\
-citazione\footcite{womak:lean-thinking} \\
-
-%**************************************************************
-\section{L'azienda}
-
-Descrizione dell'azienda.
-
-%**************************************************************
-\section{L'idea}
-
-Introduzione all'idea dello stage.
-
-%**************************************************************
+\section{Descrizione capitoli}
+\begin{description}
+	\item[{\hyperref[cap:processi-metodologie]{Il secondo capitolo}}] descrive l'architettura software del gestionale aziendale, gli altri moduli ad esso collegati e le tecnologie adottate;
+	
+	\item[{\hyperref[cap:descrizione-stage]{Il terzo capitolo}}] approfondisce la descrizione dello stage, introdotta a grandi linea in questo capitolo introduttivo;
+	
+	\item[{\hyperref[cap:analisi-requisiti]{Il quarto capitolo}}] approfondisce l'analisi dei requisiti relativi all'add-on;
+	
+	\item[{\hyperref[cap:progettazione-codifica]{Il quinto capitolo}}] approfondisce progettazione e codifica relativi all'add-on;
+	
+	\item[{\hyperref[cap:verifica-validazione]{Il sesto capitolo}}] approfondisce verifica e validazione relativi all'add-on;
+	
+	\item[{\hyperref[cap:webservices]{Il settimo capitolo}}] descrive le modifiche effettuate ai webservices in AWS;
+	\item[{\hyperref[cap:conclusioni]{L'ottavo capitolo}}] trae le conclusioni finali.
+\end{description}
 \section{Organizzazione del testo}
 
+\noindent Esempio di utilizzo di un termine nel glossario :\\\gls{api}\\ \\
+\noindent Esempio di citazione in linea :\\\cite{site:agile-manifesto};\\\\
+\noindent Esempio di citazione nel pie' di pagina :\\citazione\footcite{womak:lean-thinking} \\\\
+\noindent I termini riportati nel glossario vengono evidenziati :\\\emph{parola}\glsfirstoccur\\ \noindent I termini in lingua straniera o del gergo tecnico :\\ \emph{corsivo}\\
+
+
+%**************************************************************
+
+
+\section{L'azienda}
+(logo)
+Sinapsi Informatica SRL è una società di sviluppo software che da più di 20 anni si occupa di fornire assistenza ad altre aziende nella gestione d'impresa e ottimizzazione dei processi produttivi.
+Sinapsi Informatica fornisce ai propri clienti conoscenze e strumenti necessari per il raggiungimento degli obiettivi e degli standard di qualità dei processi interni.
+L'azienda offre un contratto di assistenza post vendita basato su un ammontare di ore prepagate, solitamente un pacchetto di 100 ore, ma che può cambiare in base alle richieste del cliente.
+Dunque il principale lavoro dell'azienda sussiste in questa assistenza post vendita, come assistenza telefonica, telematica o on-site, ovvero di persona.
+\subsection{Principali prodotti}
+Tra i principali prodotti venduti e installati dall'azienda sono presenti:
 \begin{description}
-    \item[{\hyperref[cap:processi-metodologie]{Il secondo capitolo}}] descrive ...
-    
-    \item[{\hyperref[cap:descrizione-stage]{Il terzo capitolo}}] approfondisce ...
-    
-    \item[{\hyperref[cap:analisi-requisiti]{Il quarto capitolo}}] approfondisce ...
-    
-    \item[{\hyperref[cap:progettazione-codifica]{Il quinto capitolo}}] approfondisce ...
-    
-    \item[{\hyperref[cap:verifica-validazione]{Il sesto capitolo}}] approfondisce ...
-    
-    \item[{\hyperref[cap:conclusioni]{Nel settimo capitolo}}] descrive ...
+	\item {SAP Business One:} \\Gestionale SAP Business One, punto forte dell'azienda che verrà trattato in profondità in questa tesi.
+	\item {SAP Hana:} \\Relational DBMS alternativo a MySQLServer, il cui proprietario è SAP, mentre il proprietario di MySQL è Microsoft.\\I database che utilizzano SAP Hana sono esclusivamente su server Linux.
+	\item {Lotus:} \\Si presenta con Lotus Domino lato server e Lotus Notes lato client.\\Il client Lotus Notes viene utilizzato da tutto il personale come mail aziendale, calendario aziendale e molte altre funzionalità, tra cui archivio password condiviso e knowledge base interna, dove sono annotate le procedure su problematiche già riscontrate.
+	\item {Sophos:} \\Sophos viene utilizzato come antivirus e firewall virtuale.
 \end{description}
 
-Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:
+
+
+%**************************************************************
+\section{Descrizione dello stage}
+Il progetto di stage riguarda:
 \begin{itemize}
-	\item gli acronimi, le abbreviazioni e i termini ambigui o di uso non comune menzionati vengono definiti nel glossario, situato alla fine del presente documento;
-	\item per la prima occorrenza dei termini riportati nel glossario viene utilizzata la seguente nomenclatura: \emph{parola}\glsfirstoccur;
-	\item i termini in lingua straniera o facenti parti del gergo tecnico sono evidenziati con il carattere \emph{corsivo}.
+	\item apprendimento del gestionale SAP e dei vari moduli connessi ad esso dall'azienda;
+	\item lo sviluppo di un applicazione add-on da applicare al client SAP;
+	\item la modifica di alcuni webservices che connettono il client SAP ad un database secondario AWS.
 \end{itemize}
+Nel prossimo capitolo vedremo le varie componenti del gestionale e gli altri moduli, per poi poter spiegare più approfonditamente il progetto di stage.
