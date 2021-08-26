@@ -116,55 +116,60 @@ L'admin del portale, oppure l'admin relativo all'azienda cliente, crea le creden
 Dunque arrivati al sito web, bisogna inserire le credenziali nella sezione Login, che apparirà come prima pagina del sito.\\
 \begin{figure}[!h] 
 	\centering 
-	\includegraphics[scale = 0.6]{immagini/portale/login.png} 
+	\includegraphics[scale = 0.3]{immagini/portale/login.png} 
 	\caption {Portale Web, sezione di Login}
 \end{figure}
-Una volta effettuato il login, si viene reindirizzati al sito web, vero e proprio.\\
+\\Una volta effettuato il login, si viene reindirizzati al sito web, vero e proprio.\\
 Da qui abbiamo principalmente 3 schermate principali:
 \begin{itemize}
 	\item Attrezzature;
 	\item Calendario;
-	\item Interventi.
+	\item Interventi.\\
 \end{itemize}
-Cominciamo con la schermata Calendario, qui sotto.
+La schermata Attrezzature mostra in forma tabellare, tutte le attrezzature e macchinari dell'azienda, con i vari dettagli.\\\\
+La schermata Interventi mostra sempre in forma tabellare, i vari interventi richiesti su quale attrezzatura, e i dettagli dell'intervento.\\
+E' presente un altra sezione, nella schermata Interventi, la sezione Interventi In Attesa, che mostra gli interventi che si stanno sincronizzando con il database SAP, che non sono ancora sincronizzati.
+\newpage
+Cominciamo con la schermata Calendario, qui sotto.\\
 \begin{figure}[!h] 
 	\centering 
-	\includegraphics[scale = 0.6]{immagini/portale/calendario.png} 
+	\includegraphics[scale = 0.3]{immagini/portale/calendario.png} 
 	\caption {Portale Web, schermata Calendario}
 \end{figure}
-Evidenziate di rosso ci sono le chiamate di servizio, ad esempio manutenzioni, non completate, mentre evidenziate in verde quelle completate.\\
-Ora continuiamo con la schermata Attrezzature.
+\\Evidenziate di rosso ci sono le chiamate di servizio, ad esempio manutenzioni, non completate, mentre evidenziate in verde quelle completate.\\\\
+Ora continuiamo con la schermata Attrezzature.\\
 \begin{figure}[!h] 
 	\centering 
-	\includegraphics[scale = 0.6]{immagini/portale/attrezzature.png} 
+	\includegraphics[scale = 0.25]{immagini/portale/attrezzature.png} 
 	\caption {Portale Web, schermata Attrezzature}
 \end{figure}
-Qui possiamo vedere tutte le attrezzature, relative all'azienda cliente collegata, e quindi alle credenziali.\\
-Per ogni attrezzature ci sono alcune azioni, tra cui ricerca ed elenco chiamate di servizio.\\Tra le varie azioni la più interessante è l'apertura di una nuova chiamata di servizio, ovvero richiedere un nuovo intervento, ad esempio una manutenzione o sostituzione di componenti.\\\\
-Ora passiamo alla schermata degli interventi, di cui possiamo conoscerne tutte le caratteristiche principali, come numero di intervento, tipo di intervento, data inizio e fine.\\
-E anche la causale e lo stato, per stato si intende se l'intervento è già stato effettuato.\\\\Infine, all'interno della schermata degli interventi, abbiamo la sezione "In attesa", per gli interventi in attessa di sincronizzazione.
+\\Qui possiamo vedere tutte le attrezzature, relative all'azienda cliente collegata, e quindi alle credenziali.\\
+Per ogni attrezzatura ci sono alcune azioni, tra cui ricerca ed elenco chiamate di servizio.\\Tra le varie azioni la più interessante è l'apertura di una nuova chiamata di servizio, ovvero richiedere un nuovo intervento, ad esempio una manutenzione o sostituzione di componenti.\\\\
+Ora passiamo alla schermata degli interventi, di cui possiamo conoscerne tutte le caratteristiche principali, come numero e tipo di intervento, data inizio e fine.\\
+E anche la causale e lo stato, per stato si intende se l'intervento è già stato effettuato.
 \begin{figure}[!h] 
 	\centering 
-	\includegraphics[scale = 0.6]{immagini/portale/interventi-in-attesa.png} 
+	\includegraphics[scale = 0.25]{immagini/portale/interventi.png} 
 	\caption {Portale Web, sezione di Login}
 \end{figure}
+\\\\Infine, all'interno della schermata degli interventi, abbiamo la sezione "In attesa", per gli interventi in attesa di sincronizzazione.\\
+Questi sono gli interventi creati tramite questo portale web, che si stanno sincronizzando con il server SAP, lo stato verde indicano che si sono sincronizzati, quello rosso che non si sono ancora sincronizzati.
 \begin{figure}[!h] 
 	\centering 
-	\includegraphics[scale = 0.6]{immagini/portale/interventi-in-attesa.png} 
+	\includegraphics[scale = 0.25]{immagini/portale/interventi-in-attesa.png} 
 	\caption {Portale Web, schermata Interventi, sezione In attesa}
 \end{figure}
-
 \pagebreak
 \subsection{Webservices REST API}
 \begin{flushleft}
 	\item Recentemente, su SAP Business One è stato introdotto un service layer, composto da webservices REST API, che comunicano tramite protocollo ODATA (open data protocol).
 	\item Questi webservices permettono di accedere direttamente agli oggetti SAP,\\senza passare per il client SAP.\\Gli oggetti SAP sono una struttura dati generata dalla logica del server SAP, \\che raggruppano e ordinano secondo certe logiche i dati presenti nel database.
-	\item Per poter ottenere questi dati bisogna fare una richiesta http al webserver, il quale invierà un file json con gli oggetti SAP richiesti.
-	\item L'utilizzo più comune di questi webservices è un portale web che usi le informazioni prese tramite queste richiete HTTP. 
+	\\ Per poter ottenere questi dati bisogna fare una richiesta http al webserver, il quale invierà un file json con gli oggetti SAP richiesti.
+	\\L'utilizzo più comune di questi webservices è un portale web che usi le informazioni prese tramite queste richieste HTTP. 
 \end{flushleft}
 \begin{figure}[!h] 
 	\centering 
-	\includegraphics[scale = 0.4]{immagini/api_Format.png} 
+	\includegraphics[scale = 0.37]{immagini/api_Format.png} 
 	\caption {Formato delle richieste HTTP per il Service Layer SAP}
 \end{figure}
 \begin{flushleft}
