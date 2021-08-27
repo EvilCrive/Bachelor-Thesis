@@ -108,6 +108,11 @@ Ora proseguiamo analizzando le componenti principali del SAP, ovvero:
 \end{figure}
 \begin{flushleft}
 	\item Come possiamo vedere è apparso un nuovo pulsante, che stamperà i dati della scheda.\\Questo è un'esempio molto semplice, ma si possono cambiare altre cose, ad esempio aggiungere o rimuovere campi, o aggiungere funzioni ad eventi, ad esempio messaggi di testo che appaiono cliccando dei campi particolari.
+	\item Questi add-on possono essere programmati tramite Microsoft Visual Studio, con :
+	\begin{itemize}
+		\item \textbf{C\#}, C sharp;
+		\item \textbf{VB.NET}, Visual Basic NET.
+	\end{itemize}
 \end{flushleft}
 \newpage
 \subsection{Portale Web}
@@ -177,5 +182,129 @@ Questi sono gli interventi creati tramite questo portale web, che si stanno sinc
 	\item A seguito di una richiesta HTTP viene elaborata la richiesta.\\Viene restituito un oggetto JSON in caso di fallimento, comunicando l'errore causante il fallimento.\\In caso di successo viene restituito un oggetto JSON, ove necessario, oppure un messaggio vuote che rappresenta il successo dell'operazione.
 \end{flushleft}
 \section{Descrizione modulo MyService}
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[scale = 1.1]{immagini/modulo-myservice.png} 
+	\caption{Schema di rappresentazione modulo MyService dei servizi AWS}
+\end{figure}
+\newpage
+\subsection{Servizi AWS}
+In questo modulo abbiamo i webservices in PHP installati in un server AWS, accompagnato da un database MySQL.
+AWS è un acronimo che sta per Amazon Web Services.
+In particolare, dei servizi AWS, in questo modulo abbiamo:
+\begin{itemize}
+	\item Amazon EC2, Amazon Elastic Compute Cloud, che consiste nel webserver, ovvero il server dove sono presenti i nostri webservices in php;
+	\item Amazon RDS, Amazon Relational Database Service, che si occupa della gestione del database MySQL;
+	\item Amazon S3, Amazon Simple Storage Service, che nello schema non è presente, ma si occupa della gestione di allegati e file troppo pesanti nel database per essere gestiti da Amazon RDS.
+\end{itemize}
+Ora rivolgiamo la nostra attenzione ai webservices PHP, che mettono in relazione questo webserver e il database con il modulo SAP e il modulo MySapp, delle applicazioni mobile, attraverso il protocollo SOAP.
+\subsection{Webservices PHP}
+Come possiamo vedere dalla figura del modulo MyService e dalla figura generale dell'infrastruttura preeesistente, il client SAP comunica con questi webservices PHP, attraverso un add-on che utilizza il protocollo SOAP.\\
+Per programmare questi webservices sono state utilizzate le tecnologie Apache e PHP.\\ 
+Il protocollo SOAP, ovvero Simple Object Access Protocol, è un protocollo per lo scambio di messaggi tra componenti software.\\\\
+I webservices php comunicano anche con le applicazioni mobile, per Android e iOS, sempre tramite protocollo SOAP.\\
+Vi sono moltissime funzioni in PHP che corrispondono a molte funzioni SOAP nei webservices, il cui compito principale è mettere in relazione le app mobile o il SAP, con il database contenuto in questo modulo.\\
+L'obiettivo principale è gestire le chiamate di servizio, ovvero richieste di intervento, ai tecnici del SAP.\\
+Elenchiamo alcune delle funzioni più comuni:
+\begin{itemize}
+	\item Visione di tutti i dettagli di una chiamata di servizio;
+	\item Visione di tutte le chiamate di servizio di un tecnico;
+	\item Rimozione di una chiamata di servizio;
+	\item Modifica di una chiamata di servizio;
+	\item Aggiunta di una chiamata di servizio;
+	\item Invio mail a cliente, una volta concluso una chiamata di servizio;
+	\item Login di un tecnico;
+	\item Logout di un tecnico.
+\end{itemize}
+\newpage
 \section{Descrizione modulo MySapp}
-
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[scale = 1.1]{immagini/modulo-mysapp.png} 
+	\caption{Schema di rappresentazione modulo MySapp delle applicazioni mobili}
+\end{figure}
+\newpage
+\subsection{Applicazioni mobile}
+Il modulo MyService si collega con questo modulo MySapp, attraverso il protocollo SOAP utilizzando i webservices PHP del modulo MyService.\\
+Sono state sviluppate due applicazioni per i clienti che risolvono le chiamate di servizio on-site, ovvero di persona.\\
+In queste applicazioni, il tecnico esegue il login, con le sue credenziali e successivamente può gestire le chiamate di servizio a egli assegnate.\\
+Ora vediamo velocemente com'è stato impostato il layout delle due applicazioni.
+\subsubsection{Applicazione iOS}
+Per lo sviluppo dell'applicazione iOS è stato utilizzando C\# e Xamarin.\\\\
+Cominciamo con la schermata di login.\\
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[scale = 0.2]{immagini/app iOS/login-iOS.jpeg} 
+	\caption {App iOS, schermata di Login}
+\end{figure}
+\\Qui il tecnico dovrà inserire le proprie credenziali e accederà alla gestione delle chiamate di servizio a lui assegnate.
+\newpage
+\begin{flushleft}
+	Continuiamo con la schermata Principale dell'app.
+	\\In questa schermata si possono vedere le chiamate di servizio assegnate a questo tecnico ancora da eseguire.
+\end{flushleft}
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[scale = 0.13]{immagini/app iOS/elenco-interventi-iOS.jpeg} 
+	\caption {App iOS, schermata Principale}
+\end{figure}
+Qui sotto possiamo vedere il calendario e la posizione della o delle chiamate di servizio da eseguire.\\
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[scale = 0.13]{immagini/app iOS/calendario-iOS.jpeg} 
+	\caption {App iOS, schermata Calendario}
+\end{figure}
+\newpage
+Infine, abbiamo i dettagli della chiamata di servizio selezionata.\\
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[scale = 0.2]{immagini/app iOS/intervento-iOS.jpeg} 
+	\caption {App iOS, schermata Intervento}
+\end{figure}
+\\Qui possiamo vedere i vari dettagli della chiamata di servizio, ad esempio:
+\begin{itemize}
+	\item posizione del cliente;
+	\item stato dell'intervento;
+	\item attrezzatura che necessita dell'intervento;
+	\item e altri dettagli meno importanti.
+\end{itemize}
+\newpage
+\subsubsection{Applicazione Android}
+Per lo sviluppo dell'applicazione Android è stato utilizzato Java e Kotlin.\\\\
+Cominciamo a esplorare l'applicazione dalla schermata di login.\\
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[scale = 0.2]{immagini/app Android/login-android.jpeg} 
+	\caption {App Android, schermata di Login}
+\end{figure}
+Qui il tecnico dovrà inserire le proprie credenziali.\\
+\newpage
+\begin{flushleft}
+	Continuiamo con la schermata Principale dell'app.\\
+	La schermata dove si possono vedere le chiamate assegnate a questo tecnico.
+\end{flushleft}
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[scale = 0.11]{immagini/app Android/elenco-interventi-android.jpeg} 
+	\caption {App Android, schermata Principale}
+\end{figure}
+Qui sotto possiamo vedere la schermata calendario dell'app.\\
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[scale = 0.11]{immagini/app Android/calendario-android.jpeg}
+	\caption {App Android, schermata Calendario}
+\end{figure}
+\newpage
+Infine, abbiamo i dettagli della chiamata di servizio selezionata.\\
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[scale = 0.2]{immagini/app Android/intervento-android.jpeg} 
+	\caption {App Android, schermata Intervento}
+\end{figure}
+\\Qui possiamo vedere i vari dettagli della chiamata di servizio, ad esempio:
+\begin{itemize}
+	\item posizione del cliente;
+	\item attrezzatura che necessita dell'intervento;
+	\item dati e dettagli dell'intervento.
+\end{itemize}
+\newpage
