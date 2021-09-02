@@ -17,7 +17,7 @@
 Da quest'immagine possiamo notare i tre moduli principali:
 \begin{itemize}
 	\item \textbf{ERP SAP:} il modulo del gestionale;
-	\item \textbf{MyService:} il modulo dei webservices AWS;
+	\item \textbf{MyService:} il modulo dei webservices \gls{aws};
 	\item \textbf{MySapp:} il modulo delle applicazioni Android e iOS.\\
 \end{itemize}
 Sulle due parti evidenziate dal cerchio rosso si è basato il mio lavoro in questo stage.
@@ -76,8 +76,13 @@ Infine, come detto in precedenza, SAB B1 consente di effettuare molte personaliz
 \end{itemize}
 Tutti questi client accedono al SAP attraverso vie diverse.
 \begin{itemize}
-	\item Il client SAP, B1 Client, accede al database attraverso ODBC (oppure ODBO), e accede a SLD, ovvero la componente di autenticazione, via HTTP(S);
-	\item I webservices accedono al server SAP attraverso HTTP(S), e ricevono risposta dal database attraverso ODBC;
+		\item Il client SAP, B1 Client, accede al database attraverso:
+		\begin{enumerate}
+			\item \gls{odbc} 
+			\item \gls{odbo}
+		\end{enumerate}
+		e successivamente accede a SLD, ovvero la componente di autenticazione, via HTTP(S);
+\item I webservices accedono al server SAP attraverso HTTP(S), e ricevono risposta dal database attraverso \gls{odbc};
 	\item X-APP, sia versione web che mobile, accede al server SAP, e quindi successivamente al database, attraverso HTTP(S).
 \end{itemize}
 In questa figura, si può XS Engine, ovvero il server SAP (la logica SAP) e il database, contenuti dentro il DBMS SAP HANA, ma lo stesso vale se il DBMS è Microsoft SQL Server.\\
@@ -90,8 +95,8 @@ Ora proseguiamo analizzando le componenti principali del SAP, ovvero:
 \newpage
 \subsection{Client SAP}
 \begin{flushleft}
-	\item Il client SAP utilizza la connessione ODBC per comunicare con il server SAP.\\ODCB, ovvero Open DataBase Connectivity, è uno standard utilizzato per la connessione tra client e DBMS. 
-	\item Mentre utilizza il protocollo SOAP per comunicare con il webserver AWS del modulo MyService.
+	\item Il client SAP utilizza la connessione \gls{odbc} per comunicare con il server SAP.\\ODCB, ovvero Open DataBase Connectivity, è uno standard utilizzato per la connessione tra client e DBMS. 
+	\item Mentre utilizza il protocollo \gls{soap} per comunicare con il webserver \gls{aws} del modulo MyService.
 \end{flushleft}
 \begin{figure}[!h] 
 	\centering 
@@ -188,25 +193,25 @@ Questi sono gli interventi creati tramite questo portale web, che si stanno sinc
 \begin{figure}[!h] 
 	\centering 
 	\includegraphics[scale = 1.1]{immagini/modulo-myservice.png} 
-	\caption{Schema di rappresentazione modulo MyService dei servizi AWS}
+	\caption{Schema di rappresentazione modulo MyService dei servizi \gls{aws}}
 \end{figure}
 \newpage
 \subsection{Servizi AWS}
-In questo modulo abbiamo i webservices in PHP installati in un server AWS, accompagnato da un database MySQL.
-AWS è un acronimo che sta per Amazon Web Services.
-In particolare, dei servizi AWS, in questo modulo abbiamo:
+In questo modulo abbiamo i webservices in PHP installati in un server \gls{aws}, accompagnato da un database MySQL.
+\gls{aws} è un acronimo che sta per Amazon Web Services.
+In particolare, dei servizi \gls{aws}, in questo modulo abbiamo:
 \begin{itemize}
-	\item Amazon EC2, Amazon Elastic Compute Cloud, che consiste nel webserver, ovvero il server dove sono presenti i nostri webservices in php;
-	\item Amazon RDS, Amazon Relational Database Service, che si occupa della gestione del database MySQL;
-	\item Amazon S3, Amazon Simple Storage Service, che nello schema non è presente, ma si occupa della gestione di allegati e file troppo pesanti nel database per essere gestiti da Amazon RDS.
+	\item Amazon \gls{ec2}, Amazon Elastic Compute Cloud, che consiste nel webserver, ovvero il server dove sono presenti i nostri webservices in php;
+	\item Amazon \gls{rds}, Amazon Relational Database Service, che si occupa della gestione del database MySQL;
+	\item Amazon \gls{s3}, Amazon Simple Storage Service, che nello schema non è presente, ma si occupa della gestione di allegati e file troppo pesanti nel database per essere gestiti da Amazon \gls{rds}.
 \end{itemize}
-Ora rivolgiamo la nostra attenzione ai webservices PHP, che mettono in relazione questo webserver e il database con il modulo SAP e il modulo MySapp, delle applicazioni mobile, attraverso il protocollo SOAP.
+Ora rivolgiamo la nostra attenzione ai webservices PHP, che mettono in relazione questo webserver e il database con il modulo SAP e il modulo MySapp, delle applicazioni mobile, attraverso il protocollo \gls{soap}.
 \subsection{Webservices PHP}
-Come possiamo vedere dalla figura del modulo MyService e dalla figura generale dell'infrastruttura preeesistente, il client SAP comunica con questi webservices PHP, attraverso un add-on che utilizza il protocollo SOAP.\\
+Come possiamo vedere dalla figura del modulo MyService e dalla figura generale dell'infrastruttura preeesistente, il client SAP comunica con questi webservices PHP, attraverso un add-on che utilizza il protocollo \gls{soap}.\\
 Per programmare questi webservices sono state utilizzate le tecnologie Apache e PHP.\\ 
-Il protocollo SOAP, ovvero Simple Object Access Protocol, è un protocollo per lo scambio di messaggi tra componenti software.\\\\
-I webservices php comunicano anche con le applicazioni mobile, per Android e iOS, sempre tramite protocollo SOAP.\\
-Vi sono moltissime funzioni in PHP che corrispondono a molte funzioni SOAP nei webservices, il cui compito principale è mettere in relazione le app mobile o il SAP, con il database contenuto in questo modulo.\\
+Il protocollo \gls{soap}, ovvero Simple Object Access Protocol, è un protocollo per lo scambio di messaggi tra componenti software.\\\\
+I webservices php comunicano anche con le applicazioni mobile, per Android e iOS, sempre tramite protocollo \gls{soap}.\\
+Vi sono moltissime funzioni in PHP che corrispondono a molte funzioni \gls{soap} nei webservices, il cui compito principale è mettere in relazione le app mobile o il SAP, con il database contenuto in questo modulo.\\
 L'obiettivo principale è gestire le chiamate di servizio, ovvero richieste di intervento, ai tecnici del SAP.\\
 Elenchiamo alcune delle funzioni più comuni:
 \begin{itemize}
@@ -228,7 +233,7 @@ Elenchiamo alcune delle funzioni più comuni:
 \end{figure}
 \newpage
 \subsection{Applicazioni mobile}
-Il modulo MyService si collega con questo modulo MySapp, attraverso il protocollo SOAP utilizzando i webservices PHP del modulo MyService.\\
+Il modulo MyService si collega con questo modulo MySapp, attraverso il protocollo \gls{soap} utilizzando i webservices PHP del modulo MyService.\\
 Sono state sviluppate due applicazioni per i clienti che risolvono le chiamate di servizio on-site, ovvero di persona.\\
 In queste applicazioni, il tecnico esegue il login, con le sue credenziali e successivamente può gestire le chiamate di servizio a egli assegnate.\\
 Ora vediamo velocemente com'è stato impostato il layout delle due applicazioni.

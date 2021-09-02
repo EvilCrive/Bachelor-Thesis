@@ -11,7 +11,7 @@
 
 %**************************************************************
 \section{Introduzione}
-Altra componente dell'attività di stage sono i 3 ampliamenti dei webservices PHP, presenti nel server AWS, nel modulo MyServices. Oltre a modificare i webservices è stato modificata anche la struttura del database, sempre nel server AWS, che interagisce con i webservices.
+Altra componente dell'attività di stage sono i 3 ampliamenti dei webservices PHP, presenti nel server \gls{aws}, nel modulo MyServices. Oltre a modificare i webservices è stato modificata anche la struttura del database, sempre nel server \gls{aws}, che interagisce con i webservices.
 
 Questi webservices sono presenti sotto forma di vari file PHP, con molte funzioni che interagiscono fra di loro.
 
@@ -49,7 +49,7 @@ Il primo ampliamento riguarda la modifica del webservice:
 \end{figure}
 \newspace
 \begin{flushleft}
-	Da questa figura possiamo vedere la funzione di ritorno in WSDL del webservice \textbf{MokersSyncGetActivities}, che ritorna i dettagli di tutte le chiamate di servizio (ovvero le Activities) richieste. 
+	Da questa figura possiamo vedere la funzione di ritorno in \gls{wsdlg} del webservice \textbf{MokersSyncGetActivities}, che ritorna i dettagli di tutte le chiamate di servizio (ovvero le Activities) richieste. 
 	
 	Questa funzione legge nel database le chiamate di servizio e ritorna un array contenente tutti i dettagli, a questo array di dettagli abbiamo aggiunto come ultimo campo, il campo idext.
 \end{flushleft}
@@ -105,7 +105,7 @@ Il secondo ampliamento riguarda la modifica del webservice:
 \end{figure}
 \newspace
 \begin{flushleft}
-	Da questa figura possiamo vedere la funzione in WSDL del webservice \textbf{MokersSyncNewActivity}, che crea una chiamata di servizio(Activity) ed inserisce i vari dettagli. 
+	Da questa figura possiamo vedere la funzione in \gls{wsdlg} del webservice \textbf{MokersSyncNewActivity}, che crea una chiamata di servizio(Activity) ed inserisce i vari dettagli. 
 	
 	Questa funzione scrive nel database le chiamate di servizio una nuova riga, ovvero una nuova voce della tabella del database.
 \end{flushleft}
@@ -182,7 +182,7 @@ Il terzo ampliamento riguarda la modifica del webservice:
 \end{figure}
 \newspace
 \begin{flushleft}
-	Da questa figura possiamo vedere la funzione di ritorno in WSDL del webservice \textbf{MokersSyncGetActivities}, che ritorna i dettagli di tutte le chiamate di servizio richieste. 
+	Da questa figura possiamo vedere la funzione di ritorno in \gls{wsdlg} del webservice \textbf{MokersSyncGetActivities}, che ritorna i dettagli di tutte le chiamate di servizio richieste. 
 	\newspace
 	
 	Questa funzione legge nel database le chiamate di servizio e ritorna un array contenente tutti i dettagli, a questo array di dettagli abbiamo aggiunto come altro campo di ritorno il campo extraj\_module.
@@ -241,12 +241,12 @@ In base agli input dati al webservice, vengono filtrate le chiamate richieste e 
 	Per verificare che gli ampliamenti siano funzionanti sono stati verificati e validati attraverso un controllo di richiesta/risposta del webservice.
 	\newspace
 	
-	Questo controllo è stato eseguito attraverso un'applicazione, chiamata SoapUI, che ci permette di interagire con i webservices PHP con protocollo SOAP.
+	Questo controllo è stato eseguito attraverso un'applicazione, chiamata SoapUI, che ci permette di interagire con i webservices PHP con protocollo \gls{soap}.
 	
-	Per testarli dunque viene effettuata una richiesta SOAP inserendo gli appositi parametri di input, e attraverso SoapUI che contatta i webservice abbiamo una risposta in protocollo SOAP.
+	Per testarli dunque viene effettuata una richiesta \gls{soap} inserendo gli appositi parametri di input, e attraverso SoapUI che contatta i webservice abbiamo una risposta in protocollo \gls{soap}.
 	\newspace
 	
-	Ora andremo a vedere per ogni ampliamento la risposta SOAP dei webservice.
+	Ora andremo a vedere per ogni ampliamento la risposta \gls{soap} dei webservice.
 	Il primo ampliamento viene verificato insieme al terzo, essendo due ampliamenti allo stesso webservice.
 \end{flushleft}
 \newpage
@@ -257,17 +257,17 @@ Iniziamo con l'accettazione del secondo ampliamento.
 \begin{figure}[!h] 
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/accettazione/2ampl_soap_chiamata_premodifica.png}
-	\caption{Secondo Ampliamento webservices, Chiamata  Soap prima dell'ampliamento}
+	\caption{Secondo Ampliamento webservices, Chiamata  \gls{soap} prima dell'ampliamento}
 \end{figure}
 \begin{flushleft}
 	Dati aziendali quali username, password e mail del tecnico sono stati censurati.
 	
-	In questa richiesta Soap viene inserita una nuova chiamata di servizio e tra i dettagli si aggiunge un campo extraj\_module con valore "prova".
+	In questa richiesta \gls{soap} viene inserita una nuova chiamata di servizio e tra i dettagli si aggiunge un campo extraj\_module con valore "prova".
 \end{flushleft}
 \begin{figure}[!h] 
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/accettazione/2ampl_soap_risposta_premodifica.png}
-	\caption{Secondo Ampliamento webservices, Risposta Soap prima dell'ampliamento}
+	\caption{Secondo Ampliamento webservices, Risposta \gls{soap} prima dell'ampliamento}
 \end{figure}
 \begin{flushleft}
 	Se proviamo a dare in input il valore di campo extraj\_module si presenta un errore nella risposta.
@@ -279,7 +279,7 @@ Iniziamo con l'accettazione del secondo ampliamento.
 \begin{figure}[!h] 
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/accettazione/2ampl_soap_chiamata_premodifica.png}
-	\caption{Secondo Ampliamento webservices, Chiamata Soap dopo l'ampliamento}
+	\caption{Secondo Ampliamento webservices, Chiamata \gls{soap} dopo l'ampliamento}
 \end{figure}
 
 \begin{flushleft}
@@ -289,7 +289,7 @@ Iniziamo con l'accettazione del secondo ampliamento.
 \begin{figure}[!h] 
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/accettazione/2ampl_soap_risposta_postmodifica.png}
-	\caption{Secondo Ampliamento webservices, Risposta Soap dopo l'ampliamento}
+	\caption{Secondo Ampliamento webservices, Risposta \gls{soap} dopo l'ampliamento}
 \end{figure}
 \begin{flushleft}
 	Questa volta non c'è nessun errore, anzi abbiamo una conferma del successo:
@@ -298,7 +298,7 @@ Iniziamo con l'accettazione del secondo ampliamento.
 		\item Aggiunto intervento come message.
 	\end{itemize}
 	
-	Quindi il campo extraj\_module viene accettato e inserito nella nuova riga del database insieme agli altri dettagli della chiamata indicati nella richiesta Soap.
+	Quindi il campo extraj\_module viene accettato e inserito nella nuova riga del database insieme agli altri dettagli della chiamata indicati nella richiesta \gls{soap}.
 \end{flushleft}
 \newpage
 
@@ -311,7 +311,7 @@ Iniziamo con l'accettazione del secondo ampliamento.
 \begin{figure}[!h] 
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/accettazione/3ampl_soap_chiamata.png}
-	\caption{Primo e Terzo Ampliamento webservices, Chiamata Soap dopo l'ampliamento}
+	\caption{Primo e Terzo Ampliamento webservices, Chiamata \gls{soap} dopo l'ampliamento}
 \end{figure}
 
 \begin{flushleft}
@@ -321,7 +321,7 @@ Iniziamo con l'accettazione del secondo ampliamento.
 \begin{figure}[!h] 
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/accettazione/3ampl__risposta_soap_header.png}
-	\caption{Primo e Terzo Ampliamento webservices, header della Risposta Soap dopo l'ampliamento}
+	\caption{Primo e Terzo Ampliamento webservices, header della Risposta \gls{soap} dopo l'ampliamento}
 \end{figure}
 
 \begin{flushleft}
@@ -331,7 +331,7 @@ Iniziamo con l'accettazione del secondo ampliamento.
 \begin{figure}[!h] 
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/accettazione/3ampl__risposta_soap_singola-chiamata.png}
-	\caption{Primo e Terzo Ampliamento webservices, corpo della Risposta Soap dopo l'ampliamento}
+	\caption{Primo e Terzo Ampliamento webservices, corpo della Risposta \gls{soap} dopo l'ampliamento}
 \end{figure}
 
 \begin{flushleft}

@@ -6,11 +6,13 @@
 \chapter{Tecnologie coinvolte}
 \label{cap:tecnologie-coinvolte}
 %**************************************************************
+\intro{In questo capitolo approfondiremo l'ampliamento dei webservices PHP, con protocollo SOAP}
+%**************************************************************
 \section{PHP}
 \begin{flushleft}
 	Insieme ad Apache viene utilizzato per sviluppare applicazioni web lato server.
 	
-	In questo caso, viene utilizzato dall'azienda per lo sviluppo e gestione dei webservice sui server AWS.
+	In questo caso, viene utilizzato dall'azienda per lo sviluppo e gestione dei webservice sui server \gls{aws}.
 \end{flushleft}
 \begin{figure}[!h] 
 	\centering
@@ -21,7 +23,7 @@
 	\includegraphics[scale = 0.3]{immagini/tecnologie/php}
 \end{figure}
 \section{VB.NET}
-Linguaggio di programmazione per programmare gli add-ons, su Visual Studio, utilizzando le librerie SAP B1.
+Linguaggio di programmazione per programmare gli add-ons, su Visual Studio, utilizzando le librerie \gls{sapb1}.
 \begin{figure}[!h] 
 	\centering
 	\includegraphics[scale = 0.4]{immagini/tecnologie/vb-header}
@@ -30,7 +32,7 @@ Linguaggio di programmazione per programmare gli add-ons, su Visual Studio, util
 \begin{flushleft}
 	Linguaggio di programmazione alternativo per programmare gli add-ons.
 	
-	Sempre su Visual Studio, utilizzando le librerie fornite dalla SAP B1 SDK.
+	Sempre su Visual Studio, utilizzando le librerie fornite dalla \gls{sapb1} SDK.
 \end{flushleft}
 \begin{figure}[!h] 
 	\centering
@@ -38,7 +40,7 @@ Linguaggio di programmazione per programmare gli add-ons, su Visual Studio, util
 \end{figure}
 \section{SoapUI}
 \begin{flushleft}
-	Applicazione utilizzata per testare ed interagire con i webservices PHP, con protocollo SOAP.
+	Applicazione utilizzata per testare ed interagire con i webservices PHP, con protocollo \gls{soap}.
 	
 	E' possibile inserire una chiamata e l'applicazione ritorna una risposta dopo aver interagito con i webservice.
 	
@@ -51,7 +53,7 @@ Linguaggio di programmazione per programmare gli add-ons, su Visual Studio, util
 \begin{flushleft}
 	Strumento di gestione di databases, quali MySQL, MariaDB, InnoDB.
 	
-	In questo caso utilizzato per il database MySQL del server AWS, per controllare che le operazioni di webservices modifichino o meno il database.
+	In questo caso utilizzato per il database MySQL del server \gls{aws}, per controllare che le operazioni di webservices modifichino o meno il database.
 \end{flushleft}
 \begin{figure}[!h] 
 	\centering
@@ -59,7 +61,7 @@ Linguaggio di programmazione per programmare gli add-ons, su Visual Studio, util
 \end{figure}
 \section{Microsoft Visual Studio}
 \begin{flushleft}
-	Strumento di sviluppo software, IDE, utilizzato per programmare codice di vario tipo, da applicazione desktop ad app mobile, e raramente utilizzato per applicazioni web.
+	Strumento di sviluppo software, \gls{ide}, utilizzato per programmare codice di vario tipo, da applicazione desktop ad app mobile, e raramente utilizzato per applicazioni web.
 	
 	In questo caso necessario per programmare gli add-ons, poichè le librerie necessarie sono predisposte per Visual Studio.
 \end{flushleft}
@@ -102,4 +104,16 @@ Linguaggio di programmazione per programmare gli add-ons, su Visual Studio, util
 \begin{figure}[!h] 
 	\centering
 	\includegraphics[scale = 0.5]{immagini/tecnologie/domino-lotus-notes.png}
+\end{figure}
+
+\section{Postman}
+\begin{flushleft}
+    Applicazione utilizzata per gestire e testare le API.
+    
+    Nel caso dell'azienda è stata utilizzata principalmente per controllare il corretto funzionamento e testare nuovi tipi di richieste sui webservices REST API di \gls{sapb1}.
+\end{flushleft}
+
+\begin{figure}[!h] 
+	\centering
+	\includegraphics[scale = 0.5]{immagini/tecnologie/postman}
 \end{figure}
