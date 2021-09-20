@@ -3,6 +3,117 @@
 % !TEX root = ../tesi.tex
 
 %**************************************************************
-\chapter{Verifica e validazione}
-\label{cap:verifica-validazione}
+\chapter{Tecnologie coinvolte}
+\label{cap:tecnologie-coinvolte}
 %**************************************************************
+\intro{In questo capitolo approfondiremo l'ampliamento dei webservices PHP, con protocollo SOAP}
+%**************************************************************
+\section{PHP}
+\begin{flushleft}
+	Insieme ad Apache viene utilizzato per sviluppare applicazioni web lato server.
+	
+	In questo caso, viene utilizzato dall'azienda per lo sviluppo e gestione dei webservice sui server \gls{aws}.
+\end{flushleft}
+\begin{figure}[!h] 
+	\centering
+	\includegraphics[scale = 1]{immagini/tecnologie/apache}
+\end{figure}
+\begin{figure}[!h] 
+	\centering
+	\includegraphics[scale = 0.3]{immagini/tecnologie/php}
+\end{figure}
+\section{VB.NET}
+Linguaggio di programmazione per programmare gli add-ons, su Visual Studio, utilizzando le librerie \gls{sapb1}.
+\begin{figure}[!h] 
+	\centering
+	\includegraphics[scale = 0.4]{immagini/tecnologie/vb-header}
+\end{figure}
+\section{C\#}
+\begin{flushleft}
+	Linguaggio di programmazione alternativo per programmare gli add-ons.
+	
+	Sempre su Visual Studio, utilizzando le librerie fornite dalla \gls{sapb1} SDK.
+\end{flushleft}
+\begin{figure}[!h] 
+	\centering
+	\includegraphics[scale = 0.4]{immagini/tecnologie/csharp}
+\end{figure}
+\section{SoapUI}
+\begin{flushleft}
+	Applicazione utilizzata per testare ed interagire con i webservices PHP, con protocollo \gls{soap}.
+	
+	E' possibile inserire una chiamata e l'applicazione ritorna una risposta dopo aver interagito con i webservice.
+	
+\end{flushleft}
+\begin{figure}[!h] 
+	\centering
+	\includegraphics[scale = 1]{immagini/tecnologie/soapui}
+\end{figure}
+\section{HeidiSQL}
+\begin{flushleft}
+	Strumento di gestione di databases, quali MySQL, MariaDB, InnoDB.
+	
+	In questo caso utilizzato per il database MySQL del server \gls{aws}, per controllare che le operazioni di webservices modifichino o meno il database.
+\end{flushleft}
+\begin{figure}[!h] 
+	\centering
+	\includegraphics[scale = 0.5]{immagini/tecnologie/HeidiSQL}
+\end{figure}
+\section{Microsoft Visual Studio}
+\begin{flushleft}
+	Strumento di sviluppo software, \gls{ide}, utilizzato per programmare codice di vario tipo, da applicazione desktop ad app mobile, e raramente utilizzato per applicazioni web.
+	
+	In questo caso necessario per programmare gli add-ons, poichè le librerie necessarie sono predisposte per Visual Studio.
+\end{flushleft}
+\begin{figure}[!h] 
+	\centering
+	\includegraphics[scale = 0.4]{immagini/tecnologie/visual-studio}
+\end{figure}
+\section{Microsoft SQL Server Management Studio (SSMS)}
+\begin{flushleft}
+	Applicazione utilizzata per gestire i database, viene utilizzata particolarmente per i server SQL Server.
+	
+	Nel nostro caso l'applicazione viene utilizzata per accedere direttamente ai database del server SAP.
+	
+\end{flushleft}
+\begin{figure}[!h] 
+	\centering
+	\includegraphics[scale = 0.5]{immagini/tecnologie/microsoft ssms}
+\end{figure}
+
+\newpage
+
+\section{Remote Desktop}
+\begin{flushleft}
+	Applicazione preinstallata su Windows per accedere ad altri computer nella stessa rete locale.
+	
+	Viene utilizzata per accedere ai server SAP, presenti nella rete locale aziendale.
+\end{flushleft}
+\begin{figure}[!h] 
+	\centering
+	\includegraphics[scale = 0.5]{immagini/tecnologie/remote-desktop}
+\end{figure}
+
+\section{Domino Lotus Notes}
+\begin{flushleft}
+	Applicazione utilizzata principalmente per la mail aziendale.
+	
+	Contiene però altre funzionalità quali un calendario aziendale e un server condiviso (domino) aziendale, che comprende database di fatture e password per accedere a diversi software aziendali o di clienti dell'azienda.
+\end{flushleft}
+
+\begin{figure}[!h] 
+	\centering
+	\includegraphics[scale = 0.5]{immagini/tecnologie/domino-lotus-notes.png}
+\end{figure}
+
+\section{Postman}
+\begin{flushleft}
+    Applicazione utilizzata per gestire e testare le API.
+    
+    Nel caso dell'azienda è stata utilizzata principalmente per controllare il corretto funzionamento e testare nuovi tipi di richieste sui webservices REST API di \gls{sapb1}.
+\end{flushleft}
+
+\begin{figure}[!h] 
+	\centering
+	\includegraphics[scale = 0.5]{immagini/tecnologie/postman}
+\end{figure}

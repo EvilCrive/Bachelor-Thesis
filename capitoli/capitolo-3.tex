@@ -7,26 +7,58 @@
 \label{cap:descrizione-stage}
 %**************************************************************
 
-\intro{Breve introduzione al capitolo}\\
+\intro{In questo capitolo descriveremo gli obiettivi e il lavoro effettuato nello stage a grandi linee, per poi approfondire nel dettaglio nei prossimi capitoli}\\
 
 %**************************************************************
 \section{Introduzione al progetto}
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[scale = 0.5]{immagini/obiettivi-stage.png} 
+	\caption{Schema infrastruttura preesistente, con evidenziati le componenti obiettivo del lavoro di stage}
+\end{figure}
+\newpage
+\begin{flushleft}
+	In quest'immagine possiamo vedere lo schema dell'infrastruttura preesistente, già vista nel capitolo precedente.\\
+	Evidenziati in rosso, con un cerchio, possiamo vedere le due componenti dove è stato concentrato il lavoro durante questo stage:
+\end{flushleft}
 
-%**************************************************************
-\section{Analisi preventiva dei rischi}
-
-Durante la fase di analisi iniziale sono stati individuati alcuni possibili rischi a cui si potrà andare incontro.
-Si è quindi proceduto a elaborare delle possibili soluzioni per far fronte a tali rischi.\\
-
-\begin{risk}{Performance del simulatore hardware}
-    \riskdescription{le performance del simulatore hardware e la comunicazione con questo potrebbero risultare lenti o non abbastanza buoni da causare il fallimento dei test}
-    \risksolution{coinvolgimento del responsabile a capo del progetto relativo il simulatore hardware}
-    \label{risk:hardware-simulator} 
-\end{risk}
-
-%**************************************************************
+\begin{itemize}
+	\item \textbf{Client SAP:} è stato creato un nuovo add-on, utilizzabile dal client SAP;
+	\item \textbf{Webservices PHP:} sono state modificate ed ampliate alcune funzioni che compongono i webservices in PHP.
+\end{itemize}
+\subsection{Vincoli tecnologici}
+L'azienda ha posto come vincoli tecnologici:
+\begin{itemize}
+	\item nello sviluppo dell'addon, utilizzare VB.NET oppure C\#;
+	\item nell'ampliamento dei webservices solamente il linguaggio PHP.
+\end{itemize}
+\section{Interazione}
+Per lo svolgimento dell'attività di stage si è deciso in comune accordo con il tutor aziendale di svolgere lo stage completamente in azienda.\\
+Questo è stato deciso per favorire il dialogo tra studente e tutor aziendale, ed eventualmente un confronto con gli altri dipendenti dell'azienda, esperti nel settore d'interesse.
 \section{Requisiti e obiettivi}
-
+Sin dal piano di lavoro sono stati decisi alcuni obiettivi.
+Gli obiettivi obbligatori:
+\begin{itemize}
+	\item Comprensione e apprendimento di strumenti di programmazione e infrastruttura esistente;
+	\item Sviluppo protocolli di comunicazione tra i diversi moduli;
+	\item Sviluppo applicazione add-on.
+\end{itemize}
+Ed un obiettivo desiderabile:
+\begin{itemize}
+	\item Test e documentazione.
+\end{itemize}
 
 %**************************************************************
 \section{Pianificazione}
+La durata dello stage è stimata attorno alle 320 ore circa.\\
+Per portare a termine il progetto è stato definito un piano di lavoro che verrà successivamente descritto.\\
+Lo stage è stato diviso in attività, ad ognuna è stata associata una stima temporale entra la quale si presuma possa venir conclusa.
+\subsection{Piano di Lavoro}
+Per ottenere una buona organizzazione dell'attività di stage, è stato stilato il piano di lavoro assieme al tutor aziendale Massimo Ennio e al relatore Massimiliano De Leoni.
+\\\\La ripartizione delle ore è stata distribuita nelle 8 settimane, suddivise in questo modo:
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[scale = 0.8]{immagini/ripartizione-ore-piano.png} 
+	\caption{Ripartizione ore, secondo il piano di lavoro, durante l'attività di stage}
+\end{figure}
+
