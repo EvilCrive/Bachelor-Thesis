@@ -30,7 +30,7 @@ Ora approfondiamo più nel dettaglio questi ampliamenti.
 
 \section{Ampliamenti webservices}
 \subsection{Primo ampliamento}
-Il primo ampliamento riguarda la modifica del webservice:   \textbf{MokersSyncGetActivities}.
+Il primo ampliamento riguarda la modifica del webservice:  \\ \textbf{MokersSyncGetActivities}.
 
 
 \newspace
@@ -44,10 +44,11 @@ Il primo ampliamento riguarda la modifica del webservice:   \textbf{MokersSyncGe
 	\centering
 	\includegraphics[scale = 0.4]{immagini/webservices/ampliamenti/1ampl_types_changefunction} 
 	\caption{Aggiunta idext tra i parametri di ritorno del webservice}
+	\label{fig:5-1}
 \end{figure}
 \newspace
 \begin{flushleft}
-	Da questa figura possiamo vedere la funzione di ritorno in \gls{wsdlg} del webservice \textbf{MokersSyncGetActivities}, che ritorna i dettagli di tutte le chiamate di servizio (ovvero le Activities) richieste. 
+	Nella figura \ref{fig:5-1} possiamo vedere la funzione di ritorno in \gls{wsdlg} del webservice \textbf{MokersSyncGetActivities}, che ritorna i dettagli di tutte le chiamate di servizio (ovvero le Activities) richieste. 
 	
 	Questa funzione legge nel database le chiamate di servizio e ritorna un array contenente tutti i dettagli, a questo array di dettagli abbiamo aggiunto come ultimo campo, il campo idext.
 \end{flushleft}
@@ -61,19 +62,21 @@ Il primo ampliamento riguarda la modifica del webservice:   \textbf{MokersSyncGe
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/1ampl_utils_filters.png}
 	\caption{Aggiunta idext tra i parametri dell'array interno}
+	\label{fig:5-2}
 \end{figure}
 
 \begin{figure}[!h] 
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/1ampl_mokers_getidext.png}
 	\caption{Trascrizione idext dall'array interno all'array di ritorno}
+	\label{fig:5-3}
 \end{figure}
 \newspace
 \newspace
 \begin{flushleft}
 	In queste funzioni per il webservice \textbf{MokersSyncGetActivities} viene utilizzato un array interno, di implementazione, e un array di ritorno.
 	
-	In questi due screen  qui sopra possiamo vedere:
+	Nelle figure \ref{fig:5-2} e \ref{fig:5-3}  qui sopra possiamo vedere:
 	\begin{itemize}
 		\item Aggiunta di idext nella struttura dell'array interno (classe MokersFilters);
 		\item Trascrizione di idext, nel caso esista nell'array interno, dall'array interno all'array di ritorno.
@@ -84,7 +87,7 @@ Il primo ampliamento riguarda la modifica del webservice:   \textbf{MokersSyncGe
 \newpage
 
 \subsection{Secondo ampliamento}
-Il secondo ampliamento riguarda la modifica del webservice:  \textbf{MokersSyncNewActivity}.
+Il secondo ampliamento riguarda la modifica del webservice: \\ \textbf{MokersSyncNewActivity}.
 
 \begin{flushleft}
 	In particolare l'ampliamento riguarda l'aggiunta di un nuovo campo extraj\_module, come  stringa.
@@ -98,10 +101,11 @@ Il secondo ampliamento riguarda la modifica del webservice:  \textbf{MokersSyncN
 	\centering
 	\includegraphics[scale = 0.4]{immagini/webservices/ampliamenti/2ampl_prototipo_types.png}
 	\caption{Aggiunta extraj\_module tra i parametri in input del webservice}
+	\label{fig:5-4}
 \end{figure}
 \newspace
 \begin{flushleft}
-	Da questa figura possiamo vedere la funzione in \gls{wsdlg} del webservice \textbf{MokersSyncNewActivity}, che crea una chiamata di servizio(Activity) ed inserisce i vari dettagli. 
+	In figura \ref{fig:5-4} possiamo vedere la funzione in \gls{wsdlg} del webservice \textbf{MokersSyncNewActivity}, che crea una chiamata di servizio(Activity) ed inserisce i vari dettagli. 
 	
 	Questa funzione scrive nel database le chiamate di servizio una nuova riga, ovvero una nuova voce della tabella del database.
 \end{flushleft}
@@ -113,11 +117,12 @@ Il secondo ampliamento riguarda la modifica del webservice:  \textbf{MokersSyncN
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/2ampl-insert-extraj_mokers__funzione-mokersNewActivity.png}
 	\caption{Trascrizione idext dall'array interno all'array di ritorno}
+	\label{fig:5-5}
 \end{figure}
 \newspace
 \begin{flushleft}
 	
-	Quest'altro screen invece, legge dagli input del webservice i parametri, e se extraj\_module esiste, lo aggiunge nell'array interno \textbf{\$taskData}.
+	Quest'altro screen in figura \ref{fig:5-5} invece, legge dagli input del webservice i parametri, e se extraj\_module esiste, lo aggiunge nell'array interno \textbf{\$taskData}.
 	
 \end{flushleft}
 \newspace
@@ -125,11 +130,12 @@ Il secondo ampliamento riguarda la modifica del webservice:  \textbf{MokersSyncN
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/2ampl_added-extraj_modules-as-query.png}
 	\caption{Aggiunta extraj\_module nella query INSERT INTO}
+	\label{fig:5-6}
 \end{figure}
 \newspace
 
 \begin{flushleft}
-	Qui possiamo vedere l'aggiunta di extraj\_module e il suo valore, se l'array interno della chiamata di servizio contiene un campo extraj\_module non vuoto.
+	In figura \ref{fig:5-6} possiamo vedere l'aggiunta di extraj\_module e il suo valore, se l'array interno della chiamata di servizio contiene un campo extraj\_module non vuoto.
 \end{flushleft}
 
 \newpage
@@ -142,10 +148,11 @@ Il secondo ampliamento riguarda la modifica del webservice:  \textbf{MokersSyncN
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/2ampl_funzione_insert.png}
 	\caption{Query INSERT INTO che si sta formando}
+	\label{fig:5-7}
 \end{figure}
 
 \begin{flushleft}
-	Da questo si può capire come il webservice crei la query \textbf{\$query\_intervento}, che è una query di tipo INSERT INTO.
+	Dalla figura \ref{fig:5-7} si può capire come il webservice crei la query \textbf{\$query\_intervento}, che è una query di tipo INSERT INTO.
 	
 	Questa query inserisce la chiamata di servizio salvata nell'array interno \textbf{\$taskData} nella tabella delle chiamate di servizio.
 	
@@ -173,10 +180,11 @@ Il terzo ampliamento riguarda la modifica del webservice:  \textbf{MokersSyncGet
 	\centering
 	\includegraphics[scale = 0.3]{immagini/webservices/ampliamenti/3ampl__types_getCisa.png}
 	\caption{Aggiunta extraj\_module tra i parametri di ritorno del webservice}
+	\label{fig:5-8}
 \end{figure}
 \newspace
 \begin{flushleft}
-	Da questa figura possiamo vedere la funzione di ritorno in \gls{wsdlg} del webservice \textbf{MokersSyncGetActivities}, che ritorna i dettagli di tutte le chiamate di servizio richieste. 
+	In figura \ref{fig:5-8} possiamo vedere la funzione di ritorno in \gls{wsdlg} del webservice \textbf{MokersSyncGetActivities}, che ritorna i dettagli di tutte le chiamate di servizio richieste. 
 	\newspace
 	
 	Questa funzione legge nel database le chiamate di servizio e ritorna un array contenente tutti i dettagli, a questo array di dettagli abbiamo aggiunto come altro campo di ritorno il campo extraj\_module.
@@ -200,9 +208,10 @@ Il terzo ampliamento riguarda la modifica del webservice:  \textbf{MokersSyncGet
 	\centering
 	\includegraphics[scale = 0.4]{immagini/webservices/ampliamenti/3ampl__nontoccata_query_select.png}
 	\caption{Query SELECT da cui vengono presi i dati delle chiamate di servizio per comporre l'array di ritorno}
+	\label{fig:5-9}
 \end{figure}
 \newspace
-Qui possiamo vedere \textbf{\$singolo\_intervento} che è una variabile che contiene una chiamata di servizio, mentre \textbf{\$result\_intervento} contiene tutte le chiamate di servizio.
+In figura \ref{fig:5-9} possiamo vedere \textbf{\$singolo\_intervento} che è una variabile che contiene una chiamata di servizio, mentre \textbf{\$result\_intervento} contiene tutte le chiamate di servizio.
 
 In base agli input dati al webservice, vengono filtrate le chiamate richieste e vengono salvati i dati richiesti in un array di ritorno.
 \newspace
@@ -210,11 +219,12 @@ In base agli input dati al webservice, vengono filtrate le chiamate richieste e 
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/3ampl__correzione_functionmokers.png}
 	\caption{Trascrizione valore extraj\_module dalla query all'array di ritorno}
+	\label{fig:5-10}
 \end{figure}
 \newspace
 
 \begin{flushleft}
-	Innanzitutto possiamo vedere che l'array di ritorno è una variabile array bidimensionale \textbf{\$intervento}.
+	Dalla figura \ref{fig:5-10} possiamo vedere che l'array di ritorno è una variabile array bidimensionale \textbf{\$intervento}.
 	\newspace
 	
 	Inoltre possiamo vedere la trascrizione del valore di extraj\_module dall'array interno di implementazione, nell'array di ritorno del webservice.
@@ -252,6 +262,7 @@ Iniziamo con l'accettazione del secondo ampliamento.
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/accettazione/2ampl_soap_chiamata_premodifica.png}
 	\caption{Secondo Ampliamento webservices, Chiamata  \gls{soap} prima dell'ampliamento}
+	\label{fig:5-10}
 \end{figure}
 \begin{flushleft}
 	Dati aziendali quali username, password e mail del tecnico sono stati censurati.
@@ -262,6 +273,7 @@ Iniziamo con l'accettazione del secondo ampliamento.
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/accettazione/2ampl_soap_risposta_premodifica.png}
 	\caption{Secondo Ampliamento webservices, Risposta \gls{soap} prima dell'ampliamento}
+	\label{fig:5-11}
 \end{figure}
 \begin{flushleft}
 	Se proviamo a dare in input il valore di campo extraj\_module si presenta un errore nella risposta.
@@ -277,7 +289,7 @@ Iniziamo con l'accettazione del secondo ampliamento.
 \end{figure}
 
 \begin{flushleft}
-	Rifacciamo la stessa chiamata della figura 5.11, ma questa volta dopo aver concluso e applicato l'ampliamento.
+	Rifacciamo la stessa chiamata della figura \ref{fig:5-11}, ma questa volta dopo aver concluso e applicato l'ampliamento.
 \end{flushleft}
 
 \begin{figure}[!h] 
@@ -306,30 +318,33 @@ Iniziamo con l'accettazione del secondo ampliamento.
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/accettazione/3ampl_soap_chiamata.png}
 	\caption{Primo e Terzo Ampliamento webservices, Chiamata \gls{soap} dopo l'ampliamento}
+	\label{fig:5-15}
 \end{figure}
 
 \begin{flushleft}
-	Questa è la chiamata al webservice, con la richiesta di tutte le chiamate di servizio di un certo tecnico.
+	In figura \ref{5-15} possiamo vedere la chiamata al webservice, con la richiesta di tutte le chiamate di servizio di un certo tecnico.
 \end{flushleft}
 
 \begin{figure}[!h] 
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/accettazione/3ampl__risposta_soap_header.png}
 	\caption{Primo e Terzo Ampliamento webservices, header della Risposta \gls{soap} dopo l'ampliamento}
+	\label{fig:5-16}
 \end{figure}
 
 \begin{flushleft}
-	Come possiamo vedere da questo screen, abbiamo come messaggio di stato, \\status\_code, "OK", il che significa che la richiesta è andata a buon fine.
+	Come possiamo vedere dallo screen in figura \ref{fig:5-16}, abbiamo come messaggio di stato, \\status\_code, "OK", il che significa che la richiesta è andata a buon fine.
 \end{flushleft}
 \newpage
 \begin{figure}[!h] 
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/accettazione/3ampl__risposta_soap_singola-chiamata.png}
 	\caption{Primo e Terzo Ampliamento webservices, corpo della Risposta \gls{soap} dopo l'ampliamento}
+	\label{fig:5-17}
 \end{figure}
 
 \begin{flushleft}
-	In quest'altro screen possiamo vedere una parte interessante del lungo corpo della risposta.
+	In quest'altro screen in figura \ref{fig:5-17} possiamo vedere una parte interessante del lungo corpo della risposta.
 	\newspace
 	
 	In particolare possiamo vedere in una delle tante chiamate di servizio contenute nella risposta, che questa mostra nella array rappresentante la chiamata, sia \textbf{idext} che \textbf{extraj\_module}, dunque gli ampliamenti sono verificati e validati.

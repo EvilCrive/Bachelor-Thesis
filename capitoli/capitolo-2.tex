@@ -13,10 +13,11 @@
 	\centering 
 	\includegraphics[scale = 0.4]{immagini/architettura-globale.png} 
 	\caption{Schema di rappresentazione modulo gestionale ERP SAP, e moduli aggiunti dall'azienda intorno al gestionale}
+	\label{fig:2-1}
 \end{figure}\\
-L'azienda ha una infrastruttura per collegare il gestionale a delle applicazioni smartphone ed un portale web. Si basa su 3 moduli che si connettono tramite protocollo \gls{soap}.
+L'azienda ha una infrastruttura per collegare il gestionale a delle applicazioni smartphone ed un portale web. \\Si basa su 3 moduli che si connettono tramite protocollo \gls{soap}.
 \\
-Da quest'immagine possiamo notare i tre moduli principali:
+Dalla figura \ref{fig:2-1} possiamo notare i tre moduli principali:
 \begin{itemize}
 	\item \textbf{ERP SAP:} il modulo del gestionale;
 	\item \textbf{MyService:} il modulo dei webservices \gls{aws};
@@ -63,10 +64,11 @@ Infine, come detto in precedenza, SAB B1 consente di effettuare molte personaliz
 \begin{figure}[!h] 
 	\includegraphics[scale = 0.4, left]{immagini/erp-sap-inside.png} 
 	\caption{Schema ufficiale sul SAP Business One}
+	\label{fig:2-3}
 \end{figure}
 \newpage
 \begin{flushleft}
-	Qui possiamo vedere uno schema sul SAP Business One, ufficiale dalla documentazione SAP.\\
+	Nella figura \ref{fig:2-3} possiamo vedere uno schema sul SAP Business One, ufficiale dalla documentazione SAP.\\
 	Possiamo vedere i vari client con cui accedere al SAP:
 \end{flushleft}
 
@@ -87,7 +89,7 @@ Tutti questi client accedono al SAP attraverso vie diverse.
 \item I webservices accedono al server SAP attraverso HTTP(S), e ricevono risposta dal database attraverso \gls{odbc};
 	\item X-APP, sia versione web che mobile, accede al server SAP, e quindi successivamente al database, attraverso HTTP(S).
 \end{itemize}
-In questa figura, si può XS Engine, ovvero il server SAP (la logica SAP) e il database, contenuti dentro il DBMS SAP HANA, ma lo stesso vale se il DBMS è Microsoft SQL Server.\\
+Sempre nella figura \ref{fig:2-3}, si può vedere XS Engine, ovvero il server SAP (la logica SAP) e il database, contenuti dentro il DBMS SAP HANA, ma lo stesso vale se il DBMS è Microsoft SQL Server.\\
 Ora proseguiamo analizzando le componenti principali del SAP, ovvero:
 \begin{itemize}
 	\item il client SAP;
@@ -104,9 +106,10 @@ Ora proseguiamo analizzando le componenti principali del SAP, ovvero:
 	\centering 
 	\includegraphics[scale = 0.4]{immagini/client-sap.png} 
 	\caption {Client SAP, aperto sulla scheda "Scheda anagrafica attrezzatura"}
+	\label{fig:2-4}
 \end{figure}
 \begin{flushleft}
-	\item Qui possiamo vedere come appare il Client SAP.\\In questo caso è stata aperta la Scheda anagrafica attrezzatura, del modulo dei Servizi.\\Da notare che questi "moduli" del SAP, differiscono dai moduli coinvolti con il modulo del gestionale (MyService e MySapp), questi sono moduli interni del SAP.
+	\item Nella figura \ref{fig:2-4} possiamo vedere come appare il Client SAP.\\In questo caso è stata aperta la Scheda anagrafica attrezzatura, del modulo dei Servizi.\\Da notare che questi "moduli" del SAP, differiscono dai moduli coinvolti con il modulo del gestionale (MyService e MySapp), questi sono moduli interni del SAP.
 	\item La scheda anagrafica attrezzatura è una scheda che rappresenta le attrezzature dell'azienda, ad esempio macchine a controllo numerico, lavatrici o condizionatori, e tutti i possibili macchinari dell'azienda.
 	\item Ora vediamo un esempio di cambiamento della GUI di questo client con l'applicazione di un Add-On alla scheda anagrafica attrezzatura.
 \end{flushleft}
@@ -115,9 +118,10 @@ Ora proseguiamo analizzando le componenti principali del SAP, ovvero:
 	\centering 
 	\includegraphics[scale = 0.6]{immagini/esempio-modifica-client-addon.jpg} 
 	\caption {Client SAP, esempio di modifica GUI di un add-on applicato sulla scheda "Scheda anagrafica attrezzatura"}
+	\label{fig:2-5}
 \end{figure}
 \begin{flushleft}
-	\item Come possiamo vedere è apparso un nuovo pulsante, che stamperà i dati della scheda.\\Questo è un'esempio molto semplice, ma si possono cambiare altre cose, ad esempio aggiungere o rimuovere campi, o aggiungere funzioni ad eventi, ad esempio messaggi di testo che appaiono cliccando dei campi particolari.
+	\item Come possiamo vedere in figura \ref{fig:2-5} è apparso un nuovo pulsante, che stamperà i dati della scheda.\\Questo è un'esempio molto semplice, ma si possono cambiare altre cose, ad esempio aggiungere o rimuovere campi, o aggiungere funzioni ad eventi, ad esempio messaggi di testo che appaiono cliccando dei campi particolari.
 	\item Questi add-on possono essere programmati tramite Microsoft Visual Studio, con :
 	\begin{itemize}
 		\item \textbf{C\#}, C sharp;
@@ -145,20 +149,23 @@ La schermata Attrezzature mostra in forma tabellare, tutte le attrezzature e mac
 La schermata Interventi mostra sempre in forma tabellare, i vari interventi richiesti su quale attrezzatura, e i dettagli dell'intervento.\\
 E' presente un altra sezione, nella schermata Interventi, la sezione Interventi In Attesa, che mostra gli interventi che si stanno sincronizzando con il database SAP, che non sono ancora sincronizzati.
 \newpage
-Cominciamo con la schermata Calendario, qui sotto.\\
+
 \begin{figure}[!h] 
 	\centering 
 	\includegraphics[scale = 0.3]{immagini/portale/calendario.png} 
 	\caption {Portale Web, schermata Calendario}
+	\label{fig:2-7}
 \end{figure}
+Cominciamo con la schermata Calendario, in figura \ref{fig:2-7}.\\
 \\Evidenziate di rosso ci sono le chiamate di servizio, ad esempio manutenzioni, non completate, mentre evidenziate in verde quelle completate.\\\\
 Ora continuiamo con la schermata Attrezzature.\\
 \begin{figure}[!h] 
 	\centering 
 	\includegraphics[scale = 0.25]{immagini/portale/attrezzature.png} 
 	\caption {Portale Web, schermata Attrezzature}
+	\label{fig:2-8}
 \end{figure}
-\\Qui possiamo vedere tutte le attrezzature, relative all'azienda cliente collegata, e quindi alle credenziali.\\
+\\Nella figura \ref{fig:2-8} possiamo vedere tutte le attrezzature, relative all'azienda cliente collegata, e quindi alle credenziali.\\
 Per ogni attrezzatura ci sono alcune azioni, tra cui ricerca ed elenco chiamate di servizio.\\Tra le varie azioni la più interessante è l'apertura di una nuova chiamata di servizio, ovvero richiedere un nuovo intervento, ad esempio una manutenzione o sostituzione di componenti.\\\\
 Ora passiamo alla schermata degli interventi, di cui possiamo conoscerne tutte le caratteristiche principali, come numero e tipo di intervento, data inizio e fine.\\
 E anche la causale e lo stato, per stato si intende se l'intervento è già stato effettuato.
@@ -186,9 +193,10 @@ Questi sono gli interventi creati tramite questo portale web, che si stanno sinc
 	\centering 
 	\includegraphics[scale = 0.37]{immagini/api_Format.png} 
 	\caption {Formato delle richieste HTTP per il Service Layer SAP}
+	\label{fig:2-11}
 \end{figure}
 \begin{flushleft}
-	\item Come si può osservare da quest'immagine, sono presenti le richieste HTTP principali per interagire con i webservices REST API del Service Layer di SAP.
+	\item Come si può osservare in figura \ref{fig:2-11}, sono presenti le richieste HTTP principali per interagire con i webservices REST API del Service Layer di SAP.
 	\item A seguito di una richiesta HTTP viene elaborata la richiesta.\\Viene restituito un oggetto JSON in caso di fallimento, comunicando l'errore causante il fallimento.\\In caso di successo viene restituito un oggetto JSON, ove necessario, oppure un messaggio vuote che rappresenta il successo dell'operazione.
 \end{flushleft}
 \section{Descrizione modulo MyService}
@@ -196,6 +204,7 @@ Questi sono gli interventi creati tramite questo portale web, che si stanno sinc
 	\centering 
 	\includegraphics[scale = 1.1]{immagini/modulo-myservice.png} 
 	\caption{Schema di rappresentazione modulo MyService dei servizi \gls{aws}}
+	\label{fig:2-12}
 \end{figure}
 \newpage
 \subsection{Servizi AWS}
@@ -209,7 +218,7 @@ In particolare, dei servizi \gls{aws}, in questo modulo abbiamo:
 \end{itemize}
 Ora rivolgiamo la nostra attenzione ai webservices PHP, che mettono in relazione questo webserver e il database con il modulo SAP e il modulo MySapp, delle applicazioni mobile, attraverso il protocollo \gls{soap}.
 \subsection{Webservices PHP}
-Come possiamo vedere dalla figura del modulo MyService e dalla figura generale dell'infrastruttura preeesistente, il client SAP comunica con questi webservices PHP, attraverso un add-on che utilizza il protocollo \gls{soap}.\\
+Come possiamo vedere dalle figure \ref{fig:2-11} e \ref{2-1}, il client SAP comunica con questi webservices PHP, attraverso un add-on che utilizza il protocollo \gls{soap}.\\
 Per programmare questi webservices sono state utilizzate le tecnologie Apache e PHP.\\ 
 Il protocollo \gls{soap}, ovvero Simple Object Access Protocol, è un protocollo per lo scambio di messaggi tra componenti software.\\\\
 I webservices php comunicano anche con le applicazioni mobile, per Android e iOS, sempre tramite protocollo \gls{soap}.\\
@@ -246,8 +255,9 @@ Cominciamo con la schermata di login.\\
 	\centering 
 	\includegraphics[scale = 0.2]{immagini/app iOS/login-iOS.jpeg} 
 	\caption {App iOS, schermata di Login}
+	\label{fig:2-14}
 \end{figure}
-\\Qui il tecnico dovrà inserire le proprie credenziali e accederà alla gestione delle chiamate di servizio a lui assegnate.
+\\In figura \ref{fig:2-14} il tecnico dovrà inserire le proprie credenziali e accederà alla gestione delle chiamate di servizio a lui assegnate.
 \newpage
 \begin{flushleft}
 	Continuiamo con la schermata Principale dell'app.
@@ -257,21 +267,23 @@ Cominciamo con la schermata di login.\\
 	\centering 
 	\includegraphics[scale = 0.13]{immagini/app iOS/elenco-interventi-iOS.jpeg} 
 	\caption {App iOS, schermata Principale}
+	\label{fig:2-15}
 \end{figure}
-Qui sotto possiamo vedere il calendario e la posizione della o delle chiamate di servizio da eseguire.\\
+In figura \ref{fig:2-15} possiamo vedere il calendario e la posizione della o delle chiamate di servizio da eseguire.\\
 \begin{figure}[!h] 
 	\centering 
 	\includegraphics[scale = 0.13]{immagini/app iOS/calendario-iOS.jpeg} 
 	\caption {App iOS, schermata Calendario}
 \end{figure}
 \newpage
-Infine, abbiamo i dettagli della chiamata di servizio selezionata.\\
+
 \begin{figure}[!h] 
 	\centering 
 	\includegraphics[scale = 0.2]{immagini/app iOS/intervento-iOS.jpeg} 
 	\caption {App iOS, schermata Intervento}
+	\label{fig:2-17}
 \end{figure}
-\\Qui possiamo vedere i vari dettagli della chiamata di servizio, ad esempio:
+Infine, in figura \ref{fig:2-17} abbiamo i dettagli della chiamata di servizio selezionata, dove possiamo vedere i vari dettagli della chiamata di servizio, ad esempio:
 \begin{itemize}
 	\item posizione del cliente;
 	\item stato dell'intervento;
@@ -286,32 +298,33 @@ Cominciamo a esplorare l'applicazione dalla schermata di login.\\
 	\centering 
 	\includegraphics[scale = 0.2]{immagini/app Android/login-android.jpeg} 
 	\caption {App Android, schermata di Login}
+	\label{fig:2-18}
 \end{figure}
-Qui il tecnico dovrà inserire le proprie credenziali.\\
+In figura \ref{fig:2-18} il tecnico dovrà inserire le proprie credenziali.\\
 \newpage
-\begin{flushleft}
-	Continuiamo con la schermata Principale dell'app.\\
-	La schermata dove si possono vedere le chiamate assegnate a questo tecnico.
-\end{flushleft}
 \begin{figure}[!h] 
 	\centering 
 	\includegraphics[scale = 0.11]{immagini/app Android/elenco-interventi-android.jpeg} 
 	\caption {App Android, schermata Principale}
+	\label{fig:2-19}
 \end{figure}
-Qui sotto possiamo vedere la schermata calendario dell'app.\\
+In figura \ref{fig:2-19} possiamo vedere la schermata Principale dell'app, dove si possono vedere le chiamate assegnate al tecnico che ha eseguito l'accesso nell'applicazione.
 \begin{figure}[!h] 
 	\centering 
 	\includegraphics[scale = 0.11]{immagini/app Android/calendario-android.jpeg}
 	\caption {App Android, schermata Calendario}
+	\label{fig:2-20}
 \end{figure}
+In figura \ref{fig:2-20} possiamo vedere la schermata calendario dell'app.\\
 \newpage
 Infine, abbiamo i dettagli della chiamata di servizio selezionata.\\
 \begin{figure}[!h] 
 	\centering 
 	\includegraphics[scale = 0.2]{immagini/app Android/intervento-android.jpeg} 
 	\caption {App Android, schermata Intervento}
+	\label{fig:2-21}
 \end{figure}
-\\Qui possiamo vedere i vari dettagli della chiamata di servizio, ad esempio:
+\\In figura \ref{fig:2-21} possiamo vedere i vari dettagli della chiamata di servizio, ad esempio:
 \begin{itemize}
 	\item posizione del cliente;
 	\item attrezzatura che necessita dell'intervento;
