@@ -3,7 +3,7 @@
 % !TEX root = ../tesi.tex
 
 %**************************************************************
-\chapter{Descrizione infrastruttura preesistente}
+\chapter{Infrastruttura Preesistente e tecnologie coinvolte}
 \label{cap:descrizione-architettura}
 %**************************************************************
 
@@ -14,6 +14,8 @@
 	\includegraphics[scale = 0.4]{immagini/architettura-globale.png} 
 	\caption{Schema di rappresentazione modulo gestionale ERP SAP, e moduli aggiunti dall'azienda intorno al gestionale}
 \end{figure}\\
+L'azienda ha una infrastruttura per collegare il gestionale a delle applicazioni smartphone ed un portale web. Si basa su 3 moduli che si connettono tramite protocollo \gls{soap}.
+\\
 Da quest'immagine possiamo notare i tre moduli principali:
 \begin{itemize}
 	\item \textbf{ERP SAP:} il modulo del gestionale;
@@ -34,7 +36,7 @@ Nel client SAP verrà applicato l'applicazione add-on, mentre nei webservices ph
 ERP SAP rappresenta il modulo del gestionale, in particolare nel nostro caso abbiamo come gestionale il SAP Business One.\\
 ERP è l'acronimo di Enterprise Resource Planning.\\SAP è l'acronimo di Systems, Applications, Products.\\\\
 SAP è un'azienda leader nel settore di ERP, e i suoi prodotti sono dei gestionali, ovvero dei software ERP.\\\\
-Un software ERP è un tipo di software che le organizzazioni utilizzano per gestire le attività commerciali quotidiane, come ad esempio contabilità, project management, gestione del rischio e operazioni e gestione della catena di distribuzione.\\\\
+Il gestionale SAP è un tipo di software che le organizzazioni utilizzano per gestire le attività commerciali quotidiane, come ad esempio contabilità, project management, gestione del rischio e operazioni e gestione della catena di distribuzione.\\\\
 Come possiamo vedere in Figura 2.2, il SAP è suddiviso in client e server.\\
 Il server può essere basato su :
 \begin{itemize}
@@ -50,7 +52,7 @@ I due gestionali più famosi di SAP sono:
 Questo progetto di stage è stato incentrato intorno al SAP Business One, dunque ora entreremo più nel dettaglio, su quest'ultimo.
 \newpage
 \subsection{SAP Business One}
-SAP Business One, abbreviato a SAB B1, è un sofware ERP basato sulle piccole/medie imprese.
+SAP Business One, abbreviato a SAB B1, è un sofware ERP per le piccole/medie imprese.
 \\\\Questo gestionale è attualmente alla versione 10, rilasciata a marzo 2020, e rispetto al SAP R/3 consente molte più personalizzazione per essere adatto alle esigenze più disparate.
 \\\\Come detto in precedenza è un tipico software con modello Client-server.
 \begin{itemize}
@@ -316,3 +318,35 @@ Infine, abbiamo i dettagli della chiamata di servizio selezionata.\\
 	\item dati e dettagli dell'intervento.
 \end{itemize}
 \newpage
+\section{Tecnologie coinvolte}
+In questa sezione approfondiremo le tecnologie coinvolte durante lo stage:
+\begin{itemize}
+    \item {\textbf{PHP:}} Insieme ad Apache viene utilizzato per sviluppare applicazioni web lato server.
+	
+	In questo caso, viene utilizzato dall'azienda per lo sviluppo e gestione dei webservice sui server \gls{aws}.
+	\item {\textbf{VB.NET:}} Linguaggio di programmazione per programmare gli add-ons, su Visual Studio, utilizzando le librerie \gls{sapb1}.
+	\item {\textbf{C\#:}} Linguaggio di programmazione alternativo per programmare gli add-ons.
+	
+	Sempre su Visual Studio, utilizzando le librerie fornite dalla \gls{sapb1} SDK.
+    \item {\textbf{SoapUI:}} Applicazione utilizzata per testare ed interagire con i webservices PHP, con protocollo \gls{soap}.
+	
+	E' possibile inserire una chiamata e l'applicazione ritorna una risposta dopo aver interagito con i webservice.
+    \item {\textbf{HeidiSQL:}} Strumento di gestione di databases, quali MySQL, MariaDB, InnoDB.
+	
+	In questo caso utilizzato per il database MySQL del server \gls{aws}, per controllare che le operazioni di webservices modifichino o meno il database.
+    \item {\textbf{MIcrosoft Visual Studio:}} Strumento di sviluppo software, \gls{ide}, utilizzato per programmare codice di vario tipo, da applicazione desktop ad app mobile, e raramente utilizzato per applicazioni web.
+	
+	In questo caso necessario per programmare gli add-ons, poichè le librerie necessarie sono predisposte per Visual Studio.
+	\item {\textbf{Microsoft SQL Server Management Studio (SSMS):}} Applicazione utilizzata per gestire i database, viene utilizzata particolarmente per i server SQL Server.
+	
+	Nel nostro caso l'applicazione viene utilizzata per accedere direttamente ai database del server SAP.
+	\item {\textbf{Remote Desktop:}} Applicazione preinstallata su Windows per accedere ad altri computer nella stessa rete locale.
+	
+	Viene utilizzata per accedere ai server SAP, presenti nella rete locale aziendale.
+	\item {\textbf{Domino Lotus Notes:}} Applicazione utilizzata principalmente per la mail aziendale.
+	
+	Contiene però altre funzionalità quali un calendario aziendale e un server condiviso (domino) aziendale, che comprende database di fatture e password per accedere a diversi software aziendali o di clienti dell'azienda.
+    \item {\textbf{Postman:}} Applicazione utilizzata per gestire e testare le API.
+    
+    Nel caso dell'azienda è stata utilizzata principalmente per controllare il corretto funzionamento e testare nuovi tipi di richieste sui webservices REST API di \gls{sapb1}.
+\end{itemize} 

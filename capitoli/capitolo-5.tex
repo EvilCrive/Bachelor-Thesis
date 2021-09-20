@@ -19,9 +19,9 @@ Nel corso dello stage l'azienda ha avuto necessità di apportare modifiche a que
 
 Sono 3 ampliamenti, ora li elenchiamo brevemente:
 \begin{enumerate}
-	\item Aggiunta di un campo "idext";
-	\item Aggiunta di un campo "extraj\_module", nel webservice di inserimento di un intervento;
-	\item Aggiunta di un campo "extraj\_module", nel webservice di lettura dettagli.
+            \item Aggiunta di un campo "idext", rappresentante l'id esterno di un intervento;
+            \item Aggiunta nel webservice di aggiunta intervento di un campo "extraj\_module", rappresentante informazioni aggiuntive sull'intervento, sotto forma di stringa;
+            \item Aggiunta del campo "extraj\_module", anche nel webservice di lettura degli interventi.
 \end{enumerate}
 
 Ora approfondiamo più nel dettaglio questi ampliamenti.
@@ -30,10 +30,8 @@ Ora approfondiamo più nel dettaglio questi ampliamenti.
 
 \section{Ampliamenti webservices}
 \subsection{Primo ampliamento}
-Il primo ampliamento riguarda la modifica del webservice:
-\begin{itemize}
-	\item \textbf{MokersSyncGetActivities}.
-\end{itemize}
+Il primo ampliamento riguarda la modifica del webservice:   \textbf{MokersSyncGetActivities}.
+
 
 \newspace
 \begin{flushleft}
@@ -86,10 +84,8 @@ Il primo ampliamento riguarda la modifica del webservice:
 \newpage
 
 \subsection{Secondo ampliamento}
-Il secondo ampliamento riguarda la modifica del webservice:
-\begin{itemize}
-	\item \textbf{MokersSyncNewActivity}.
-\end{itemize}
+Il secondo ampliamento riguarda la modifica del webservice:  \textbf{MokersSyncNewActivity}.
+
 \begin{flushleft}
 	In particolare l'ampliamento riguarda l'aggiunta di un nuovo campo extraj\_module, come  stringa.
 	
@@ -161,10 +157,8 @@ Il secondo ampliamento riguarda la modifica del webservice:
 \newpage
 
 \subsection{Terzo ampliamento}
-Il terzo ampliamento riguarda la modifica del webservice:
-\begin{itemize}
-	\item \textbf{MokersSyncGetActivities}.
-\end{itemize}
+Il terzo ampliamento riguarda la modifica del webservice:  \textbf{MokersSyncGetActivities}.
+
 \begin{flushleft}
 	
 	In particolare l'ampliamento riguarda l'aggiunta di un campo extraj\_module nella funzione che data una chiamata di servizio ritorna tutti i dettagli.
