@@ -7,30 +7,6 @@
 \label{cap:introduzione}
 %**************************************************************
 
-\section{Descrizione capitoli}
-\begin{description}
-	\item[{\hyperref[cap:descrizione-architettura]{Il secondo capitolo}}] descrive l'architettura software dell'infrastruttura preesistente;
-	
-	\item[{\hyperref[cap:descrizione-stage]{Il terzo capitolo}}] approfondisce la descrizione dello stage, introdotta a grandi linea in questo capitolo introduttivo;
-	
-	\item[{\hyperref[cap:sviluppo-addon]{Il quarto capitolo}}] descrive analisi e sviluppo dell'add-on;
-	
-	\item[{\hyperref[cap:webservices]{Il quinto capitolo}}] descrive le modifiche effettuate ai webservices in \gls{aws};
-	
-	\item[{\hyperref[cap:tecnologie-coinvolte]{Il sesto capitolo}}] descrive le tecnologie utilizzate per lo sviluppo dell'addon e ampliamento dei webservices;
-	
-	\item[{\hyperref[cap:conclusioni]{Il settimo capitolo}}] trae le conclusioni finali.
-\end{description}
-\section{Organizzazione del testo}
-
-\noindent Esempio di utilizzo di un termine nel glossario :\\\gls{api}\\ \\
-\noindent Esempio di citazione in linea :\\\cite{site:sap-b1-wikipedia};\\\\
-\noindent I termini riportati nel glossario vengono evidenziati :\\\emph{parola}\glsfirstoccur\\ \noindent I termini in lingua straniera o del gergo tecnico :\\ \emph{corsivo}\\
-
-
-%**************************************************************
-
-
 \section{L'azienda}
 \begin{figure}[!h] 
 	\centering 
@@ -53,10 +29,37 @@ Tra i principali prodotti venduti e installati dall'azienda sono presenti:
 
 %**************************************************************
 \section{Descrizione dello stage}
+L'azienda è stata fin da subito interessata nell'espandere le proprie conoscenze attraverso il contatto con nuove persone, ovvero noi studenti, oltre ad espandere il progetto di stage proposto con protipazione di un add-on e ampliamento di webservices.
 Il progetto di stage riguarda:
 \begin{itemize}
 	\item apprendimento del gestionale SAP e dei vari moduli connessi ad esso dall'azienda;
-	\item lo sviluppo di un applicazione add-on da applicare al client SAP;
-	\item la modifica di alcuni webservices che connettono il client SAP ad un database secondario \gls{aws}.
-\end{itemize}
+	\item lo sviluppo di un applicazione add-on da applicare al client SAP:
+	\begin{itemize}
+            \item Quest'add-on consiste nell'aggiunta di una funzionalità di stampa di un form del SAP su file esterno oppure stampa come finestra di messaggio, in una finestra all'interno del client.
+        \end{itemize}
+    \item la modifica di alcuni webservices che connettono il client SAP ad un database secondario \gls{aws}, in particolare:
+        \begin{itemize}
+            \item Aggiunta di un campo "idext", rappresentante l'id esterno di un intervento;
+            \item Aggiunta nel webservice di aggiunta intervento di un campo "extraj\_module", rappresentante informazioni aggiuntive sull'intervento, sotto forma di stringa;
+            \item Aggiunta del campo "extraj\_module", anche nel webservice di lettura degli interventi.
+        \end{itemize}
+	\end{itemize}
 Nel prossimo capitolo vedremo le varie componenti del gestionale e gli altri moduli, per poi poter spiegare più approfonditamente il progetto di stage.
+
+
+
+
+\section{Descrizione capitoli}
+\begin{description}
+	\item[{\hyperref[cap:descrizione-architettura]{Il secondo capitolo}}] descrive l'architettura software dell'infrastruttura preesistente;
+	
+	\item[{\hyperref[cap:descrizione-stage]{Il terzo capitolo}}] approfondisce la descrizione dello stage, introdotta a grandi linea in questo capitolo introduttivo;
+	
+	\item[{\hyperref[cap:sviluppo-addon]{Il quarto capitolo}}] descrive analisi e sviluppo dell'add-on;
+	
+	\item[{\hyperref[cap:webservices]{Il quinto capitolo}}] descrive le modifiche effettuate ai webservices in \gls{aws};
+	
+	\item[{\hyperref[cap:tecnologie-coinvolte]{Il sesto capitolo}}] descrive le tecnologie utilizzate per lo sviluppo dell'addon e ampliamento dei webservices;
+	
+	\item[{\hyperref[cap:conclusioni]{Il settimo capitolo}}] trae le conclusioni finali.
+\end{description}
