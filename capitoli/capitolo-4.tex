@@ -19,7 +19,7 @@
 	Lo scopo di quest'add-on è la stampa di un form o tabella di un modulo di SAP, ad esempio il form Scheda Attrezzatura, oppure l'esportazione su file esterno.
 	\item Quest'applicazione è stata codificata in Microsoft Visual Studio, con le librerie di SAP Business One, in linguaggio C\#.
 	
-	Per realizzarlo c'è stato un periodo di formazione personale su il linguaggio C\# e sulle librerie di SAP per lo sviluppo degli add-on.
+	Per realizzarlo c'è stato un periodo di formazione personale sul linguaggio C\# e sulle librerie di SAP per lo sviluppo degli add-on.
 \end{flushleft}
 \vspace{1em}
 
@@ -65,7 +65,7 @@ Da un'attenta analisi dei requisiti e degli use case effettuata sul progetto è 
 
 Sono stati individuati diversi tipi di requisiti e si è quindi fatto utilizzo di un codice identificativo per distinguerli.
 
-Il codice dei requisiti è così strutturato R(F/Q/V)(N/D/O) dove:
+Il codice dei requisiti è così strutturato R(F/Q/V)(O/D/F) dove:
 \begin{enumerate}
 	\item[R =] requisito
 	\item[F =] funzionale
@@ -142,10 +142,10 @@ Come possiamo notare in figura \ref{fig:4-4} abbiamo due pulsanti:
 \newpage
 
 \begin{flushleft}
-	Ora attiviamo l'add-on, per attivare l'add-on si può:
+	Ora attiviamo l'add-on:
 \end{flushleft}
 \begin{itemize}
-	\item installare l'addon nel client SAP locale;
+	\item installare l'add-on nel client SAP locale;
 	\item compilare e farlo eseguire su Microsoft Visual Studio, senza averlo installato nel client SAP;
 	\item nel caso sia installato nel client SAP, si può impostare l'attivazione manuale o automatica;
 	\item nel caso di attivazione manuale, bisogna andare sulle opzioni degli add-on installati ed attivarlo.
@@ -190,7 +190,7 @@ Cliccando il pulsante Stampa si aprirà una nuova finestra.
 \end{itemize}
 
 \begin{flushleft}
-	Per come è ora programmato l'add-on, i file vengono salvati nella cartella dov'è installato l'add-on, in particolare vengono chiamati rispettivamente \textbf{file.txt} per il file TXT e \textbf{filejson.json} per il file JSON.
+	I file vengono salvati nella cartella dov'è installato l'add-on, in particolare vengono chiamati rispettivamente \textbf{file.txt} per il file TXT e \textbf{filejson.json} per il file JSON.
 	
 	Se questi file esistono già nella cartella, e viene premuto nuovamente il pulsante di salvataggio, i file verranno sovrascritti dall'ultimo file.
 	
@@ -218,15 +218,22 @@ Cliccando il pulsante Stampa si aprirà una nuova finestra.
 \newpage
 
 \section{Accettazione}
-Riguardo la Verifica e Validazione, ovvero l'Accettazione, non abbiamo alcun test d'unità e test automatico.
+\begin{flushleft}
 
-Abbiamo invece una procedura per verificare il corretto funzionamento dell'applicazione, riportata qui vi seguito.
+Riguardo la Verifica e Validazione, ovvero l'Accettazione, non abbiamo alcun test d'unità e test automatico.
+Dunque per verificare l'add-on abbiamo una sequenza di operazioni da eseguire per verificarne il corretto funzionamento.
+\vspace{1em}
+
+
+La procedura per verificare il corretto funzionamento dell'applicazione è la seguente:
+
+\end{flushleft}
 
 \begin{enumerate}
 	\item Accedere al SAP Business One con le proprie credenziali;
 	\item Attivare l'add-on dalle opzioni del client;
 	\item Aprire il form Scheda Attrezzatura nel modulo dei Servizi;
-	\item Selezionare un istanza di attrezzatura esistente, usualmente attraverso il numero di fabbrica, essendo chiave univoca di questa tabella;
+	\item Selezionare un'istanza di attrezzatura esistente, usualmente attraverso il numero di fabbrica, essendo chiave univoca di questa tabella;
 	\item Cliccare il pulsante Stampa;
 	\item Verificare che le informazioni stampate nella nuova finestra di messaggio apertasi corrispondano alle informazioni del form;
 	\item Cliccare Save as JSON;
@@ -235,7 +242,7 @@ Abbiamo invece una procedura per verificare il corretto funzionamento dell'appli
 	\item Verificare che il contenuto dei file corrisponda alle informazioni del form.
 \end{enumerate}
 
-Se non ci sono stati problemi in questi step, in particolare se le informazioni stampate nella finestra di messaggio e le informazioni salvate nei due file corrispondono alle informazioni presenti nel form Scheda anagrafica attrezzatura, l'add-on può considerarsi verificato e valido.
+Se non ci sono stati problemi in questi step, in particolare se le informazioni stampate nella finestra di messaggio e le informazioni salvate nei due file corrispondono alle informazioni presenti nel form Scheda anagrafica attrezzatura, l'add-on può considerarsi verificato e validato.
 
 \subsection{Requisiti soddisfatti}
 Logicamente i requisiti funzionali sono stati tutti soddisfatti, eccone qui una piccola tabella.

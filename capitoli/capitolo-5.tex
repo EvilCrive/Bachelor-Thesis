@@ -15,7 +15,7 @@ Altra componente dell'attività di stage sono i 3 ampliamenti dei webservices PH
 
 Questi webservices sono presenti sotto forma di vari file PHP, con molte funzioni che interagiscono fra di loro.
 
-Nel corso dello stage l'azienda ha avuto necessità di apportare modifiche a queste funzioni, dunque io e l'altro stagista in azienda, abbiamo lavorato a questi ampliamenti.
+Nel corso dello stage si è lavorato su questi ampliamenti dei webservices PHP preesistenti.
 
 Sono 3 ampliamenti, ora li elenchiamo brevemente:
 \begin{enumerate}
@@ -35,7 +35,7 @@ Il primo ampliamento riguarda la modifica del webservice:  \\ \textbf{MokersSync
 
 \newspace
 \begin{flushleft}
-	In particolare l'ampliamento riguarda l'aggiunta di un campo idext nella funzione che ritorna una o più chiamate di servizio e data una chiamata di servizio ritorna tutti i suoi dettagli.
+	In particolare l'ampliamento riguarda l'aggiunta di un campo idext nella funzione che restituisce una o più chiamate di servizio e data una chiamata di servizio ritorna tutti i suoi dettagli.
 	
 	Tra questi dettagli dobbiamo aggiungere il dettaglio di idext, ovvero id esterno, la chiave esterna della tabella delle chiamate di servizio nel database.
 \end{flushleft}
@@ -56,7 +56,7 @@ Il primo ampliamento riguarda la modifica del webservice:  \\ \textbf{MokersSync
 \newpage
 
 \begin{flushleft}
-	Qui di seguito gli ultimi due screen relativi a questo ampliamento, più di implementazione interna di funzione PHP.
+	Nelle figure \ref{fig:5-2} e \ref{fig:5-3} due screenshot relativi a questo ampliamento, di implementazione interna della funzione PHP.
 \end{flushleft}
 \begin{figure}[!h] 
 	\centering
@@ -76,7 +76,7 @@ Il primo ampliamento riguarda la modifica del webservice:  \\ \textbf{MokersSync
 \begin{flushleft}
 	In queste funzioni per il webservice \textbf{MokersSyncGetActivities} viene utilizzato un array interno, di implementazione, e un array di ritorno.
 	
-	Nelle figure \ref{fig:5-2} e \ref{fig:5-3}  qui sopra possiamo vedere:
+	Nelle figure \ref{fig:5-2} e \ref{fig:5-3} possiamo notare:
 	\begin{itemize}
 		\item Aggiunta di idext nella struttura dell'array interno (classe MokersFilters);
 		\item Trascrizione di idext, nel caso esista nell'array interno, dall'array interno all'array di ritorno.
@@ -94,7 +94,7 @@ Il secondo ampliamento riguarda la modifica del webservice: \\ \textbf{MokersSyn
 	
 	Quando si crea un nuovo intervento, o chiamata di servizio, si può aggiungere tra i dettagli dell'intervento questo campo extraj\_module.
 	
-	Qui di seguito gli screen che mostrano le modifiche effettuate alle funzioni del webservice di creazione di un nuovo intervento.
+	In figura \ref{fig:5-4} e \ref{fig:5-5} abbiamo gli screenshot che mostrano le modifiche effettuate alle funzioni del webservice di creazione di un nuovo intervento.
 \end{flushleft}
 \newspace
 \begin{figure}[!h] 
@@ -107,7 +107,7 @@ Il secondo ampliamento riguarda la modifica del webservice: \\ \textbf{MokersSyn
 \begin{flushleft}
 	In figura \ref{fig:5-4} possiamo vedere la funzione in \gls{wsdlg} del webservice \textbf{MokersSyncNewActivity}, che crea una chiamata di servizio(Activity) ed inserisce i vari dettagli. 
 	
-	Questa funzione scrive nel database le chiamate di servizio una nuova riga, ovvero una nuova voce della tabella del database.
+	Questa funzione scrive nel database le chiamate di servizio in una nuova riga, ovvero una nuova voce della tabella del database.
 \end{flushleft}
 
 \newpage
@@ -122,7 +122,7 @@ Il secondo ampliamento riguarda la modifica del webservice: \\ \textbf{MokersSyn
 \newspace
 \begin{flushleft}
 	
-	Quest'altro screen in figura \ref{fig:5-5} invece, legge dagli input del webservice i parametri, e se extraj\_module esiste, lo aggiunge nell'array interno \textbf{\$taskData}.
+	Lo screenshot in figura \ref{fig:5-5} invece, legge dagli input del webservice i parametri, e se extraj\_module esiste, lo aggiunge nell'array interno \textbf{\$taskData}.
 	
 \end{flushleft}
 \newspace
@@ -168,11 +168,11 @@ Il terzo ampliamento riguarda la modifica del webservice:  \textbf{MokersSyncGet
 
 \begin{flushleft}
 	
-	In particolare l'ampliamento riguarda l'aggiunta di un campo extraj\_module nella funzione che data una chiamata di servizio ritorna tutti i dettagli.
+	In particolare l'ampliamento riguarda l'aggiunta di un campo extraj\_module nella funzione che data una chiamata di servizio restituisce tutti i dettagli.
 	
 	Tra questi dettagli dobbiamo aggiungere il dettaglio di extraj\_module, ovvero il campo stringa inserito nel secondo ampliamento.
 	
-	Semplicemente dobbiamo rendere questo webservice in grado di ritornare il campo extraj\_module se è presente nella voce richiesta delle chiamate di servizio.
+	Semplicemente dobbiamo rendere questo webservice in grado di restituire il campo extraj\_module se è presente nella voce richiesta delle chiamate di servizio.
 	
 \end{flushleft}
 \newspace
@@ -184,7 +184,7 @@ Il terzo ampliamento riguarda la modifica del webservice:  \textbf{MokersSyncGet
 \end{figure}
 \newspace
 \begin{flushleft}
-	In figura \ref{fig:5-8} possiamo vedere la funzione di ritorno in \gls{wsdlg} del webservice \textbf{MokersSyncGetActivities}, che ritorna i dettagli di tutte le chiamate di servizio richieste. 
+	In figura \ref{fig:5-8} possiamo vedere la funzione di ritorno in \gls{wsdlg} del webservice \textbf{MokersSyncGetActivities}, che restituisce i dettagli di tutte le chiamate di servizio richieste. 
 	\newspace
 	
 	Questa funzione legge nel database le chiamate di servizio e ritorna un array contenente tutti i dettagli, a questo array di dettagli abbiamo aggiunto come altro campo di ritorno il campo extraj\_module.
@@ -194,14 +194,14 @@ Il terzo ampliamento riguarda la modifica del webservice:  \textbf{MokersSyncGet
 	Questo webservice si chiama payloadMokers, come si può vedere nell'immagine alla riga 1523, ed è contenuto dentro al webservices MokersSyncGetActivites.
 	\newspace
 	
-	Esso rappresenta il payload di una chiamata di servizio, mentre nel webservice principale possono venire ritornate una o più chiamate, in base ai valori dati in input al webservice.
+	Esso rappresenta il payload di una chiamata di servizio, mentre nel webservice principale possono venire restituite una o più chiamate, in base ai valori dati in input al webservice.
 \end{flushleft}
 
 \newpage
 
 \newspace
 \begin{flushleft}
-	Ora mostriamo come la query SELECT, per far capire come si crea l'array di ritorno.
+	Ora mostriamo com'è la query SELECT, per far capire come si crea l'array di ritorno.
 \end{flushleft}
 
 \begin{figure}[!h] 
@@ -333,7 +333,7 @@ Iniziamo con l'accettazione del secondo ampliamento.
 \end{figure}
 
 \begin{flushleft}
-	Come possiamo vedere dallo screen in figura \ref{fig:5-16}, abbiamo come messaggio di stato, \\status\_code, "OK", il che significa che la richiesta è andata a buon fine.
+	Come possiamo vedere dallo screenshot in figura \ref{fig:5-16}, abbiamo come messaggio di stato, \\status\_code, "OK", il che significa che la richiesta è andata a buon fine.
 \end{flushleft}
 \newpage
 \begin{figure}[!h] 
@@ -344,7 +344,7 @@ Iniziamo con l'accettazione del secondo ampliamento.
 \end{figure}
 
 \begin{flushleft}
-	In quest'altro screen in figura \ref{fig:5-17} possiamo vedere una parte interessante del lungo corpo della risposta.
+	In quest'altro screenshot in figura \ref{fig:5-17} possiamo vedere una parte interessante del lungo corpo della risposta.
 	\newspace
 	
 	In particolare possiamo vedere in una delle tante chiamate di servizio contenute nella risposta, che questa mostra nella array rappresentante la chiamata, sia \textbf{idext} che \textbf{extraj\_module}, dunque gli ampliamenti sono verificati e validati.

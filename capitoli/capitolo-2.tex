@@ -11,8 +11,8 @@
 %**************************************************************
 \begin{figure}[!h] 
 	\centering 
-	\includegraphics[scale = 0.4]{immagini/architettura-globale.png} 
-	\caption{Schema di rappresentazione modulo gestionale ERP SAP, e moduli aggiunti dall'azienda intorno al gestionale}
+	\includegraphics[scale = 0.4]{immagini/obiettivi-stage.png} 
+	\caption{Schema di rappresentazione modulo gestionale ERP SAP e moduli aggiunti dall'azienda intorno al gestionale}
 	\label{fig:2-1}
 \end{figure}\\
 L'azienda ha una infrastruttura per collegare il gestionale a delle applicazioni smartphone ed un portale web. \\Si basa su 3 moduli che si connettono tramite protocollo \gls{soap}.
@@ -23,7 +23,7 @@ Dalla figura \ref{fig:2-1} possiamo notare i tre moduli principali:
 	\item \textbf{MyService:} il modulo dei webservices \gls{aws};
 	\item \textbf{MySapp:} il modulo delle applicazioni Android e iOS.\\
 \end{itemize}
-Sulle due parti evidenziate dal cerchio rosso si è basato il mio lavoro in questo stage.
+Sulle due parti evidenziate dal cerchio rosso si è focalizzato il lavoro svolto durante lo stage.
 Nel client SAP verrà applicato l'applicazione add-on, mentre nei webservices php sono state effettuate delle modifiche ad alcune funzioni.
 \section{Descrizione modulo ERP SAP}
 \begin{figure}[!h] 
@@ -50,10 +50,10 @@ I due gestionali più famosi di SAP sono:
 	\item SAP R/3;
 	\item SAP Business One.
 \end{itemize}
-Questo progetto di stage è stato incentrato intorno al SAP Business One, dunque ora entreremo più nel dettaglio, su quest'ultimo.
+Questo progetto di stage è stato incentrato intorno al SAP Business On, dunque ora entreremo più nel dettaglio su quest'ultimo.
 \newpage
 \subsection{SAP Business One}
-SAP Business One, abbreviato a SAB B1, è un sofware ERP per le piccole/medie imprese.
+SAP Business One, abbreviato a SAP B1, è un sofware ERP per le piccole/medie imprese.
 \\\\Questo gestionale è attualmente alla versione 10, rilasciata a marzo 2020, e rispetto al SAP R/3 consente molte più personalizzazione per essere adatto alle esigenze più disparate.
 \\\\Come detto in precedenza è un tipico software con modello Client-server.
 \begin{itemize}
@@ -100,7 +100,7 @@ Ora proseguiamo analizzando le componenti principali del SAP, ovvero:
 \subsection{Client SAP}
 \begin{flushleft}
 	\item Il client SAP utilizza la connessione \gls{odbc} per comunicare con il server SAP.\\ODCB, ovvero Open DataBase Connectivity, è uno standard utilizzato per la connessione tra client e DBMS. 
-	\item Mentre utilizza il protocollo \gls{soap} per comunicare con il webserver \gls{aws} del modulo MyService.
+	\item Il client SAP utilizza il protocollo \gls{soap} per comunicare con il webserver \gls{aws} del modulo MyService.
 \end{flushleft}
 \begin{figure}[!h] 
 	\centering 
@@ -145,9 +145,9 @@ Da qui abbiamo principalmente 3 schermate principali:
 	\item Calendario;
 	\item Interventi.\\
 \end{itemize}
-La schermata Attrezzature mostra in forma tabellare, tutte le attrezzature e macchinari dell'azienda, con i vari dettagli.\\\\
-La schermata Interventi mostra sempre in forma tabellare, i vari interventi richiesti su quale attrezzatura, e i dettagli dell'intervento.\\
-E' presente un altra sezione, nella schermata Interventi, la sezione Interventi In Attesa, che mostra gli interventi che si stanno sincronizzando con il database SAP, che non sono ancora sincronizzati.
+La schermata Attrezzature mostra in forma tabellare tutte le attrezzature e macchinari dell'azienda, con i vari dettagli.\\\\
+La schermata Interventi mostra sempre in forma tabellare i vari interventi richiesti su quale attrezzatura, e i dettagli dell'intervento.\\
+E' presente un'altra sezione, nella schermata Interventi, la sezione Interventi In Attesa, che mostra gli interventi che si stanno sincronizzando con il database SAP, che non sono ancora sincronizzati.
 \newpage
 
 \begin{figure}[!h] 
@@ -167,7 +167,7 @@ Ora continuiamo con la schermata Attrezzature.\\
 \end{figure}
 \\Nella figura \ref{fig:2-8} possiamo vedere tutte le attrezzature, relative all'azienda cliente collegata, e quindi alle credenziali.\\
 Per ogni attrezzatura ci sono alcune azioni, tra cui ricerca ed elenco chiamate di servizio.\\Tra le varie azioni la più interessante è l'apertura di una nuova chiamata di servizio, ovvero richiedere un nuovo intervento, ad esempio una manutenzione o sostituzione di componenti.\\\\
-Ora passiamo alla schermata degli interventi, di cui possiamo conoscerne tutte le caratteristiche principali, come numero e tipo di intervento, data inizio e fine.\\
+Ora passiamo alla schermata degli interventi, di cui possiamo conoscere tutte le caratteristiche principali, come numero e tipo di intervento, data inizio e fine.\\
 E anche la causale e lo stato, per stato si intende se l'intervento è già stato effettuato.
 \begin{figure}[!h] 
 	\centering 
@@ -175,7 +175,7 @@ E anche la causale e lo stato, per stato si intende se l'intervento è già stat
 	\caption {Portale Web, sezione di Login}
 \end{figure}
 \\\\Infine, all'interno della schermata degli interventi, abbiamo la sezione "In attesa", per gli interventi in attesa di sincronizzazione.\\
-Questi sono gli interventi creati tramite questo portale web, che si stanno sincronizzando con il server SAP, lo stato verde indicano che si sono sincronizzati, quello rosso che non si sono ancora sincronizzati.
+Questi sono gli interventi creati tramite questo portale web, che si stanno sincronizzando con il server SAP, lo stato verde indica che si sono sincronizzati, quello rosso che non si sono ancora sincronizzati.
 \begin{figure}[!h] 
 	\centering 
 	\includegraphics[scale = 0.25]{immagini/portale/interventi-in-attesa.png} 
@@ -184,10 +184,8 @@ Questi sono gli interventi creati tramite questo portale web, che si stanno sinc
 \pagebreak
 \subsection{Webservices REST API}
 \begin{flushleft}
-	\item Recentemente, su SAP Business One è stato introdotto un service layer, composto da webservices REST API, che comunicano tramite protocollo ODATA (open data protocol).
-	\item Questi webservices permettono di accedere direttamente agli oggetti SAP,\\senza passare per il client SAP.\\Gli oggetti SAP sono una struttura dati generata dalla logica del server SAP, \\che raggruppano e ordinano secondo certe logiche i dati presenti nel database.
-	\\ Per poter ottenere questi dati bisogna fare una richiesta http al webserver, il quale invierà un file json con gli oggetti SAP richiesti.
-	\\L'utilizzo più comune di questi webservices è un portale web che usi le informazioni prese tramite queste richieste HTTP. 
+	Recentemente, su SAP Business One è stato introdotto un service layer, composto da webservices REST API, che comunicano tramite protocollo ODATA (open data protocol).\\
+	Questi webservices permettono di accedere direttamente agli oggetti SAP, senza passare per il client SAP. Gli oggetti SAP sono una struttura dati generata dalla logica del server SAP, che raggruppano e ordinano secondo certe logiche i dati presenti nel database.Per poter ottenere questi dati bisogna fare una richiesta http al webserver, il quale invierà un file json con gli oggetti SAP richiesti.\\L'utilizzo più comune di questi webservices è un portale web il quale utilizza le informazioni prese tramite queste richieste HTTP. 
 \end{flushleft}
 \begin{figure}[!h] 
 	\centering 
@@ -197,7 +195,7 @@ Questi sono gli interventi creati tramite questo portale web, che si stanno sinc
 \end{figure}
 \begin{flushleft}
 	\item Come si può osservare in figura \ref{fig:2-11}, sono presenti le richieste HTTP principali per interagire con i webservices REST API del Service Layer di SAP.
-	\item A seguito di una richiesta HTTP viene elaborata la richiesta.\\Viene restituito un oggetto JSON in caso di fallimento, comunicando l'errore causante il fallimento.\\In caso di successo viene restituito un oggetto JSON, ove necessario, oppure un messaggio vuote che rappresenta il successo dell'operazione.
+	\item A seguito di una richiesta HTTP viene elaborata la richiesta.\\Viene restituito un oggetto JSON in caso di fallimento, comunicando l'errore causante il fallimento.\\In caso di successo viene restituito un oggetto JSON, ove necessario, oppure un messaggio vuoto che rappresenta il successo dell'operazione.
 \end{flushleft}
 \section{Descrizione modulo MyService}
 \begin{figure}[!h] 
@@ -246,10 +244,10 @@ Elenchiamo alcune delle funzioni più comuni:
 \subsection{Applicazioni mobile}
 Il modulo MyService si collega con questo modulo MySapp, attraverso il protocollo \gls{soap} utilizzando i webservices PHP del modulo MyService.\\
 Sono state sviluppate due applicazioni per i clienti che risolvono le chiamate di servizio on-site, ovvero di persona.\\
-In queste applicazioni, il tecnico esegue il login, con le sue credenziali e successivamente può gestire le chiamate di servizio a egli assegnate.\\
+In queste applicazioni, il tecnico esegue il login, con le sue credenziali e successivamente può gestire le chiamate di servizio a lui assegnate.\\
 Ora vediamo velocemente com'è stato impostato il layout delle due applicazioni.
 \subsubsection{Applicazione iOS}
-Per lo sviluppo dell'applicazione iOS è stato utilizzando C\# e Xamarin.\\\\
+Per lo sviluppo dell'applicazione iOS è stato utilizza C\# e Xamarin.\\\\
 Cominciamo con la schermata di login.\\
 \begin{figure}[!h] 
 	\centering 
