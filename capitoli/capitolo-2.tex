@@ -3,7 +3,7 @@
 % !TEX root = ../tesi.tex
 
 %**************************************************************
-\chapter{Infrastruttura Preesistente e tecnologie coinvolte}
+\chapter{Infrastruttura Preesistente e tecnologie}
 \label{cap:descrizione-architettura}
 %**************************************************************
 
@@ -67,10 +67,10 @@ Infine, come detto in precedenza, SAB B1 consente di effettuare molte personaliz
 	\label{fig:2-3}
 \end{figure}
 \newpage
-\begin{flushleft}
+
 	Nella figura \ref{fig:2-3} possiamo vedere uno schema sul SAP Business One, ufficiale dalla documentazione SAP.\\
 	Possiamo vedere i vari client con cui accedere al SAP:
-\end{flushleft}
+
 
 \begin{itemize}
 	\item \textbf{B1 Client:} ovvero il client SAP desktop;
@@ -98,21 +98,21 @@ Ora proseguiamo analizzando le componenti principali del SAP, ovvero:
 \end{itemize}
 \newpage
 \subsection{Client SAP}
-\begin{flushleft}
+
 	\item Il client SAP utilizza la connessione \gls{odbc} per comunicare con il server SAP.\\ODCB, ovvero Open DataBase Connectivity, è uno standard utilizzato per la connessione tra client e DBMS. 
 	\item Il client SAP utilizza il protocollo \gls{soap} per comunicare con il webserver \gls{aws} del modulo MyService.
-\end{flushleft}
+
 \begin{figure}[!h] 
 	\centering 
 	\includegraphics[scale = 0.4]{immagini/client-sap.png} 
 	\caption {Client SAP, aperto sulla scheda "Scheda anagrafica attrezzatura"}
 	\label{fig:2-4}
 \end{figure}
-\begin{flushleft}
+
 	\item Nella figura \ref{fig:2-4} possiamo vedere come appare il Client SAP.\\In questo caso è stata aperta la Scheda anagrafica attrezzatura, del modulo dei Servizi.\\Da notare che questi "moduli" del SAP, differiscono dai moduli coinvolti con il modulo del gestionale (MyService e MySapp), questi sono moduli interni del SAP.
 	\item La scheda anagrafica attrezzatura è una scheda che rappresenta le attrezzature dell'azienda, ad esempio macchine a controllo numerico, lavatrici o condizionatori, e tutti i possibili macchinari dell'azienda.
 	\item Ora vediamo un esempio di cambiamento della GUI di questo client con l'applicazione di un Add-On alla scheda anagrafica attrezzatura.
-\end{flushleft}
+
 \pagebreak
 \begin{figure}[!h] 
 	\centering 
@@ -120,14 +120,14 @@ Ora proseguiamo analizzando le componenti principali del SAP, ovvero:
 	\caption {Client SAP, esempio di modifica GUI di un add-on applicato sulla scheda "Scheda anagrafica attrezzatura"}
 	\label{fig:2-5}
 \end{figure}
-\begin{flushleft}
+
 	\item Come possiamo vedere in figura \ref{fig:2-5} è apparso un nuovo pulsante, che stamperà i dati della scheda.\\Questo è un'esempio molto semplice, ma si possono cambiare altre cose, ad esempio aggiungere o rimuovere campi, o aggiungere funzioni ad eventi, ad esempio messaggi di testo che appaiono cliccando dei campi particolari.
 	\item Questi add-on possono essere programmati tramite Microsoft Visual Studio, con :
 	\begin{itemize}
 		\item \textbf{C\#}, C sharp;
 		\item \textbf{VB.NET}, Visual Basic NET.
 	\end{itemize}
-\end{flushleft}
+
 \newpage
 \subsection{Portale Web}
 Ora mostriamo il portale web, sviluppato dall'azienda, in concomitanza con un'altra azienda specializzata in siti web (mys).\\
@@ -183,20 +183,20 @@ Questi sono gli interventi creati tramite questo portale web, che si stanno sinc
 \end{figure}
 \pagebreak
 \subsection{Webservices REST API}
-\begin{flushleft}
+
 	Recentemente, su SAP Business One è stato introdotto un service layer, composto da webservices REST API, che comunicano tramite protocollo ODATA (open data protocol).\\
-	Questi webservices permettono di accedere direttamente agli oggetti SAP, senza passare per il client SAP. Gli oggetti SAP sono una struttura dati generata dalla logica del server SAP, che raggruppano e ordinano secondo certe logiche i dati presenti nel database.Per poter ottenere questi dati bisogna fare una richiesta http al webserver, il quale invierà un file json con gli oggetti SAP richiesti.\\L'utilizzo più comune di questi webservices è un portale web il quale utilizza le informazioni prese tramite queste richieste HTTP. 
-\end{flushleft}
+	Questi webservices permettono di accedere direttamente agli oggetti SAP, senza passare per il client SAP. Gli oggetti SAP sono una struttura dati generata dalla logica del server SAP, che raggruppano e ordinano secondo certe logiche i dati presenti nel database. Per poter ottenere questi dati bisogna fare una richiesta http al webserver, il quale invierà un file json con gli oggetti SAP richiesti.\\L'utilizzo più comune di questi webservices è un portale web il quale utilizza le informazioni prese tramite queste richieste HTTP. 
+
 \begin{figure}[!h] 
 	\centering 
 	\includegraphics[scale = 0.37]{immagini/api_Format.png} 
 	\caption {Formato delle richieste HTTP per il Service Layer SAP}
 	\label{fig:2-11}
 \end{figure}
-\begin{flushleft}
+
 	\item Come si può osservare in figura \ref{fig:2-11}, sono presenti le richieste HTTP principali per interagire con i webservices REST API del Service Layer di SAP.
 	\item A seguito di una richiesta HTTP viene elaborata la richiesta.\\Viene restituito un oggetto JSON in caso di fallimento, comunicando l'errore causante il fallimento.\\In caso di successo viene restituito un oggetto JSON, ove necessario, oppure un messaggio vuoto che rappresenta il successo dell'operazione.
-\end{flushleft}
+
 \section{Descrizione modulo MyService}
 \begin{figure}[!h] 
 	\centering 
@@ -216,7 +216,7 @@ In particolare, dei servizi \gls{aws}, in questo modulo abbiamo:
 \end{itemize}
 Ora rivolgiamo la nostra attenzione ai webservices PHP, che mettono in relazione questo webserver e il database con il modulo SAP e il modulo MySapp, delle applicazioni mobile, attraverso il protocollo \gls{soap}.
 \subsection{Webservices PHP}
-Come possiamo vedere dalle figure \ref{fig:2-11} e \ref{2-1}, il client SAP comunica con questi webservices PHP, attraverso un add-on che utilizza il protocollo \gls{soap}.\\
+Come possiamo vedere dalle figure \ref{fig:2-11} e \ref{fig:2-1}, il client SAP comunica con questi webservices PHP, attraverso un add-on che utilizza il protocollo \gls{soap}.\\
 Per programmare questi webservices sono state utilizzate le tecnologie Apache e PHP.\\ 
 Il protocollo \gls{soap}, ovvero Simple Object Access Protocol, è un protocollo per lo scambio di messaggi tra componenti software.\\\\
 I webservices php comunicano anche con le applicazioni mobile, per Android e iOS, sempre tramite protocollo \gls{soap}.\\
@@ -257,10 +257,10 @@ Cominciamo con la schermata di login.\\
 \end{figure}
 \\In figura \ref{fig:2-14} il tecnico dovrà inserire le proprie credenziali e accederà alla gestione delle chiamate di servizio a lui assegnate.
 \newpage
-\begin{flushleft}
+
 	Continuiamo con la schermata Principale dell'app.
 	\\In questa schermata si possono vedere le chiamate di servizio assegnate a questo tecnico ancora da eseguire.
-\end{flushleft}
+
 \begin{figure}[!h] 
 	\centering 
 	\includegraphics[scale = 0.13]{immagini/app iOS/elenco-interventi-iOS.jpeg} 

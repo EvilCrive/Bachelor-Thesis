@@ -34,11 +34,11 @@ Il primo ampliamento riguarda la modifica del webservice:  \\ \textbf{MokersSync
 
 
 \newspace
-\begin{flushleft}
+
 	In particolare l'ampliamento riguarda l'aggiunta di un campo idext nella funzione che restituisce una o più chiamate di servizio e data una chiamata di servizio ritorna tutti i suoi dettagli.
 	
 	Tra questi dettagli dobbiamo aggiungere il dettaglio di idext, ovvero id esterno, la chiave esterna della tabella delle chiamate di servizio nel database.
-\end{flushleft}
+
 \newspace
 \begin{figure}[!h] 
 	\centering
@@ -47,17 +47,17 @@ Il primo ampliamento riguarda la modifica del webservice:  \\ \textbf{MokersSync
 	\label{fig:5-1}
 \end{figure}
 \newspace
-\begin{flushleft}
+
 	Nella figura \ref{fig:5-1} possiamo vedere la funzione di ritorno in \gls{wsdlg} del webservice \textbf{MokersSyncGetActivities}, che ritorna i dettagli di tutte le chiamate di servizio (ovvero le Activities) richieste. 
 	
 	Questa funzione legge nel database le chiamate di servizio e ritorna un array contenente tutti i dettagli, a questo array di dettagli abbiamo aggiunto come ultimo campo, il campo idext.
-\end{flushleft}
+
 
 \newpage
 
-\begin{flushleft}
+
 	Nelle figure \ref{fig:5-2} e \ref{fig:5-3} due screenshot relativi a questo ampliamento, di implementazione interna della funzione PHP.
-\end{flushleft}
+
 \begin{figure}[!h] 
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/1ampl_utils_filters.png}
@@ -73,7 +73,7 @@ Il primo ampliamento riguarda la modifica del webservice:  \\ \textbf{MokersSync
 \end{figure}
 \newspace
 \newspace
-\begin{flushleft}
+
 	In queste funzioni per il webservice \textbf{MokersSyncGetActivities} viene utilizzato un array interno, di implementazione, e un array di ritorno.
 	
 	Nelle figure \ref{fig:5-2} e \ref{fig:5-3} possiamo notare:
@@ -83,19 +83,19 @@ Il primo ampliamento riguarda la modifica del webservice:  \\ \textbf{MokersSync
 	\end{itemize}
 	
 	Questo è tutto per il primo ampliamento, ora proseguiamo con il secondo.
-\end{flushleft}
+
 \newpage
 
 \subsection{Secondo ampliamento}
 Il secondo ampliamento riguarda la modifica del webservice: \\ \textbf{MokersSyncNewActivity}.
 
-\begin{flushleft}
+
 	In particolare l'ampliamento riguarda l'aggiunta di un nuovo campo extraj\_module, come  stringa.
 	
 	Quando si crea un nuovo intervento, o chiamata di servizio, si può aggiungere tra i dettagli dell'intervento questo campo extraj\_module.
 	
 	In figura \ref{fig:5-4} e \ref{fig:5-5} abbiamo gli screenshot che mostrano le modifiche effettuate alle funzioni del webservice di creazione di un nuovo intervento.
-\end{flushleft}
+
 \newspace
 \begin{figure}[!h] 
 	\centering
@@ -104,11 +104,11 @@ Il secondo ampliamento riguarda la modifica del webservice: \\ \textbf{MokersSyn
 	\label{fig:5-4}
 \end{figure}
 \newspace
-\begin{flushleft}
+
 	In figura \ref{fig:5-4} possiamo vedere la funzione in \gls{wsdlg} del webservice \textbf{MokersSyncNewActivity}, che crea una chiamata di servizio(Activity) ed inserisce i vari dettagli. 
 	
 	Questa funzione scrive nel database le chiamate di servizio in una nuova riga, ovvero una nuova voce della tabella del database.
-\end{flushleft}
+
 
 \newpage
 
@@ -120,11 +120,11 @@ Il secondo ampliamento riguarda la modifica del webservice: \\ \textbf{MokersSyn
 	\label{fig:5-5}
 \end{figure}
 \newspace
-\begin{flushleft}
+
 	
 	Lo screenshot in figura \ref{fig:5-5} invece, legge dagli input del webservice i parametri, e se extraj\_module esiste, lo aggiunge nell'array interno \textbf{\$taskData}.
 	
-\end{flushleft}
+
 \newspace
 \begin{figure}[!h] 
 	\centering
@@ -134,15 +134,15 @@ Il secondo ampliamento riguarda la modifica del webservice: \\ \textbf{MokersSyn
 \end{figure}
 \newspace
 
-\begin{flushleft}
+
 	In figura \ref{fig:5-6} possiamo vedere l'aggiunta di extraj\_module e il suo valore, se l'array interno della chiamata di servizio contiene un campo extraj\_module non vuoto.
-\end{flushleft}
+
 
 \newpage
 
-\begin{flushleft}
+
 	Ora mostriamo come la query INSERT INTO si sta creando, per far capire cosa significa il precedente screen sull'aggiunta a concatenazione di extraj\_module e il suo valore.
-\end{flushleft}
+
 
 \begin{figure}[!h] 
 	\centering
@@ -151,7 +151,7 @@ Il secondo ampliamento riguarda la modifica del webservice: \\ \textbf{MokersSyn
 	\label{fig:5-7}
 \end{figure}
 
-\begin{flushleft}
+
 	Dalla figura \ref{fig:5-7} si può capire come il webservice crei la query \textbf{\$query\_intervento}, che è una query di tipo INSERT INTO.
 	
 	Questa query inserisce la chiamata di servizio salvata nell'array interno \textbf{\$taskData} nella tabella delle chiamate di servizio.
@@ -159,14 +159,14 @@ Il secondo ampliamento riguarda la modifica del webservice: \\ \textbf{MokersSyn
 	\newspace
 	
 	Proseguiamo con il prossimo ampliamento.
-\end{flushleft}
+
 
 \newpage
 
 \subsection{Terzo ampliamento}
 Il terzo ampliamento riguarda la modifica del webservice:  \textbf{MokersSyncGetActivities}.
 
-\begin{flushleft}
+
 	
 	In particolare l'ampliamento riguarda l'aggiunta di un campo extraj\_module nella funzione che data una chiamata di servizio restituisce tutti i dettagli.
 	
@@ -174,7 +174,7 @@ Il terzo ampliamento riguarda la modifica del webservice:  \textbf{MokersSyncGet
 	
 	Semplicemente dobbiamo rendere questo webservice in grado di restituire il campo extraj\_module se è presente nella voce richiesta delle chiamate di servizio.
 	
-\end{flushleft}
+
 \newspace
 \begin{figure}[!h] 
 	\centering
@@ -183,7 +183,7 @@ Il terzo ampliamento riguarda la modifica del webservice:  \textbf{MokersSyncGet
 	\label{fig:5-8}
 \end{figure}
 \newspace
-\begin{flushleft}
+
 	In figura \ref{fig:5-8} possiamo vedere la funzione di ritorno in \gls{wsdlg} del webservice \textbf{MokersSyncGetActivities}, che restituisce i dettagli di tutte le chiamate di servizio richieste. 
 	\newspace
 	
@@ -195,14 +195,14 @@ Il terzo ampliamento riguarda la modifica del webservice:  \textbf{MokersSyncGet
 	\newspace
 	
 	Esso rappresenta il payload di una chiamata di servizio, mentre nel webservice principale possono venire restituite una o più chiamate, in base ai valori dati in input al webservice.
-\end{flushleft}
+
 
 \newpage
 
 \newspace
-\begin{flushleft}
+
 	Ora mostriamo com'è la query SELECT, per far capire come si crea l'array di ritorno.
-\end{flushleft}
+
 
 \begin{figure}[!h] 
 	\centering
@@ -223,7 +223,7 @@ In base agli input dati al webservice, vengono filtrate le chiamate richieste e 
 \end{figure}
 \newspace
 
-\begin{flushleft}
+
 	Dalla figura \ref{fig:5-10} possiamo vedere che l'array di ritorno è una variabile array bidimensionale \textbf{\$intervento}.
 	\newspace
 	
@@ -235,13 +235,13 @@ In base agli input dati al webservice, vengono filtrate le chiamate richieste e 
 	\newspace
 	
 	Ora proseguiamo con la parte di Verifica e Validazione, che consiste nel controllare che il webservice funzioni, provando a inviare richieste attraverso SoapUI.
-\end{flushleft}
+
 \newspace
 
 \newpage
 
 \section{Verifica e Validazione}
-\begin{flushleft}
+
 	Per verificare che gli ampliamenti siano funzionanti sono stati verificati e validati attraverso un controllo di richiesta/risposta del webservice.
 	\newspace
 	
@@ -252,7 +252,7 @@ In base agli input dati al webservice, vengono filtrate le chiamate richieste e 
 	
 	Ora andremo a vedere per ogni ampliamento la risposta \gls{soap} dei webservice.
 	Il primo ampliamento viene verificato insieme al terzo, essendo due ampliamenti allo stesso webservice.
-\end{flushleft}
+
 \newpage
 
 \subsection{Accettazione secondo ampliamento}
@@ -264,22 +264,22 @@ Iniziamo con l'accettazione del secondo ampliamento.
 	\caption{Secondo Ampliamento webservices, Chiamata  \gls{soap} prima dell'ampliamento}
 	\label{fig:5-10}
 \end{figure}
-\begin{flushleft}
+
 	Dati aziendali quali username, password e mail del tecnico sono stati censurati.
 	
 	In questa richiesta \gls{soap} viene inserita una nuova chiamata di servizio e tra i dettagli si aggiunge un campo extraj\_module con valore "prova".
-\end{flushleft}
+
 \begin{figure}[!h] 
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/accettazione/2ampl_soap_risposta_premodifica.png}
 	\caption{Secondo Ampliamento webservices, Risposta \gls{soap} prima dell'ampliamento}
 	\label{fig:5-11}
 \end{figure}
-\begin{flushleft}
+
 	Se proviamo a dare in input il valore di campo extraj\_module si presenta un errore nella risposta.
 	
 	Prima dell'ampliamento il webservice non si aspetta di ricevere questo input e dunque presenta questo errore di parsing.
-\end{flushleft}
+
 \newpage
 
 \begin{figure}[!h] 
@@ -288,16 +288,16 @@ Iniziamo con l'accettazione del secondo ampliamento.
 	\caption{Secondo Ampliamento webservices, Chiamata \gls{soap} dopo l'ampliamento}
 \end{figure}
 
-\begin{flushleft}
+
 	Rifacciamo la stessa chiamata della figura \ref{fig:5-11}, ma questa volta dopo aver concluso e applicato l'ampliamento.
-\end{flushleft}
+
 
 \begin{figure}[!h] 
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/accettazione/2ampl_soap_risposta_postmodifica.png}
 	\caption{Secondo Ampliamento webservices, Risposta \gls{soap} dopo l'ampliamento}
 \end{figure}
-\begin{flushleft}
+
 	Questa volta non c'è nessun errore, anzi abbiamo una conferma del successo:
 	\begin{itemize}
 		\item OK come status\_code;
@@ -305,15 +305,15 @@ Iniziamo con l'accettazione del secondo ampliamento.
 	\end{itemize}
 	
 	Quindi il campo extraj\_module viene accettato e inserito nella nuova riga del database insieme agli altri dettagli della chiamata indicati nella richiesta \gls{soap}.
-\end{flushleft}
+
 \newpage
 
 \subsection{Accettazione primo e terzo ampliamento}
-\begin{flushleft}
+
 	Proseguiamo con primo e terzo ampliamento.
 	
 	Essendo entrambi sul webservice MokersSyncGetActivities, vengono verificati dalla stessa chiamata e risposta.
-\end{flushleft}
+
 \begin{figure}[!h] 
 	\centering
 	\includegraphics[scale = 0.5]{immagini/webservices/ampliamenti/accettazione/3ampl_soap_chiamata.png}
@@ -321,9 +321,9 @@ Iniziamo con l'accettazione del secondo ampliamento.
 	\label{fig:5-15}
 \end{figure}
 
-\begin{flushleft}
-	In figura \ref{5-15} possiamo vedere la chiamata al webservice, con la richiesta di tutte le chiamate di servizio di un certo tecnico.
-\end{flushleft}
+
+	In figura \ref{fig:5-15} possiamo vedere la chiamata al webservice, con la richiesta di tutte le chiamate di servizio di un certo tecnico.
+
 
 \begin{figure}[!h] 
 	\centering
@@ -332,9 +332,9 @@ Iniziamo con l'accettazione del secondo ampliamento.
 	\label{fig:5-16}
 \end{figure}
 
-\begin{flushleft}
+
 	Come possiamo vedere dallo screenshot in figura \ref{fig:5-16}, abbiamo come messaggio di stato, \\status\_code, "OK", il che significa che la richiesta è andata a buon fine.
-\end{flushleft}
+
 \newpage
 \begin{figure}[!h] 
 	\centering
@@ -343,9 +343,8 @@ Iniziamo con l'accettazione del secondo ampliamento.
 	\label{fig:5-17}
 \end{figure}
 
-\begin{flushleft}
+
 	In quest'altro screenshot in figura \ref{fig:5-17} possiamo vedere una parte interessante del lungo corpo della risposta.
 	\newspace
 	
 	In particolare possiamo vedere in una delle tante chiamate di servizio contenute nella risposta, che questa mostra nella array rappresentante la chiamata, sia \textbf{idext} che \textbf{extraj\_module}, dunque gli ampliamenti sono verificati e validati.
-\end{flushleft}

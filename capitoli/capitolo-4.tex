@@ -13,14 +13,14 @@
 \section{Analisi dei requisiti}
 \subsection{Introduzione}
 
-\begin{flushleft}
+
 	\item Fulcro dell'attività di stage è stata la produzione e sviluppo di un add-on, un'applicazione a maschera, applicabile al client SAP.
 	
 	Lo scopo di quest'add-on è la stampa di un form o tabella di un modulo di SAP, ad esempio il form Scheda Attrezzatura, oppure l'esportazione su file esterno.
 	\item Quest'applicazione è stata codificata in Microsoft Visual Studio, con le librerie di SAP Business One, in linguaggio C\#.
 	
 	Per realizzarlo c'è stato un periodo di formazione personale sul linguaggio C\# e sulle librerie di SAP per lo sviluppo degli add-on.
-\end{flushleft}
+
 \vspace{1em}
 
 
@@ -28,11 +28,11 @@ Continuiamo con la presentazione dei casi d'uso e il tracciamento dei requisiti.
 \newpage
 
 \subsection{Casi d'uso}
-\begin{flushleft}
+
 	Per lo studio dei casi di utilizzo del prodotto sono stati creati dei diagrammi.
 	
 	I diagrammi dei casi d'uso (in inglese \emph{Use Case Diagram}) sono diagrammi di tipo \gls{uml} dedicati alla descrizione delle funzioni o servizi offerti da un sistema, così come sono percepiti e utilizzati dagli attori che interagiscono col sistema stesso.
-\end{flushleft}
+
 
 
 \begin{figure}[!h] 
@@ -107,7 +107,7 @@ Nelle tabelle \ref{tab:requisiti-funzionali} e \ref{tab:requisiti-vincolo} sono 
 \newpage
 
 \section{Realizzazione}
-\begin{flushleft}
+
 	Lo sviluppo dell'add-on è stato effettuato, come detto in precedenza, con linguaggio C\# e attraverso l'\gls{ide} Microsoft Visual Studio.
 	
 	Inoltre è stata usata una delle varie librerie fornite da SAP Business One SDK, ovvero:
@@ -120,13 +120,13 @@ Nelle tabelle \ref{tab:requisiti-funzionali} e \ref{tab:requisiti-vincolo} sono 
 	
 	\vspace{1em}
 	Nel proseguo, viene illustrata una realizzazione tramite uno scenario di utilizzo.
-\end{flushleft}
-\begin{flushleft}
+
+
 	Per prima cosa accediamo al SAP con le credenziali corrette ed entriamo su un form, di un modulo.
 	
 	In questo caso entriamo nel form Scheda Attrezzatura, mostrato in figura \ref{fig:4-4}.
 	
-\end{flushleft}
+
 \begin{figure}[!h] 
 	\centering 
 	\includegraphics[scale = 0.6]{immagini/add-on/addon-scheda-nobutton.jpg} 
@@ -141,31 +141,31 @@ Come possiamo notare in figura \ref{fig:4-4} abbiamo due pulsanti:
 
 \newpage
 
-\begin{flushleft}
+
 	Ora attiviamo l'add-on:
-\end{flushleft}
+
 \begin{itemize}
 	\item installare l'add-on nel client SAP locale;
 	\item compilare e farlo eseguire su Microsoft Visual Studio, senza averlo installato nel client SAP;
 	\item nel caso sia installato nel client SAP, si può impostare l'attivazione manuale o automatica;
 	\item nel caso di attivazione manuale, bisogna andare sulle opzioni degli add-on installati ed attivarlo.
 \end{itemize} 
-\begin{flushleft}
+
 	
 	Una volta attivato l'add-on, riapriamo il modulo Scheda Attrezzatura e vedremo comparire un pulsante nuovo.
 	
-\end{flushleft}
+
 \begin{figure}[!h] 
 	\centering 
 	\includegraphics[scale = 0.6]{immagini/add-on/addon-scheda-yesbutton.jpg} 
 	\caption{Add-On, screenshot dopo l'attivazione dell'add-on}
 	\label{fig:4-5}
 \end{figure}
-\begin{flushleft}
+
 	
 	In figura \ref{fig:4-5} è già stata selezionata un'attrezzatura, in questo caso l'ultima attrezzatura aggiunta nel database.
 	
-\end{flushleft}
+
 
 \newpage
 
@@ -179,30 +179,30 @@ Cliccando il pulsante Stampa si aprirà una nuova finestra.
 	\caption{Add-On, stampa dei contenuti del form su finestra di messaggio}
 	\label{fig:4-6}
 \end{figure}
-\begin{flushleft}
+
 	
 	Dopo aver cliccato il pulsante Stampa, si entra nella finestra mostrata in figura \ref{fig:4-6}, dove abbiamo stampato su finestra di messaggio i contenuti del form; inoltre abbiamo altri 3 pulsanti:
-\end{flushleft}
+
 \begin{itemize}
 	\item \textbf{Exit:} premendo questo pulsante, come dice il nome, usciremo da questa finestra;
 	\item \textbf{Save as TXT:} premendo questo pulsante il contenuto di questa finestra verrà esportato su un file .txt, senza alcuna formattazione aggiuntiva;
 	\item \textbf{Save as JSON:} premendo questo pulsante il contenuto di questa finestra verrà esportato su un file .json, con la formattazione json.
 \end{itemize}
 
-\begin{flushleft}
+
 	I file vengono salvati nella cartella dov'è installato l'add-on, in particolare vengono chiamati rispettivamente \textbf{file.txt} per il file TXT e \textbf{filejson.json} per il file JSON.
 	
 	Se questi file esistono già nella cartella, e viene premuto nuovamente il pulsante di salvataggio, i file verranno sovrascritti dall'ultimo file.
 	
-\end{flushleft}
+
 
 \newpage
 
-\begin{flushleft}
+
 	
 	Ora nei prossimi due screenshot, vedremo il contenuto dei due file, rispettivamente txt e json, esportati dall'add-on.
 	
-\end{flushleft}
+
 \begin{figure}[!h] 
 	\centering 
 	\includegraphics[scale = 0.38]{immagini/add-on/addon-esporta-txt.jpg} 
@@ -218,7 +218,7 @@ Cliccando il pulsante Stampa si aprirà una nuova finestra.
 \newpage
 
 \section{Accettazione}
-\begin{flushleft}
+
 
 Riguardo la Verifica e Validazione, ovvero l'Accettazione, non abbiamo alcun test d'unità e test automatico.
 Dunque per verificare l'add-on abbiamo una sequenza di operazioni da eseguire per verificarne il corretto funzionamento.
@@ -227,7 +227,7 @@ Dunque per verificare l'add-on abbiamo una sequenza di operazioni da eseguire pe
 
 La procedura per verificare il corretto funzionamento dell'applicazione è la seguente:
 
-\end{flushleft}
+
 
 \begin{enumerate}
 	\item Accedere al SAP Business One con le proprie credenziali;
