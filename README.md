@@ -1,7 +1,7 @@
 # Bachelor Thesis in Computer Science 
 In this thesis I wrote about my stage in Var One Nord Est s.r.l. (ex Sinapsi Informatica).
 # Watch a preview of my thesis
-To watch a preview of my thesis embedded in the browser, click this [link](Tesi_Triennale.pdf). 
+To watch a preview of my thesis embedded in the browser, click this [link](Bachelor_Thesis.pdf). 
 
 If you are interested on the full version, it's possible to download the pdf file.
 ## Company's infrastructure
@@ -17,16 +17,16 @@ I did a few add-ons in C#, using the SAP B1 SDK.
 ### Add-on example : Export to JSON/TXT
 Here I will show an add-on I made: this one creates a button that allows the user to save the current data form into a file JSON or TXT.
 I am about to show a few screenshots representing the flow of this add-on:
-<img src="immagini/add-on/addon-scheda-yesbutton.jpg" width="70%" height="70%">
-<img src="immagini/add-on/addon-stampa.jpg" width="70%" height="70%">
-<img src="immagini/add-on/addon-esporta-json.jpg" width="100%" height="100%">
+<img src="Thesis_files/immagini/add-on/addon-scheda-yesbutton.jpg" width="70%" height="70%">
+<img src="Thesis_files/immagini/add-on/addon-stampa.jpg" width="70%" height="70%">
+<img src="Thesis_files/immagini/add-on/addon-esporta-json.jpg" width="100%" height="100%">
 
 As we can see from these figures, the add-on generates a 'Stampa' button : this button when clicked opens another window that shows the content of the data form in plain text, and then we can either click 'Save as TXT' or 'Save as JSON' to generate the respective file.
 
-P.S.: I'm sorry for the incoherence of first writing the button in italian (Stampa) and then in english (Save as JSON). I cannot correct it anymore since it's propertiary software that I don't own, but I guess it was because the bachelor was in Italian, while the documentation was in English and I ended up doing half and half.
+**P.S.**: I'm sorry for the incoherence of first writing the button in italian (Stampa) and then in english (Save as JSON) and I cannot correct it anymore since it's propertiary software that I don't own. I guess it happened because the bachelor was in Italian and so was the thesis, while the SAP documentation was in English and I ended up doing a mix.
 
 Here we can see that without the add-on, we don't have that 'Stampa' button at all:
-<img src="immagini/add-on/addon-scheda-nobutton.jpg" width="70%" height="70%">
+<img src="Thesis_files/immagini/add-on/addon-scheda-nobutton.jpg" width="70%" height="70%">
 
 
 
