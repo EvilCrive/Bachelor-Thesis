@@ -1,5 +1,5 @@
 # Bachelor Thesis in Computer Science 
-In this thesis I wrote about my stage in Var One Nord Est s.r.l. (ex Sinapsi Informatica).
+In my thesis I wrote about my stage in Var One Nord Est s.r.l. (ex Sinapsi Informatica).
 # Watch a preview of my thesis
 To watch a preview of my thesis embedded in the browser, click this [link](Bachelor_Thesis.pdf). 
 
