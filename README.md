@@ -16,7 +16,7 @@ An example of an add-on I made during the stage is this:
 Which is to save the equipment sheet's data in either a .txt file or a .json.
 ![10%](immagini/add-on/addon-scheda-yesbutton.jpg)
 Here we can see that we have this 'Stampa' button, that starts this export procedure.
-![10%](immagini/add-on/addon-scheda-nobutton.jpg)
+![1%](immagini/add-on/addon-scheda-nobutton.jpg)
 Here we can see the difference, without the add-on: we don't have the 'Stampa' button at all.
 
 # Watch a preview of my thesis
