@@ -1,0 +1,50 @@
+% !TEX encoding = UTF-8
+% !TEX TS-program = pdflatex
+% !TEX root = ../tesi.tex
+
+%**************************************************************
+% Sommario
+%**************************************************************
+\cleardoublepage
+\phantomsection
+\pdfbookmark{Sommario}{Sommario}
+\begingroup
+\let\clearpage\relax
+\let\cleardoublepage\relax
+\let\cleardoublepage\relax
+
+\chapter*{Sommario}
+
+Il presente documento descrive il lavoro svolto durante il periodo di stage, della durata di circa trecentoventi ore, dal laureando Alberto Crivellari presso l'Azienda SINAPSI INFORMATICA S.R.L..
+Gli obiettivi da raggiungere erano molteplici:
+\begin{itemize}
+    \item In primo luogo era richiesto lo studio del gestionale SAP Business One e webservices che interagiscono con esso;
+    \item In secondo luogo era richiesto lo sviluppo di un add-on da applicare sulla maschera di un modulo del SAP:
+        \begin{itemize}
+            \item Quest'add-on consiste nell'aggiunta di una funzionalità di stampa di un form del SAP su file esterno oppure stampa come finestra di messaggio, in una finestra all'interno del client.
+        \end{itemize}
+    \item Terzo ed ultimo obiettivo era l'ampliamento di parti dei webservices, in particolare 3 diversi ampliamenti:
+        \begin{itemize}
+            \item Aggiunta di un campo "idext", rappresentante l'id esterno di un intervento;
+            \item Aggiunta nel webservice di aggiunta intervento di un campo "extraj\_module", rappresentante informazioni aggiuntive sull'intervento, sotto forma di stringa;
+            \item Aggiunta del campo "extraj\_module", anche nel webservice di lettura degli interventi.
+        \end{itemize}
+\end{itemize}
+
+
+Gli obiettivi e risultati raggiunti dall'applicazione sono stati considerati più che sufficienti dall'azienda.
+In particolare sono stati raggiunti tutti gli obiettivi obbligatori concordati nel piano di lavoro.
+
+Purtroppo non è stato possibile effettuare test automatici del codice, poichè il codice non è abbastanza corposo da renderli necessari.
+%\vfill
+%
+%\selectlanguage{english}
+%\pdfbookmark{Abstract}{Abstract}
+%\chapter*{Abstract}
+%
+%\selectlanguage{italian}
+
+\endgroup			
+
+\vfill
+

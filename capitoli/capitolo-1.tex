@@ -1,0 +1,60 @@
+% !TEX encoding = UTF-8
+% !TEX TS-program = pdflatex
+% !TEX root = ../tesi.tex
+
+%**************************************************************
+\chapter{Introduzione}
+\label{cap:introduzione}
+%**************************************************************
+
+\section{L'azienda}
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics{immagini/logo_sinapsi.jpg} 
+\end{figure}
+Sinapsi Informatica SRL è una società di sviluppo software che da più di 20 anni si occupa di fornire assistenza ad altre aziende nella gestione d'impresa e ottimizzazione dei processi produttivi.
+Sinapsi Informatica fornisce ai propri clienti conoscenze e strumenti necessari per il raggiungimento degli obiettivi e degli standard di qualità dei processi interni.
+L'azienda offre un contratto di assistenza post vendita basato su un ammontare di ore prepagate, solitamente un pacchetto di 100 ore, ma che può cambiare in base alle richieste del cliente.
+Dunque il principale lavoro dell'azienda consiste in questa assistenza post vendita, come assistenza telefonica, telematica o on-site, ovvero di persona.
+\subsection{Principali prodotti}
+I principali prodotti venduti e installati dall'azienda sono:
+\begin{enumerate}
+	\item {SAP Business One:} \\Gestionale SAP Business One, punto forte dell'azienda che verrà trattato in profondità in questa tesi.
+	\item {SAP Hana:} \\Relational \gls{dbms} alternativo a MySQLServer, il cui proprietario è SAP, mentre il proprietario di MySQL è Microsoft.\\I database che utilizzano SAP Hana sono esclusivamente su server Linux.
+	\item {Lotus:} \\Si presenta con Lotus Domino lato server e Lotus Notes lato client.\\Il client Lotus Notes viene utilizzato da tutto il personale come mail aziendale, calendario aziendale e molte altre funzionalità, tra cui archivio password condiviso e knowledge base interna, dove sono annotate le procedure su problematiche già riscontrate.
+	\item {Sophos:} \\Sophos viene utilizzato come antivirus e firewall virtuale.
+\end{enumerate}
+
+
+
+%**************************************************************
+\section{Descrizione dello stage}
+L'azienda è stata fin da subito interessata nell'espandere le proprie conoscenze attraverso il contatto con nuove persone, ovvero noi studenti, oltre ad espandere il progetto di stage proposto con protipazione di un add-on e ampliamento di webservices.
+Il progetto di stage riguarda:
+\begin{itemize}
+	\item l'apprendimento del gestionale SAP e dei vari moduli connessi ad esso dall'azienda;
+	\item lo sviluppo di un'applicazione add-on da applicare al client SAP:
+	\begin{itemize}
+            \item Quest'add-on consiste nell'aggiunta di una funzionalità di stampa di un form del SAP su file esterno oppure stampa come finestra di messaggio, in una finestra all'interno del client.
+        \end{itemize}
+    \item la modifica di alcuni webservices che connettono il client SAP ad un database secondario \gls{aws}, in particolare:
+        \begin{itemize}
+            \item Aggiunta di un campo "idext", rappresentante l'id esterno di un intervento;
+            \item Aggiunta nel webservice di aggiunta intervento di un campo "extraj\_module", rappresentante informazioni aggiuntive sull'intervento, sotto forma di stringa;
+            \item Aggiunta del campo "extraj\_module", anche nel webservice di lettura degli interventi.
+        \end{itemize}
+	\end{itemize}
+
+
+\section{Descrizione capitoli}
+\begin{description}
+	\item[{\hyperref[cap:descrizione-architettura]{Il secondo capitolo}}] descrive l'architettura software dell'infrastruttura preesistente in azienda.
+	
+	\item[{\hyperref[cap:descrizione-stage]{Il terzo capitolo}}] approfondisce la descrizione dello stage, introdotta a grandi linee in questo capitolo introduttivo.
+	
+	\item[{\hyperref[cap:sviluppo-addon]{Il quarto capitolo}}] descrive analisi e sviluppo dell'add-on.
+	
+	\item[{\hyperref[cap:webservices]{Il quinto capitolo}}] descrive le modifiche effettuate ai webservices in \gls{aws}.
+	
+	\item[{\hyperref[cap:conclusioni]{Il sesto capitolo}}] trae le conclusioni finali.
+\end{description}

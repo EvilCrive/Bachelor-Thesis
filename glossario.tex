@@ -1,0 +1,80 @@
+
+%**************************************************************
+% Acronimi
+%**************************************************************
+\renewcommand{\acronymname}{Acronimi e abbreviazioni}
+
+\newacronym[description={\glslink{apig}{Application Program Interface}}]
+    {api}{API}{Application Program Interface}
+
+\newacronym[description={\glslink{umlg}{Unified Modeling Language}}]
+    {uml}{UML}{Unified Modeling Language}
+    
+\newacronym[description={\glslink{soap}{Simple Object Access Protocol}}]
+    {soap}{SOAP}{Simple Object Access Protocol}
+    
+\newacronym[description={\glslink{odbc}{Open DataBase Connectivity}}]
+    {odbc}{ODBC}{Open DataBase Connectivity}
+    
+\newacronym[description={\glslink{odbo}{Object linking and embedding DataBase for Online analytical processing}}, text=ODBO]
+    {odbo}{ODBO}{Object linking and embedding DataBase for Online analytical processing}
+    
+\newacronym[description={\glslink{sapb1}{SAP Business One}}]
+    {sapb1}{SAPB1}{SAP Business One}
+    
+\newacronym[description={\glslink{erp}{Enterprise Resource Planning}}]
+    {erp}{ERP}{Enterprise Resource Planning}
+    
+\newacronym[description={\glslink{aws}{Amazon Web Services}}]
+    {aws}{AWS}{Amazon Web Services}
+    
+\newacronym[description={\glslink{s3}{AWS Simple Storage System}}]
+    {s3}{S3}{AWS Simple Storage System}
+    
+\newacronym[description={\glslink{rds}{AWS Relational Database Service System}}]
+    {rds}{RDS}{AWS Relational Database Service System}
+    
+\newacronym[description={\glslink{ec2}{AWS Elastic Compute Cloud}}]
+    {ec2}{EC2}{AWS Elastic Compute Cloud}
+    
+\newacronym[description={\glslink{ide}{Integrated Development Environment}}]
+    {ide}{IDE}{Integrated Development Environment}
+    
+\newacronym[description={\glslink{wsdlg}{Web Service Description Language}}]
+    {wsdl}{WSDL}{Web Service Description Language}
+
+
+%**************************************************************
+% Glossario
+%**************************************************************
+%\renewcommand{\glossaryname}{Glossario}
+
+\newglossaryentry{apig}
+{
+    name=\glslink{api}{API},
+    text=Application Program Interface,
+    sort=api,
+    description={in informatica con il termine \emph{Application Programming Interface API} (ing. interfaccia di programmazione di un'applicazione) si indica ogni insieme di procedure disponibili al programmatore, di solito raggruppate a formare un set di strumenti specifici per l'espletamento di un determinato compito all'interno di un certo programma. La finalità è ottenere un'astrazione, di solito tra l'hardware e il programmatore o tra software a basso e quello ad alto livello semplificando così il lavoro di programmazione}
+}
+
+\newglossaryentry{umlg}
+{
+    name=\glslink{uml}{UML},
+    text=UML,
+    sort=uml,
+    description={in ingegneria del software \emph{UML, Unified Modeling Language} (ing. linguaggio di modellazione unificato) è un linguaggio di modellazione e specifica basato sul paradigma object-oriented. L'\emph{UML} svolge un'importantissima funzione di ``lingua franca'' nella comunità della progettazione e programmazione a oggetti. Gran parte della letteratura di settore usa tale linguaggio per descrivere soluzioni analitiche e progettuali in modo sintetico e comprensibile a un vasto pubblico}
+}
+
+\newglossaryentry{dbms}{
+    name=\glslink{dbms}{DBMS},
+    text=DBMS,
+    sort=dbms,
+    description={In informatica, un Database Management System (abbreviato in DBMS) è un sistema software progettato per creazione, manipolazione ed interrogazione di database. Il DBMS è ospitato su architettura hardware dedicata oppure su semplice computer.}
+}
+
+\newglossaryentry{wsdlg}{
+    name=\glslink{wsdl}{WSDL},
+    text=WSDL,
+    sort=wsdl,
+    description={Il Web Services Description Language (WSDL) è un linguaggio formale in formato XML utilizzato per la creazione di "documenti" per la descrizione di Web service. Il WSDL è solitamente utilizzato in combinazione con SOAP e XML Schema per rendere disponibili Web service su reti aziendali o su internet: un programma client può, infatti, "leggere" il documento WSDL relativo ad un Web service per determinare quali siano le funzioni messe a disposizione sul server e quindi utilizzare il protocollo SOAP per utilizzare una o più delle funzioni elencate dal WSDL.}
+}
