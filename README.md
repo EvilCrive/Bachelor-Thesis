@@ -17,7 +17,7 @@ I did a few add-ons in C#, using the SAP B1 SDK.
 ### Add-on example : Export to JSON/TXT
 Here I will show an add-on I made: this one creates a button that allows the user to save the current data form into a file JSON or TXT.
 I am about to show a few screenshots representing the flow of this add-on:
-<img src="Thesis_files/immagini/add-on/addon-scheda-yesbutton.jpg" width="70%" height="70%">
+<img src="Thesis_files/immagini/add-on/addon-scheda-yesbutton-cropped.jpg" width="70%" height="70%">
 <img src="Thesis_files/immagini/add-on/addon-stampa.jpg" width="70%" height="70%">
 <img src="Thesis_files/immagini/add-on/addon-esporta-json.jpg" width="100%" height="100%">
 
