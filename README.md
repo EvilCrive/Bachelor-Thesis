@@ -10,10 +10,14 @@ In this stage I studied the company's existing infrastructure :
 In the last part of the stage I started to create something of mine, some kind of software. 
 **Add-ons** are scripts in .NET, VB.NET or C#, to customize the SAP B1 software to the client needs. 
 I did a few add-ons in C#, using the SAP B1 SDK. 
-### Add-on example : Print of an equipment data instance
+### Add-on example : Export of an equipment data instance in JSON or TXT
 An example of an add-on I made during the stage is this:
-![x](immagini/add-on/addon-scheda-yesbutton.jpg)
-is to automatically print a report once you create a new invoice, this can be done by calling functions of the SDK and coding a bit.
+![x](immagini/add-on/addon-stampa.jpg)
+Which is to save the equipment sheet's data in either a .txt file or a .json.
+![x](immagini/add-on/addon-yes-button.jpg)
+Here we can see that we have this 'Stampa' button, that starts this export procedure.
+![x](immagini/add-on/addon-yes-button.jpg)
+Here we can see the difference, without the add-on: we don't have the 'Stampa' button at all.
 
 # Watch a preview of my thesis
 To watch a preview of my thesis embedded in the browser, click this [link](Tesi_Triennale.pdf). 
