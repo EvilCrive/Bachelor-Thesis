@@ -19,7 +19,7 @@ Here I will show an add-on I made: this one creates a button that allows the use
 I am about to show a few screenshots representing the flow of this add-on:
 <img src="immagini/add-on/addon-scheda-yesbutton.jpg" width="70%" height="70%">
 <img src="immagini/add-on/addon-stampa.jpg" width="70%" height="70%">
-<img src="immagini/add-on/addon-esporta-json.jpg" width="70%" height="70%">
+<img src="immagini/add-on/addon-esporta-json.jpg" width="100%" height="100%">
 
 As we can see from these figures, the add-on generates a 'Stampa' button : this button when clicked opens another window that shows the content of the data form in plain text, and then we can either click 'Save as TXT' or 'Save as JSON' to generate the respective file.
 
