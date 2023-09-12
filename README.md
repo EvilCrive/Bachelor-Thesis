@@ -26,11 +26,12 @@ Down below we have a few screenshots representing this add-on:
 <img src="Thesis_files/immagini/add-on/addon-stampa-cropped.jpg" width="70%" height="70%">
 <img src="Thesis_files/immagini/add-on/addon-esporta-json-cropped.jpg" width="100%" height="100%">
 
-
+---
 
 Here we can see that without the add-on, we don't have that 'Stampa' button at all:
 <img src="Thesis_files/immagini/add-on/addon-scheda-nobutton.jpg" width="70%" height="70%">
 
 ---
+
 **P.S.**: I'm sorry for the incoherence of first writing the button in italian (Stampa) and then in english (Save as JSON) and I cannot correct it anymore since it's propertiary software that I don't own. I guess it happened because the bachelor was in Italian and so was the thesis, while the SAP documentation was in English and I ended up doing a mix.
 
