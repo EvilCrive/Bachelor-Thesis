@@ -14,9 +14,9 @@ I did a few add-ons in C#, using the SAP B1 SDK.
 An example of an add-on I made during the stage is this:
 ![x](immagini/add-on/addon-stampa.jpg)
 Which is to save the equipment sheet's data in either a .txt file or a .json.
-![x](immagini/add-on/addon-yesbutton.jpg)
+![x](immagini/add-on/addon-scheda-yesbutton.jpg)
 Here we can see that we have this 'Stampa' button, that starts this export procedure.
-![x](immagini/add-on/addon-nobutton.jpg)
+![x](immagini/add-on/addon-scheda-nobutton.jpg)
 Here we can see the difference, without the add-on: we don't have the 'Stampa' button at all.
 
 # Watch a preview of my thesis
