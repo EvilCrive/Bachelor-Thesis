@@ -21,7 +21,7 @@ I am about to show a few screenshots representing the flow of this add-on:
 <img src="Thesis_files/immagini/add-on/addon-stampa-cropped.jpg" width="70%" height="70%">
 <img src="Thesis_files/immagini/add-on/addon-esporta-json-cropped.jpg" width="100%" height="100%">
 
-As we can see from these figures the flow of the add-on is quite simple :
+As we can see from these screenshots, the flow of the add-on is quite simple :
 - the add-on generates a 'Stampa' button;
 - clicking the 'Stampa' button opens another window that shows the content of the data form in plain text;
 - finally we can export the data form to file by clicking one of the 2 buttons, 'Save as TXT' or 'Save as JSON'.
