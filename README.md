@@ -6,5 +6,6 @@ In this thesis I wrote about my stage in Var One Nord Est s.r.l. (ex Sinapsi Inf
 - **Microsoft SQL server**: used this application to analyze the underlying database of the company "below" the SAP B1, where SAP actually stores data
 - **Add-ons**: scripts in .NET, visual basic or C#, to customize the SAP B1 software to every client needs. To do these add-ons I downloaded the SAP B1 SDK, and called its functions. An example of add-on is to automatically print a report once you create a new invoice.
 
-# Watch a preview of my thesis or download it for the full version
-![tesi](Tesi_Triennale.pdf)
+# Watch a preview of my thesis
+To watch a preview of my thesis embedded in the browser, click this [link](Tesi_Triennale.pdf). 
+If you are interested on the full version, it's possible to download the pdf file.
