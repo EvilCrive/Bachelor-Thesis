@@ -1,6 +1,7 @@
 # Bachelor Thesis in Computer Science 
 In my thesis I wrote about my stage in Var One Nord Est s.r.l. (ex Sinapsi Informatica).
 # Watch a preview of my thesis
+To watch my thesis under the official unipd archive : [https://thesis.unipd.it/handle/20.500.12608/2522](https://thesis.unipd.it/handle/20.500.12608/2522)
 To watch a preview of my thesis embedded in the browser, click this [link](Bachelor_Thesis.pdf). 
 
 If you are interested on the full version, it's possible to download the pdf file.
